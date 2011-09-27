@@ -16,8 +16,7 @@
 			<fieldset>
 				<legend>Add a Deal!</legend>
 				<ul>
-					<li>
-						<label for="dealType">Type of Deal</label>
+					<h2>Type of Deal:</h2>				
 						<select id="dealType">
 							<optgroup label="Web Deals" >
 								<option value="--Choose type of Deal--"selected="--Choose a deal type--">--Choose Type Of Deal--</option>
@@ -31,21 +30,23 @@
 								<option value="Entertainment">Entertainment</option>
 							</optgroup>
 						</select>
-					</li>	
+					
 				</ul>
+				<h3>Deal Info:</h3>
 				<ul>
 					<li><label for="dname">Deal Name:</label><input type="text" id="dname"/></li>
-					<li><label for="url">Store Website:</label><input type="url" id="url" placeholder="www.manbargains.com"/></li>
+					<label for="url">Store Website:</label><input type="url" id="url" placeholder="www.manbargains.com"/>
 				</ul>
 				<ul>
 					<label for="hotDeal">How hot is this deal</label>
 					<input type="range" min="0" max="10" value="5" />
 				</ul>
 				<ul>
-					<li><input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal?</label></li>
+					<input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal?</label>
 				</ul>
 				<ul>
-					<li><label for="exDate">Deal Expiration Date:</label><input type="date" id="exDate" placeholder="mm/dd/yyyy"/></li>
+					<label for="exDate">Deal Expiration Date:</label><input type="date" id="exDate" />
+					<label for="notes">Additional Notes:</label><textarea id="notes"placeholder="Add extra notes here!"></textarea>
 				</ul>
 			</fieldset>
 	</body>
