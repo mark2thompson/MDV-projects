@@ -15,22 +15,21 @@
 		<form action="#" method="post">
 			<fieldset>
 				<legend>Add a Deal!</legend>
-				<ul>
-					<h2>Type of Deal:</h2>				
-						<select id="dealType">
-							<optgroup label="Web Deals" >
-								<option value="--Choose type of Deal--"selected="--Choose a deal type--">--Choose Type Of Deal--</option>
-								<option value="Auto">Auto</option>	
-								<option value="Grooming">Grooming</option>	
-								<option value="Entertainment">Entertainment</option>
-							</optgroup>
-							<optgroup label="In Store Deals">
-								<option value="Auto">Auto</option>	
-								<option value="Grooming">Grooming</option>
-								<option value="Entertainment">Entertainment</option>
-							</optgroup>
-						</select>
-					
+				<h2>Type of Deal:</h2>	
+				<ul>		
+					<select id="dealType">
+						<optgroup label="Web Deals" >
+							<option value="--Choose type of Deal--"selected="--Choose a deal type--">--Choose Type Of Deal--</option>
+							<option value="Auto">Auto</option>	
+							<option value="Grooming">Grooming</option>	
+							<option value="Entertainment">Entertainment</option>
+						</optgroup>
+						<optgroup label="In Store Deals">
+							<option value="Auto">Auto</option>	
+							<option value="Grooming">Grooming</option>
+							<option value="Entertainment">Entertainment</option>
+						</optgroup>
+					</select>		
 				</ul>
 				<h3>Deal Info:</h3>
 				<ul>
@@ -45,9 +44,10 @@
 					<input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal?</label>
 				</ul>
 				<ul>
-					<label for="exDate">Deal Expiration Date:</label><input type="date" id="exDate" />
+					<label for="exDate">Deal Expiration Date:</label><input type="date" id="exDate"/>
 					<label for="notes">Additional Notes:</label><textarea id="notes"placeholder="Add extra notes here!"></textarea>
 				</ul>
 			</fieldset>
+			
 	</body>
 </html>
