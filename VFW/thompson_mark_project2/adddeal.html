@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--Author Mark Thompson -->
+<!--VFW 1110 Project Web App part 1 -->
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta keywords="bachelor deals, coupons, auto, grooming, entertainment"/>
+		<meta description="Deal saver for the bachelor"/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="MobileOptimized" content="320" />
+		<title>Bachelor Pad</title>
+	</head>
+	<body>
+		<h1>Man Deals</h1>
+		<form action="#" method="post">
+			<fieldset>
+				<legend>Add a Deal!</legend>
+				<h2>Type of Deal:</h2>	
+				<ul>		
+					<select id="dealType">
+						<!--Was not 100% sure on using the option group. For what I want to do I think it will make sence in the end-->
+						<optgroup label="Web Deals" >
+							<option value="--Choose type of Deal--" selected="--Choose a deal type--">--Choose Type Of Deal--</option>
+							<option value="Auto">Auto</option>	
+							<option value="Grooming">Grooming</option>	
+							<option value="Entertainment">Entertainment</option>
+						</optgroup>
+						<optgroup label="In Store Deals">
+							<option value="Auto">Auto</option>	
+							<option value="Grooming">Grooming</option>
+							<option value="Entertainment">Entertainment</option>
+						</optgroup>
+					</select>		
+				</ul>
+				<h3>Deal Info:</h3>
+				<ul>
+					<li><label for="dname">Deal Name:</label><input type="text" id="dname"/></li>
+					<label for="url">Store Website:</label><input type="url" id="url" placeholder="www.manbargains.com"/>
+				</ul>
+				<ul>
+					<label for="hotDeal">How hot is this deal</label>
+					<input type="range" min="0" max="10" value="5" />
+				</ul>
+				<ul>
+					<input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal?</label>
+				</ul>
+				<ul>
+					<label for="exDate">Deal Expiration Date:</label><input type="date" id="exDate"/>
+					<label for="notes">Additional Notes:</label><textarea id="notes"placeholder="Add extra notes here!"></textarea>
+				</ul>
+			</fieldset>
+			<input type="Submit" value="Sumbit Deal"/></br>
+			<a href="#">clear stored data</a></br>
+			<a href="#">display data</a>
+		</form>
+	</body>
+</html>
