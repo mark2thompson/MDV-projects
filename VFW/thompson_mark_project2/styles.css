@@ -13,19 +13,25 @@ body{
 	margin: auto;	
 }
 h1 {
+
+	width: 400px;
+	margin-top:-16px;
 	text-align: center;
 	border: 1px solid #bdbdbd;
 	color: #ffffff;
 	padding: 10px;
 	background: #165594;
 	border-radius:15px;
+	margin-bottom: 7px;
 }
 form{
-	font-size: 12px;
+	width: 400px;
+	margin-top:0px;
+	font-size: 15px;
 	padding: 10px;
 	border: 1px solid #0000ff;
 	background: #ffffff;
-	height: 380px;
+	height: 480px;
 }
 h2 {
 	color:#ffffff;
@@ -60,13 +66,15 @@ clear:both;
 	float:left;
 }
 #favoriteDeal{
+	margin-top: 10px;
+	margin-left: -270px;
 	clear:both;
 }
 #exDate2{
 	width: 270px;
 }
 #exDate{
-	margin-left: 10px;
+	margin-left: 0px;
 }
 
 
