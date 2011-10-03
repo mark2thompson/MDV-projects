@@ -8,12 +8,11 @@ html{
 }
 body{
 	font-style: regular;
-	font-family: Tahoma, Andale Mono, Trebuchet;
+	font-family: Arial, Andale Mono, Trebuchet;
 	width: auto;
 	margin: auto;	
 }
 h1 {
-
 	width: 400px;
 	margin-top:-16px;
 	text-align: center;
@@ -48,7 +47,7 @@ a{
 	width:410px;
 }
 #dname{
-	margin-left: 37px;
+	margin-left: 39px;
 }
 
 #favoriteDeal{
@@ -76,17 +75,13 @@ clear:both;
 #exDate{
 	margin-left: 0px;
 }
-
-
 #aNotes{
 	margin-top: -15px;
 }
-
 #notes1{
 	float:left;
 	margin-top: 28px;
 }
-
 #notes{
 	margin-top: -10px;
 	margin-bottom: 10px;
