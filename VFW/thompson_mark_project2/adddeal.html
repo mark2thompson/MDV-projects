@@ -48,12 +48,14 @@
 				<ul>
 					<input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal?</label>
 				</ul>
-				<ul>
+				<ul> <div id="exDate2">
 					<label for="exDate">Deal Expiration Date:</label><input type="date" id="exDate"/>
-					<label for="notes">Additional Notes:</label><textarea id="notes"placeholder="Add extra notes here!"></textarea>
-				</ul>
-		</form></div>
-		<input type="Submit" value="Sumbit Deal"/></br>
+					</div><!--closes exDate2-->
+					<div id="aNotes">
+					<label for="notes" id="notes1">Additional Notes:</label><textarea cols=28 rows=5 id="notes"placeholder="Add extra notes here!"></textarea>
+				</ul></div><!--closes aNotes-->
+		<input id="sub" type="Submit" value="Sumbit Deal"/></br>
+		</form></div><!--closes dealz-->
 			<a href="#">clear stored data</a></br>
 			<a href="#">display data</a>
 	</body>
