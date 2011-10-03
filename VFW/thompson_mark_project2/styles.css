@@ -26,7 +26,6 @@ form{
 }
 h2 {
 	color:#ffffff;
-	padding: 10px
 	background: #2554C7;	
 }
 p{
@@ -46,9 +45,14 @@ a{
 #url{
 	margin-left: 20px;
 }
-#dealtype{
-	padding-top: -20px;
+#hotDeal{
+clear:both;
+	float:left;
 }
 #rangeBar{
-	margin-top: 5px;
+	margin-top:3px;
+	float:left;
+}
+#favoriteDeal{
+	clear:both;
 }
