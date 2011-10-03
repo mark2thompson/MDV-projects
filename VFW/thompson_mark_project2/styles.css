@@ -7,7 +7,8 @@ html{
 	background: #dbdbdb;
 }
 body{
-	font-family:Arial, Andale Mono, Trebuchet;
+	font-style: regular;
+	font-family: Tahoma, Andale Mono, Trebuchet;
 	width: auto;
 	margin: auto;	
 }
@@ -20,6 +21,7 @@ h1 {
 	border-radius:15px;
 }
 form{
+	font-size: 12px;
 	padding: 10px;
 	border: 1px solid #0000ff;
 	background: #ffffff;
@@ -39,7 +41,7 @@ a{
 	width:400px;
 }
 #dname{
-	margin-left: 39px;
+	margin-left: 37px;
 }
 
 #url{
@@ -50,7 +52,7 @@ clear:both;
 	float:left;
 }
 #rangeBar{
-	margin-top:3px;
+	margin:2px 0 0 7px;
 	float:left;
 }
 #favoriteDeal{
