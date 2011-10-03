@@ -10,15 +10,14 @@
 		<meta name="viewport" content="user-scalable=no, width=device-width" />
 		<meta name="HandheldFriendly" content="True" />
 		<meta name="MobileOptimized" content="320" />
-		<link type="text/css" src="css/styles.css />
-
+		<link rel="stylesheet" href="styles.css" type="text/css" />	
 		<title>Bachelor Pad</title>
 	</head>
 	<body>
 		<script type="text/javascript" src="js/main.js"></script>
 		<h1>Man Deals</h1>
+		<div id="dealz">
 		<form action="#" method="post">
-			<fieldset>
 				<legend>Add a Deal!</legend>
 				<h2>Type of Deal:</h2>	
 				<ul>		
@@ -39,12 +38,12 @@
 				</ul>
 				<h3>Deal Info:</h3>
 				<ul>
-					<li><label for="dname">Deal Name:</label><input type="text" id="dname"/></li>
+					<label for="dname">Deal Name:</label><input type="text" id="dname"/><br/>
 					<label for="url">Store Website:</label><input type="url" id="url" placeholder="www.manbargains.com"/>
 				</ul>
 				<ul>
 					<label for="hotDeal">How hot is this deal</label>
-					<input type="range" min="0" max="10" value="5" />
+					<input type="range" id="rangeBar" min="0" max="10" value="5" />
 				</ul>
 				<ul>
 					<input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal?</label>
@@ -53,10 +52,9 @@
 					<label for="exDate">Deal Expiration Date:</label><input type="date" id="exDate"/>
 					<label for="notes">Additional Notes:</label><textarea id="notes"placeholder="Add extra notes here!"></textarea>
 				</ul>
-			</fieldset>
-			<input type="Submit" value="Sumbit Deal"/></br>
+		</form></div>
+		<input type="Submit" value="Sumbit Deal"/></br>
 			<a href="#">clear stored data</a></br>
 			<a href="#">display data</a>
-		</form>
 	</body>
 </html>

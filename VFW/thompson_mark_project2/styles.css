@@ -1,0 +1,54 @@
+/*
+Title: html Styles
+by: Mark Thompson
+
+*/
+html{
+	background: #dbdbdb;
+}
+body{
+	font-family:Arial, Andale Mono, Trebuchet;
+	width: auto;
+	margin: auto;	
+}
+h1 {
+	text-align: center;
+	border: 1px solid #bdbdbd;
+	color: #ffffff;
+	padding: 10px;
+	background: #165594;
+	border-radius:15px;
+}
+form{
+	padding: 10px;
+	border: 1px solid #0000ff;
+	background: #ffffff;
+}
+h2 {
+	color:#ffffff;
+	padding: 10px
+	background: #2554C7;	
+}
+p{
+	padding: 10px;
+}
+a{
+	color:#F62217;
+}
+#dealz{
+	margin: 0 auto;
+	width:400px;
+}
+#dname{
+	margin-left: 39px;
+}
+
+#url{
+	margin-left: 20px;
+}
+#dealtype{
+	padding-top: -20px;
+}
+#rangeBar{
+	margin-top: 5px;
+}
