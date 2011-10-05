@@ -12,27 +12,27 @@ body{
 	width: auto;
 	margin: auto;	
 }
-h1 {
+h1{
 	width: 400px;
 	margin-top:-16px;
 	text-align: center;
 	border: 1px solid #bdbdbd;
 	color: #ffffff;
 	padding: 10px;
-	background: #165594;
+	background: #2554C7;
 	border-radius:15px;
 	margin-bottom: 7px;
 }
 form{
 	width: 400px;
 	margin-top:0px;
-	font-size: 15px;
+	font-size: 18px;
 	padding: 10px;
-	border: 1px solid #0000ff;
+	border: 1px solid #2554C7;
 	background: #eeeeee;
 	height: 480px;
 }
-h2 {
+h2{
 	color:#ffffff;
 	background: #2554C7;	
 }
@@ -46,27 +46,23 @@ a{
 	margin: 0 auto;
 	width:410px;
 }
-#dname{
-	margin-left: 39px;
+label{ 
+	display: block;
 }
-
+#dname{
+	width: 330px;
+	height: 44px;
+}
+#url{
+	width: 330px;
+	height: 44px;
+}
 #favoriteDeal{
 	margin-left: 8px;
 }
-#url{
-	margin-left: 20px;
-}
-#hotDeal{
-clear:both;
-	float:left;
-}
-#rangeBar{
-	margin:2px 0 0 7px;
-	float:left;
-}
 #favoriteDeal{
 	margin-top: 10px;
-	margin-left: -270px;
+	margin-left: 0px;
 	clear:both;
 }
 #exDate2{
