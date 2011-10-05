@@ -3,15 +3,18 @@
 // Javascript data functions
 
 //Wait until the DOM is ready
-window.addEventListener(*DOMcontentLoaded*, function(){	
+
+
+window.addEventListener("DOMContentLoaded", function(){	
+	
 	//getElementById Function
 	function $(x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
 	
-	//Create select field element and populate with options
-	function makeElements(){
+//Create select field element and populate with options
+/*	function makeElements(){
 		var formTag = document.getElementsByTagName("form"),//formTag is an array
 			selectLi = $("select"),
 			makeSelect = document.createElement("select");
@@ -25,17 +28,35 @@ window.addEventListener(*DOMcontentLoaded*, function(){
 		}
 		selectLi.appendChild(makeSelect)
 	}
+	*/
+
+	function storeData(){
+		var id					= Math.floor(Math.random()*100000001)
+		var item 				= {};
+			item.webDeals		= ["Type:", $('webDeals').value];
+			item.dName			= ["Type:", $('dname').value];
+			item.url			= ["Type:", $('url').value];
+			item.hotDeal		= ["Type:", $('hotDeal').value];
+			item.rangeBar		= ["Type:", $('rangeBar').value];
+			item.favoriteDeal	= ["Type:", $('favoriteDeal').value];
+			item.exDate			= ["Type:", $('exDate').value];
+			item.notes			= ["Type:", $('notes').value];
+		localStorage.setItem(id, JSON.stringify(item));
+		
+		alert("Deal Stored");
+	}
 	
 	//Variable defaults
-	var addDealsList = ["--Choose type of Deal--", "Auto", "Grooming", "Entertainment"];	
+/*	var addDealsList = ["--Choose type of Deal--", "Auto", "Grooming", "Entertainment"];	
 	makeElements();
 	
 	//Set Link & Submit Click Events
-	var displayLink = $("displayLink");
+	
+var displayLink = $("displayLink");
 	displayLink.addEventListener("click", getData);
 	var clearLink = $("clear");
-	clearLink.addEventListenter("click", clearLocal);
-	var save = $("Submit");
+	clearLink.addEventListenter("click", clearLocal);*/
+	var save = $('submit');
 	save.addEventListener("click", storeData);
 	
 });

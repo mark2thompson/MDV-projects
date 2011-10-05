@@ -21,7 +21,7 @@
 				<h2>Type of Deal:</h2>		
 				<select id="dealType">
 					<!--Was not 100% sure on using the option group. For what I want to do I think it will make sence in the end-->
-					<optgroup label="Web Deals" >
+					<optgroup id="webDeals" label="Web Deals" >
 						<option value="--Choose type of Deal--" selected="--Choose a deal type--">--Choose Type Of Deal--</option>
 						<option value="Auto">Auto</option>	
 						<option value="Grooming">Grooming</option>	
@@ -47,10 +47,10 @@
 					<div id="aNotes">
 					<label for="notes" id="notes1">Additional Notes:</label><textarea cols=28 rows=5 id="notes"placeholder="Add extra notes here!"></textarea>
 				</ul></div><!--closes aNotes-->
-		<input id="sub" type="Submit" value="Submit Deal"/></br>
 		</form></div><!--closes dealz-->
+			<input type="submit" value="Submit Deal" id="submit" /><br />
 			<a href="#" id="clear">Clear stored data</a></br>
 			<a href="#" id="displayLink">Display data</a>
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>
