@@ -37,8 +37,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			favoriteValue  = "No"
 		}
 	}
-	getCheckBoxValue();
 	function storeData(){
+	getCheckBoxValue();
 		var id					= Math.floor(Math.random()*100000001)
 		var item 				= {};
 			item.webDeals		= ["Type:", $('webDeals').value];
@@ -48,21 +48,42 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.favoriteDeal	= ["Type:", favoriteValue];
 			item.exDate			= ["Type:", $('exDate').value];
 			item.notes			= ["Type:", $('notes').value];
-		localStorage.setItem(id, JSON.stringify(item));
-		
-		alert("Deal Stored");
+		localStorage.setItem(id, JSON.stringify(item));		
+		alert("Deal Saved");		
+	}
+	function getData(){
+		var makeDiv = document.createElement('div');
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement('ul');
+		makeDiv.appendChild(makeList);
+		document.body.appendChild(makeDiv);
+		for(var i=0, len=localStorage.length; i<len;i++){
+			var makeLi = document.createElement('li');
+			makeList.appendChild(makeLi);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var makeSubList = document.createElement('ul');
+			makeLi.appendChild(makeSubList);
+			for(var n in obj){
+				var makeSubLi = document.createElement('li');
+				makeSubList.appendChild(makeSubLi);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubLi.innerHTML = optSubText;		
+			}
+		}
 	}
 	
 	//Variable defaults
 /*	var addDealsList = ["--Choose type of Deal--", "Auto", "Grooming", "Entertainment"];	
-	makeElements();
+	makeElements();*/
 	
 	//Set Link & Submit Click Events
 	
-var displayLink = $("displayLink");
+	var displayLink = $("displayLink");
 	displayLink.addEventListener("click", getData);
-	var clearLink = $("clear");
-	clearLink.addEventListenter("click", clearLocal);*/
+//	var clearLink = $("clear");
+//	clearLink.addEventListenter("click", clearLocal);
 	var save = $('submit');
 	save.addEventListener("click", storeData);
 	

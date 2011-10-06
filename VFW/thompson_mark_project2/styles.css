@@ -34,8 +34,11 @@ form{
 	height: 700px;
 }
 h2{
-	color:#ffffff;
-	background: #2554C7;	
+	margin-top: 8px;
+ margin-bottom: -5px;	
+}
+ul, li {
+    list-style-type: none;
 }
 p{
 	padding: 10px;
