@@ -1,7 +1,6 @@
 /*
 Title: html Styles
 by: Mark Thompson
-
 */
 html{
 	background: #dbdbdb;
@@ -15,18 +14,18 @@ body{
 }
 h1{
 	width: 400px;
-	margin-top:-10px;
+	margin-top: -10px;
 	text-align: center;
 	border: 1px solid #bdbdbd;
 	color: #ffffff;
 	padding: 10px;
 	background: #2554C7;
-	border-radius:10px;
+	border-radius: 10px;
 	margin-bottom: 0px;
 }
 form{
 	width: 400px;
-	margin-top:0px;
+	margin-top: 0px;
 	font-size: 20px;
 	padding: 10px;
 	border: 1px solid #2554C7;
@@ -36,16 +35,16 @@ form{
 #favoriteDeal{
 	margin-right: 230px;
 	margin-top: 6px;
-	float:right;
+	float: right;
 }
 li{
 	margin-left: -15px;
 }
 h2{
 	margin-top: 8px;
- margin-bottom: -5px;	
+    margin-bottom: -5px;	
 }
-ul, li {
+ul, li{
     list-style-type: none;
 }
 p{
@@ -56,7 +55,7 @@ a{
 }
 #dealz{
 	margin: 0 auto;
-	width:410px;
+	width: 410px;
 }
 label{ 
 	display: block;
@@ -79,7 +78,7 @@ label{
 	margin-top: -15px;
 }
 #notes1{
-	float:left;
+	float: left;
 	margin-top: 28px;
 }
 #notes{
@@ -87,10 +86,10 @@ label{
 	margin-bottom: 10px;
 	width: 330px;
 	height: 80px;
-	float:left;
+	float: left;
 }
 #submit{
 	font-size: 18px;
-	float:right;
+	float: right;
 	margin:5px -90px 10px 0;
 }
