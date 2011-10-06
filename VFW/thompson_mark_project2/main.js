@@ -37,6 +37,27 @@ window.addEventListener("DOMContentLoaded", function(){
 			favoriteValue  = "No"
 		}
 	}
+	function toggleControls(n){
+		switch(n){
+			case "on":
+				$('couponForm').style.display = "none";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "none";
+				$('addNew').style.display = "inline";
+				$('submit').style.display = "none";
+				break;
+			case "off":
+				$('couponForm').style.display = "block";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "inline";
+				$('addNew').style.display = "none";
+				$('items').style.display = "none";
+				break;
+			default:
+				return false;
+		}
+	}
+	
 	function storeData(){
 	getCheckBoxValue();
 		var id					= Math.floor(Math.random()*100000001)
@@ -52,11 +73,13 @@ window.addEventListener("DOMContentLoaded", function(){
 		alert("Deal Saved");		
 	}
 	function getData(){
+		toggleControls("on");
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
+		$('items').style.display = "block";
 		for(var i=0, len=localStorage.length; i<len;i++){
 			var makeLi = document.createElement('li');
 			makeList.appendChild(makeLi);
