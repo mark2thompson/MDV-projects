@@ -1,35 +1,17 @@
 // Author Mark Thompson
 // VFW 1110 Project 2
 // Javascript data functions
-
+//********************************************************************************
 //Wait until the DOM is ready
-
-
 window.addEventListener("DOMContentLoaded", function(){	
-	
-	//getElementById Function
+//********************************************************************************
+//getElementById Function
 	function $(x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
-	
-//Create select field element and populate with options
-/*	function makeElements(){
-		var formTag = document.getElementsByTagName("form"),//formTag is an array
-			selectLi = $("select"),
-			makeSelect = document.createElement("select");
-			makeSelect.setAttribute("id", "groups");
-		for(var i=0, j=addDealsList.length; i<j; i++){
-			var makeList = document.createElement("option");
-			var optText = addDealsList[i];
-			makeOption.setAttribute("value", optText);
-			makeOption.innerHTML = optText;
-			makeSelect.appendChild(makeList);
-		}
-		selectLi.appendChild(makeSelect)
-	}
-	*/
-	//find the value of a selected radio button
+//********************************************************************************
+//find the value of a selected radio button
 	function getCheckBoxValue(){
 		if($('favoriteDeal').checked){
 			favoriteValue = "Yes";
@@ -37,6 +19,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			favoriteValue  = "No";
 		}
 	}
+//********************************************************************************
+//toggle display data or add deal
 	function toggleControls(n){
 		switch(n){
 			case "on":
@@ -57,7 +41,8 @@ window.addEventListener("DOMContentLoaded", function(){
 				return false;
 		}
 	}
-	
+//********************************************************************************
+//store the deal	
 	function storeData(){
 	getCheckBoxValue();
 		var id					= Math.floor(Math.random()*100000001)
@@ -72,6 +57,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		localStorage.setItem(id, JSON.stringify(item));		
 		alert("Deal Saved");		
 	}
+//********************************************************************************
+//get the data
 	function getData(){
 		toggleControls("on");
 		if(localStorage.length === 0){
@@ -99,7 +86,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			}
 		}
 	}
-	
+//********************************************************************************
+//clear deals	
 	function clearLocal(){
 		if(localStorage.length === 0){
 			alert("There is no data to clear.")
@@ -110,18 +98,15 @@ window.addEventListener("DOMContentLoaded", function(){
 			return false;
 		}
 	}
-	
-	//Variable defaults
-/*	var addDealsList = ["--Choose type of Deal--", "Auto", "Grooming", "Entertainment"];	
-	makeElements();*/
-	
-	//Set Link & Submit Click Events
-	
+//********************************************************************************
+//Variable defaults	
+//Set Link & Submit Click Events
 	var displayLink = $("displayLink");
 	displayLink.addEventListener("click", getData);
 	var clearLink = $("clear");
 	clearLink.addEventListener("click", clearLocal);
 	var save = $('submit');
 	save.addEventListener("click", storeData);
-	
+//********************************************************************************
+//closing
 });
