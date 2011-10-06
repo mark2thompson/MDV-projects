@@ -33,6 +33,14 @@ form{
 	background: #eeeeee;
 	height: 700px;
 }
+#favoriteDeal{
+	margin-right: 230px;
+	margin-top: 6px;
+	float:right;
+}
+li{
+	margin-left: -15px;
+}
 h2{
 	margin-top: 8px;
  margin-bottom: -5px;	
@@ -60,11 +68,6 @@ label{
 #url{
 	font-size: 20px;
 	width: 330px;
-}
-#favoriteDeal{
-	margin-top: 10px;
-	margin-left: 0px;
-	clear:both;
 }
 #exDate2{
 	width: 270px;

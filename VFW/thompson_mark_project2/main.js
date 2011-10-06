@@ -32,9 +32,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	//find the value of a selected radio button
 	function getCheckBoxValue(){
 		if($('favoriteDeal').checked){
-			favoriteValue = $('favoriteDeal').value;
+			favoriteValue = "Yes";
 		}else{
-			favoriteValue  = "No"
+			favoriteValue  = "No";
 		}
 	}
 	function toggleControls(n){
@@ -62,18 +62,21 @@ window.addEventListener("DOMContentLoaded", function(){
 	getCheckBoxValue();
 		var id					= Math.floor(Math.random()*100000001)
 		var item 				= {};
-			item.webDeals		= ["Type:", $('webDeals').value];
-			item.dName			= ["Type:", $('dname').value];
-			item.url			= ["Type:", $('url').value];
-			item.rangeBar		= ["Type:", $('rangeBar').value];
-			item.favoriteDeal	= ["Type:", favoriteValue];
-			item.exDate			= ["Type:", $('exDate').value];
-			item.notes			= ["Type:", $('notes').value];
+			item.dealType		= ["Type:", $('dealType').value];
+			item.dName			= ["Deal Name:", $('dname').value];
+			item.url			= ["URL:", $('url').value];
+			item.rangeBar		= ["Rating:", $('rangeBar').value];
+			item.favoriteDeal	= ["Fav deal:", favoriteValue];
+			item.exDate			= ["Exp Date:", $('exDate').value];
+			item.notes			= ["Notes:", $('notes').value];
 		localStorage.setItem(id, JSON.stringify(item));		
 		alert("Deal Saved");		
 	}
 	function getData(){
 		toggleControls("on");
+		if(localStorage.length === 0){
+			alert("There is no deals to clear!");
+		}
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement('ul');
@@ -97,6 +100,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	function clearLocal(){
+		if(localStorage.length === 0){
+			alert("There is no data to clear.")
+		}else{
+			localStorage.clear();
+			alert("All Deals are deleted!");
+			window.location.reload();
+			return false;
+		}
+	}
+	
 	//Variable defaults
 /*	var addDealsList = ["--Choose type of Deal--", "Auto", "Grooming", "Entertainment"];	
 	makeElements();*/
@@ -105,8 +119,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	var displayLink = $("displayLink");
 	displayLink.addEventListener("click", getData);
-//	var clearLink = $("clear");
-//	clearLink.addEventListenter("click", clearLocal);
+	var clearLink = $("clear");
+	clearLink.addEventListener("click", clearLocal);
 	var save = $('submit');
 	save.addEventListener("click", storeData);
 	
