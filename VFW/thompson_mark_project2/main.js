@@ -29,16 +29,23 @@ window.addEventListener("DOMContentLoaded", function(){
 		selectLi.appendChild(makeSelect)
 	}
 	*/
-
+	//find the value of a selected radio button
+	function getCheckBoxValue(){
+		if($('favoriteDeal').checked){
+			favoriteValue = $('favoriteDeal').value;
+		}else{
+			favoriteValue  = "No"
+		}
+	}
+	getCheckBoxValue();
 	function storeData(){
 		var id					= Math.floor(Math.random()*100000001)
 		var item 				= {};
 			item.webDeals		= ["Type:", $('webDeals').value];
 			item.dName			= ["Type:", $('dname').value];
 			item.url			= ["Type:", $('url').value];
-			item.hotDeal		= ["Type:", $('hotDeal').value];
 			item.rangeBar		= ["Type:", $('rangeBar').value];
-			item.favoriteDeal	= ["Type:", $('favoriteDeal').value];
+			item.favoriteDeal	= ["Type:", favoriteValue];
 			item.exDate			= ["Type:", $('exDate').value];
 			item.notes			= ["Type:", $('notes').value];
 		localStorage.setItem(id, JSON.stringify(item));
