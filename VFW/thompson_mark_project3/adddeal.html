@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--Author Mark Thompson -->
+<!--VFW 1110 Project Web App part 1 -->
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta keywords="bachelor deals, coupons, auto, grooming, entertainment"/>
+		<meta description="Deal saver for the bachelor"/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="MobileOptimized" content="320" />
+		<link rel="stylesheet" href="styles.css" type="text/css" />	
+		<title>Bachelor Pad</title>
+	</head>
+	<body>
+		<h1>Man Deals</h1>
+		<div id="dealz">
+		<form action="#" method="post" id="couponForm">
+				<legend>Add a Deal!</legend>
+				<h2>Deal</h2>		
+				<select id="dealType">
+					<!--Was not 100% sure on using the option group. For what I want to do I think it will make sence in the end-->
+					<optgroup id="webDeals" label="Web Deals" >
+						<option value="--Choose type of Deal--" selected="--Choose a deal type--">--Choose Type Of Deal--</option>
+						<option value="Auto">Auto</option>	
+						<option value="Grooming">Grooming</option>	
+						<option value="Entertainment">Entertainment</option>
+					</optgroup>
+					<optgroup id="storeDeals" label="In Store Deals">
+						<option value="Auto">Auto</option>	
+						<option value="Grooming">Grooming</option>
+						<option value="Entertainment">Entertainment</option>
+					</optgroup>
+				</select>		
+				<h3>Deal Info</h3>
+				<ul>
+					<li><label for="dname">Deal Name</label><input type="text" id="dname"/></li>
+					<li><label for="url">Store Website</label><input type="url" id="url" placeholder="www.manbargains.com"/></li>
+					<li><label for="hotDeal" id="hotDeal">Rate it!</label></li>
+					<li><input type="range" id="rangeBar" min="0" max="10" value="5" /></li><br/>
+					<li><input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal</label></li>
+				</ul>
+				<ul><div id="exDate2">
+					<label for="exDate">Expiration Date</label><input type="date" id="exDate"/>
+					</div><!--closes exDate2-->
+					<div id="aNotes">
+					<label for="notes" id="notes1">Additional Notes</label><textarea cols=28 rows=5 id="notes"placeholder="Add extra notes here!"></textarea>
+				</ul></div><!--closes aNotes-->
+		</form></div><!--closes dealz-->
+			<input type="submit" value="Submit Deal" id="submit" /><br />
+			<a href="#" id="clear">Clear Deals</a></br>
+			<a href="#" id="displayLink">Display Deals</a>
+			<a href="adddeal.html" id="addNew" style="display:none;">Add New Deal</a>
+		<script type="text/javascript" src="main.js"></script>
+		
+	</body>
+</html>

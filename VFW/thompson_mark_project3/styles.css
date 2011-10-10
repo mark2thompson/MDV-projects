@@ -1,0 +1,95 @@
+/*
+Title: html Styles
+by: Mark Thompson
+*/
+html{
+	background: #dbdbdb;
+}
+body{
+	font-style: regular;
+	font-family: Arial, Andale Mono, Trebuchet;
+	width: auto;
+	margin: auto;	
+	font-size: 20px;
+}
+h1{
+	width: 400px;
+	margin-top: -10px;
+	text-align: center;
+	border: 1px solid #bdbdbd;
+	color: #ffffff;
+	padding: 10px;
+	background: #2554C7;
+	border-radius: 10px;
+	margin-bottom: 0px;
+}
+form{
+	width: 400px;
+	margin-top: 0px;
+	font-size: 20px;
+	padding: 10px;
+	border: 1px solid #2554C7;
+	background: #eeeeee;
+	height: 700px;
+}
+#favoriteDeal{
+	margin-right: 230px;
+	margin-top: 6px;
+	float: right;
+}
+li{
+	margin-left: -15px;
+}
+h2{
+	margin-top: 8px;
+    margin-bottom: -5px;	
+}
+ul, li{
+    list-style-type: none;
+}
+p{
+	padding: 10px;
+}
+a{
+	color:#F62217;
+}
+#dealz{
+	margin: 0 auto;
+	width: 410px;
+}
+label{ 
+	display: block;
+}
+#dname{
+	font-size: 20px;
+	width: 330px;
+}
+#url{
+	font-size: 20px;
+	width: 330px;
+}
+#exDate2{
+	width: 270px;
+}
+#exDate{
+	margin-left: 0px;
+}
+#aNotes{
+	margin-top: -15px;
+}
+#notes1{
+	float: left;
+	margin-top: 28px;
+}
+#notes{
+	font-size: 20px;
+	margin-bottom: 10px;
+	width: 330px;
+	height: 80px;
+	float: left;
+}
+#submit{
+	font-size: 18px;
+	float: right;
+	margin:5px -90px 10px 0;
+}
