@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--Author Mark Thompson -->
-<!--VFW 1110 Project Web App part 1 -->
+<!--VFW 1110 Project Web App part 3 -->
 <html>
 	<head>
 		<meta charset="UTF-8" />
@@ -23,14 +23,14 @@
 					<!--Was not 100% sure on using the option group. For what I want to do I think it will make sence in the end-->
 					<optgroup id="webDeals" label="Web Deals" >
 						<option value="--Choose type of Deal--" selected="--Choose a deal type--">--Choose Type Of Deal--</option>
-						<option value="Auto">Auto</option>	
-						<option value="Grooming">Grooming</option>	
-						<option value="Entertainment">Entertainment</option>
+						<option value="Web Auto">Auto</option>	
+						<option value="Web Grooming">Grooming</option>	
+						<option value="Web Entertainment">Entertainment</option>
 					</optgroup>
 					<optgroup id="storeDeals" label="In Store Deals">
-						<option value="Auto">Auto</option>	
-						<option value="Grooming">Grooming</option>
-						<option value="Entertainment">Entertainment</option>
+						<option value="Store Auto">Auto</option>	
+						<option value="Store Grooming">Grooming</option>
+						<option value="Store Entertainment">Entertainment</option>
 					</optgroup>
 				</select>		
 				<h3>Deal Info</h3>
@@ -42,13 +42,14 @@
 					<li><input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal</label></li>
 				</ul>
 				<ul><div id="exDate2">
-					<label for="exDate">Expiration Date</label><input type="date" id="exDate"/>
+					<li><label for="exDate">Expiration Date</label><input type="date" id="exDate"/></li>
 					</div><!--closes exDate2-->
 					<div id="aNotes">
-					<label for="notes" id="notes1">Additional Notes</label><textarea cols=28 rows=5 id="notes"placeholder="Add extra notes here!"></textarea>
-				</ul></div><!--closes aNotes-->
+					<li><label for="notes" id="notes1">Additional Notes</label><textarea cols=28 rows=5 id="notes"placeholder="Add extra notes here!"></textarea></li>
+					</div><!--closes aNotes-->
+				</ul>
+				<input type="submit" value="Submit Deal" id="submit" /><br />
 		</form></div><!--closes dealz-->
-			<input type="submit" value="Submit Deal" id="submit" /><br />
 			<a href="#" id="clear">Clear Deals</a></br>
 			<a href="#" id="displayLink">Display Deals</a>
 			<a href="adddeal.html" id="addNew" style="display:none;">Add New Deal</a>
