@@ -30,7 +30,7 @@ form{
 	padding: 10px;
 	border: 1px solid #2554C7;
 	background: #eeeeee;
-	height: 700px;
+	height: 650px;
 }
 #favoriteDeal{
 	margin-right: 230px;
@@ -91,5 +91,5 @@ label{
 #submit{
 	font-size: 18px;
 	float: right;
-	margin:5px -90px 10px 0;
+	
 }
