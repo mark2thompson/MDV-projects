@@ -124,7 +124,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		//populate form fields with local storage values
 		$('dealType').value = item.dealType[1];
-		$('dName').value = item.dName[1];
+		$('dname').value = item.dName[1];
 		$('url').value = item.url[1];
 		$('rangeBar').value = item.rangeBar[1];
 		$('exDate').value = item.exDate[1];
@@ -157,19 +157,67 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 //********************************************************************************
-	function validate(){
+	function validate(e){
+		//define the elements we want to check
+		var getDealType = $('dealType');
+		var getDname 	= $('dname');
+		var getUrl		= $('url');
+		
+		//reset Error messages
+		errMsg.innerHTML = "";
+		getDealType.style.border	= "1px solid black";
+		getDname.style.border 		= "1px solid black";
+		getUrl.style.border 		= "1px solid black";
+
+		
+		// get error messages
+		var messageAry = [];
+		// type validation
+		if(getDealType.value === "--Choose type of Deal--"){
+			var typeError = "Please choose a deal type.";
+			getDealType.style.border = "1px solid red";
+			messageAry.push(typeError);
+		}
+		//deal name validation 
+		if(getDname.value === ""){
+			var dNameError = "Please enter a deal name.";
+			getDname.style.border = "1px solid red";
+			messageAry.push(dNameError);
+		}
+		//url validate		
+		if(getUrl.value === ""){
+			var urlError = "Please enter a URL.";
+			getUrl.style.border = "1px solid red";
+			messageAry.push(urlError);
+		}
+		
+		//if there are errors.... display them 
+		if(messageAry.length >= 1){
+			for(var i=0, j=messageAry.length; i < j; i++){
+				var txt = document.createElement('li');
+				txt.innerHTML = messageAry[i];
+				errMsg.appendChild(txt);
+			}
+			e.preventDefault();
+		    return false;
+		}else{
+			//if everything is fine save the data
+			storeData();
+		}
 		
 	}
 //********************************************************************************
 
 //Variable defaults	
+	var errMsg = $('errors');
 //Set Link & Submit Click Events
+	
 	var displayLink = $("displayLink");
 	displayLink.addEventListener("click", getData);
 	var clearLink = $("clear");
 	clearLink.addEventListener("click", clearLocal);
 	var save = $('submit');
-	save.addEventListener("click", storeData);
+	save.addEventListener("click", validate);
 //********************************************************************************
 //closing
 });
