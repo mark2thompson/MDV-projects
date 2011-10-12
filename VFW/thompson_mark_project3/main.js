@@ -45,7 +45,7 @@ window.addEventListener("DOMContentLoaded", function(){
 //store the deal	
 	function storeData(){
 	getCheckBoxValue();
-		var id					= Math.floor(Math.random()*100000001)
+		var id					= Math.floor(Math.random()*100000001);
 		var item 				= {};
 			item.dealType		= ["Type:", $('dealType').value];
 			item.dName			= ["Deal Name:", $('dname').value];
@@ -129,17 +129,26 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('rangeBar').value = item.rangeBar[1];
 		$('exDate').value = item.exDate[1];
 		$('notes').value = item.notes[1];
-		if(obj.favoriteDeal[1] === "Yes"){
+		if(item.favoriteDeal[1] === "Yes"){
 			$('favoriteDeal').setAttribute("checked", "checked");
 		}
-		 
-
+		
+		// remove the initial listener from the input save contact button. 
+		save.removeEventListener("click", storeData);
+		//change the submit button value to edit button
+		$('submit').value = "Edit Deal";
+		var editSubmit = $('submit');
+		//save the key value established in this function asa property of the editSubmit
+		//event so we can use that value when we save the data we editied .
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
+	
 	}
 //********************************************************************************
 //clear deals	
 	function clearLocal(){
 		if(localStorage.length === 0){
-			alert("There is no data to clear.")
+			alert("There is no data to clear.");
 		}else{
 			localStorage.clear();
 			alert("All Deals are deleted!");
@@ -148,7 +157,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 //********************************************************************************
+	function validate(){
 		
+	}
 //********************************************************************************
 
 //Variable defaults	
