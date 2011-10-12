@@ -36,6 +36,8 @@ window.addEventListener("DOMContentLoaded", function(){
 				$('displayLink').style.display = "inline";
 				$('addNew').style.display = "none";
 				$('items').style.display = "none";
+				$('submit').style.display = "block";
+
 				break;
 			default:
 				return false;
@@ -43,9 +45,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 //********************************************************************************
 //store the deal	
-	function storeData(){
+	function storeData(key){
+		//if there is no key, this means this is a new item and needs a new key
+		if (!key){
+			var id = Math.floor(Math.random()*100000001);	
+		}else{
+			// set the id to the existing key so that it was save over the data
+			// the key is the same key thats been passed along from the editSubmit even handler
+			//to the validate function,. and then passed here, into the storeData function 
+			id=key;
+		}
 	getCheckBoxValue();
-		var id					= Math.floor(Math.random()*100000001);
 		var item 				= {};
 			item.dealType		= ["Type:", $('dealType').value];
 			item.dName			= ["Deal Name:", $('dname').value];
@@ -201,8 +211,9 @@ window.addEventListener("DOMContentLoaded", function(){
 			e.preventDefault();
 		    return false;
 		}else{
-			//if everything is fine save the data
-			storeData();
+			//if everything is fine save the data... send the key value
+			//remember the key value
+			storeData(this.key);
 		}
 		
 	}
