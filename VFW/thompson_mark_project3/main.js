@@ -205,11 +205,13 @@ window.addEventListener("DOMContentLoaded", function(){
 			getDname.style.border = "1px solid red";
 			messageAry.push(dNameError);
 		}
-		//url validate		
-		if(getUrl.value === ""){
+		//url validate
+        var urlTest = getUrl.value.match(/^(ht)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/);
+		if(urlTest === null){
 			var urlError = "Please enter a URL.";
 			getUrl.style.border = "1px solid red";
 			messageAry.push(urlError);
+			alert ("URL should begin with HTTP:// or HTTPS://");
 		}
 		
 		//if there are errors.... display them 
