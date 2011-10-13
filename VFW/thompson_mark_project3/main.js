@@ -99,6 +99,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeItemLinks(localStorage.key(i), linksLi); // creats edit and delete buttons for local storage. 
 		}
 	}
+//********************************************************************************
 	// make item links
 	// creat the edit and delete links for each stored item
 	function makeItemLinks(key, linksLi){
@@ -124,14 +125,14 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	}
-	
+//********************************************************************************
 	function editItem(){
 		// Grab the data from local storage
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
 		//show the form
 		toggleControls("off");
-		
+//********************************************************************************
 		//populate form fields with local storage values
 		$('dealType').value = item.dealType[1];
 		$('dname').value = item.dName[1];
@@ -142,7 +143,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		if(item.favoriteDeal[1] === "Yes"){
 			$('favoriteDeal').setAttribute("checked", "checked");
 		}
-		
+//********************************************************************************
 		// remove the initial listener from the input save contact button. 
 		save.removeEventListener("click", storeData);
 		//change the submit button value to edit button
@@ -152,9 +153,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		//event so we can use that value when we save the data we editied .
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;
-	
 	}
-	
+//********************************************************************************	
+	// delete deal function
 	function deleteItem(){
 		var ask = confirm("Are you sure you want to delete this deal?");
 		if (ask){
@@ -178,6 +179,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 //********************************************************************************
+// this is all part of the validate functions. 
 	function validate(e){
 		//define the elements we want to check
 		var getDealType = $('dealType');
@@ -189,7 +191,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		getDealType.style.border	= "1px solid black";
 		getDname.style.border 		= "1px solid black";
 		getUrl.style.border 		= "1px solid black";
-
 		
 		// get error messages
 		var messageAry = [];
@@ -211,9 +212,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			var urlError = "Please enter a URL.";
 			getUrl.style.border = "1px solid red";
 			messageAry.push(urlError);
-			alert ("URL should begin with http:// or https://");
-		}
-		
+			alert ("URL should begin with" + '\n' + "http:// or https://");
+		}	
 		//if there are errors.... display them 
 		if(messageAry.length >= 1){
 			for(var i=0, j=messageAry.length; i < j; i++){
@@ -227,11 +227,9 @@ window.addEventListener("DOMContentLoaded", function(){
 			//if everything is fine save the data... send the key value
 			//remember the key value
 			storeData(this.key);
-		}
-		
+		}	
 	}
 //********************************************************************************
-
 //Variable defaults	
 	var errMsg = $('errors');
 //Set Link & Submit Click Events
