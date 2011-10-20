@@ -2,6 +2,9 @@
 // VFW 1110 Project 4
 // Javascript data functions
 //********************************************************************************
+function showRange(v){
+		document.getElementById('range').innerHTML=v;
+}
 //Wait until the DOM is ready
 window.addEventListener("DOMContentLoaded", function(){	
 //********************************************************************************

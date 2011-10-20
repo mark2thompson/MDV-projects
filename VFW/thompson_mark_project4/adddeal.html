@@ -18,7 +18,6 @@
 		<div id="dealz">
 		<form action="#" method="post" id="couponForm">
 				<legend>Add a Deal!</legend>
-				<h2>Deal</h2>
 				<ul id="errors"></ul>
 				<select id="dealType">
 					<!--Was not 100% sure on using the option group. For what I want to do I think it will make sence in the end-->
@@ -34,20 +33,17 @@
 						<option value="Store Entertainment">Entertainment</option>
 					</optgroup>
 				</select>		
-				<h3>Deal Info</h3>
+				<h2>Deal Info</h2>
 				<ul>
 					<li><label for="dname">Deal Name</label><input type="text" id="dname"/></li>
 					<li><label for="url">Store Website</label><input type="url" id="url" placeholder="http://www.manbargains.com"/></li>
 					<li><label for="hotDeal" id="hotDeal">Rate it!</label></li>
-					<li><input type="range" id="rangeBar" min="0" max="10" value="5" /></li><br/>
+					<li><input type="range" id="rangeBar" min="0" max="10" value="5" onchange="showRange(this.value)" /><span id="range">5</span></li>
 					<li><input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal</label></li>
 				</ul>
-				<ul><div id="exDate2">
+				<ul>
 					<li><label for="exDate">Expiration Date</label><input type="date" id="exDate"/></li>
-					</div><!--closes exDate2-->
-					<div id="aNotes">
 					<li><label for="notes" id="notes1">Additional Notes</label><textarea cols=28 rows=5 id="notes"placeholder="Add extra notes here!"></textarea></li>
-					</div><!--closes aNotes-->
 				</ul>
 				<input type="submit" value="Submit Deal" id="submit" /><br />
 		</form></div><!--closes dealz-->
