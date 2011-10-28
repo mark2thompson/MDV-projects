@@ -3,7 +3,7 @@ Title: html Styles
 by: Mark Thompson
 */
 html{
-	background: #dbdbdb;
+	background: #565655;
 }
 body{
 	font-style: regular;
@@ -13,16 +13,33 @@ body{
 	font-size: 20px;
 }
 h1{
-	width: 400px;
-	margin-top: -10px;
-	text-align: center;
-	border: 2px solid #bdbdbd;
+	width: auto;
+	margin-top: -6px;
+	text-align: left;
 	color: #ffffff;
 	text-shadow: #858585 0 1px 0, #858585 0 -1px 0;
-	padding: 10px;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#8B7D6B), to(#A3937D), color-stop(.6, #BAA78F));
-	border-radius: 5px;
+	padding: 4px;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#405200), to(#002100));
 	margin-bottom: 0px;
+}
+#search{
+	width: 260px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#categories{
+	background: #F5F5F5;
+	padding: 10px;
+}
+#manDealsCTA{
+	width: 320px;
+	height: 110px;
+}
+#autoButton, #entButton, #groomingButton{
+	width: 300px;
+}
+#cta{
+	margin-bottom: -10px;
 }
 form{
 	width: 402px;
@@ -48,9 +65,6 @@ li{
 ul, li{
     list-style-type: none;
 }
-p{
-	padding: 10px;
-}
 a{
 	color:#F62217;
 }
@@ -65,6 +79,11 @@ a{
 }
 label{ 
 	display: block;
+}
+#searchButton{
+	float: right;
+	margin-right: -55px;
+	margin-top: -26px;
 }
 #dname{
 	font-size: 20px;

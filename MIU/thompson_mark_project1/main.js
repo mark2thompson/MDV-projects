@@ -1,5 +1,5 @@
 // Author Mark Thompson
-// VFW 1110 Project 4
+// MIU 1111 Project 1
 // Javascript data functions
 //********************************************************************************
 function showRange(v){
@@ -13,6 +13,61 @@ window.addEventListener("DOMContentLoaded", function(){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
+//********************************************************************************
+//search
+var search = $('searchButton');
+search.addEventListener("click", getSearch);
+
+	function getSearch(){
+		var category = $('dealType').value;
+		var term = $('search').value;
+	}
+	
+//search by catagory
+if(catagory != "--Choose type of Deal--" && term === ""){
+	for(i=0, j=localStorage.length; i<j; i++){
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		var obj = JSON.parse(value);
+		if(category === obj.group[1]){
+			for (n in obj){
+				alert(obj[n][1]);
+			}
+		}
+	}
+}
+
+//search by term
+if(term != "" && category === "--Choose type of Deal--"){
+	for(i=0, j=localStorage.length; i<j; i++){
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		var obj = JSON.parse(value);
+		for (n in obj){
+			if(term === obj[n][1]){
+				for (q in obj){
+					alert(obj[q][1]);
+				}
+			}	
+		}
+	}	
+}
+//search category and term
+if (term != "" && category != "--Choose type of Deal--"){
+	for(i=0, j=localStorage.length; i<j; i++){
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		var obj = JSON.parse(value);
+		for (n in obj){
+			if (term === obj[n][1] $$ category === obj.group[1]){
+				for (q in obj){
+					alert(obj[q][1]);
+				}
+			}
+		}
+	}
+}s
+
 //********************************************************************************
 //find the value of a selected radio button
 	function getCheckBoxValue(){
