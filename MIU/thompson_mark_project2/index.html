@@ -1,0 +1,338 @@
+<!doctype html>  
+<html lang="en">
+<!--Author Mark Thompson -->
+<!--MIU 1111 Project Web App part 1 -->
+<head>
+
+	<meta charset="utf-8"/>
+	
+	<title>Man Deals</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on"/>
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<style type="text/css">
+		.ui-page {
+    	background: transparent url(images/mandealsbackground.png);
+    	}
+	</style>	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+	
+</head>
+
+		
+	<div data-role="page" id="home">
+	
+  
+			<h1><a href="#home"><img src="images/manDealsLogo.png" id="manDealsLogo" /></a></h1>
+	<div data-role="content">
+		<div id="search">
+			<input type="text" id="search" placeholder="Search"/><a href="#"><img for="search" src="images/searchButton.png" id="searchButton"/></a>
+		</div>
+		<div id="cta">
+			<a href="#addDeal"><img src="images/cta.png" alt="Man Deals - Enter Deal" id="manDealsCTA"/></a>
+		</div>
+		<div id="categories">
+			<p>Display your deals</p>
+			<img src="images/autoButton.png" id="autoButton" usemap ="#buttonAutoMap" />
+			<img src="images/entButton.png" id="entButton" usemap ="#buttonEntMap"/>
+			<img src="images/groomingButton.png" id="groomingButton" usemap ="#buttonGroomMap"/>
+			<map name="buttonAutoMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreAuto" alt="inStore" href="#storeAuto"/>
+				<area shape="rect" coords="205,10,288,38" id="webAuto" alt="web" href="#webAuto"/>
+			</map>
+			<map name="buttonEntMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreEnt" alt="inStore" href="#storeEnt"/>
+				<area shape="rect" coords="205,10,288,38" id="webent" alt="web" href="#webEnt"/>
+			</map>
+			<map name="buttonGroomMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreGrooming" alt="inStore" href="#storeGroom"/>
+				<area shape="rect" coords="205,10,288,38" id="webGrooming" alt="web" href="#webGroom"/>
+			</map></br>
+		</div>
+		<a href="bad appindex.html">BAD APP</a>
+	</div>
+	</div>
+	
+	<div data-roll="page" id="addDeal" data-add-back-btn="true">
+	
+		<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none"><img src="images/manDealsLogo.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<div data-role="content">
+		<div id="dealz">
+		<form action="#" method="post" id="couponForm">
+				<legend>Add a Deal!</legend>
+				<ul id="errors"></ul>
+				<select id="dealType">
+					<!--Was not 100% sure on using the option group. For what I want to do I think it will make sence in the end-->
+					<optgroup id="webDeals" label="Web Deals" >
+						<option value="--Choose type of Deal--" selected="--Choose a deal type--">--Choose Type Of Deal--</option>
+						<option value="Web Auto">Auto</option>	
+						<option value="Web Grooming">Grooming</option>	
+						<option value="Web Entertainment">Entertainment</option>
+					</optgroup>
+					<optgroup id="storeDeals" label="In Store Deals">
+						<option value="Store Auto">Auto</option>	
+						<option value="Store Grooming">Grooming</option>
+						<option value="Store Entertainment">Entertainment</option>
+					</optgroup>
+				</select>		
+				<h2>Deal Info</h2>
+				<ul>
+					<li><label for="dname">Deal Name</label><input type="text" id="dname"/></li>
+					<li><label for="url">Store Website</label><input type="url" id="url" placeholder="http://www.manbargains.com"/></li>
+					<li><label for="hotDeal" id="hotDeal">Rate it!</label></li>
+					<li><input type="range" id="rangeBar" min="0" max="10" value="5" onchange="showRange(this.value)" /><span id="range">5</span></li>
+					<li><input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal</label></li>
+				</ul>
+				<ul>
+					<li><label for="exDate">Expiration Date</label><input type="date" id="exDate"/></li>
+					<li><label for="notes" id="notes1">Additional Notes</label><textarea cols="28" rows="5" id="notes" placeholder="Add extra notes here!"></textarea></li>
+				</ul>
+				<input type="submit" value="Submit Deal" id="submit" /><br />
+		</form></div><!--closes dealz-->
+			<a href="#" id="clear">Clear Deals</a>
+			<a href="#" id="displayLink">Display Deals</a>
+			<a href="#addDeal" id="addNew" style="display:none;">Add New Deal</a>
+			
+	</div>		
+	</div>
+	<div data-roll="page" id="webAuto" data-add-back-btn="true">
+	<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none"><img src="images/manDealsLogo.png" id="manDealsLogo" /></a></h1>
+	</div>
+	<div data-role="content">
+	       <ul data-role="listview">
+				<li><img src="images/Store Auto.png"/></li>
+				<li>Deal Name: Oil Change</li>
+				<li>URL: http://www.autozone.com</li>
+				<li>Rating: 7</li>
+				<li>Fav deal: No</li>
+				<li>Exp Date: 2012/10/09</li>
+				<li>Notes: These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name: Spark Plugs</li>
+				<li>URL: http://www.summitracing.com</li>
+				<li>Rating: 5</li>
+				<li>Fav deal: No</li>
+				<li>Exp Date: 2012/10/15</li>
+				<li>Notes: These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, cheap gas cards</li>
+				<li>URL:, http://www.fakecheapgascards.com</li>
+				<li>Rating:, 3</li>
+				<li>Fav deal:, No</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, car carpet cleaner</li>
+				<li>URL:, http://www.awesomecarpetcleaner.com</li>
+				<li>Rating:, 9</li>
+				<li>Fav deal:, Yes</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+		</div>
+	</div>
+	<div data-roll="page" id="storeAuto" data-add-back-btn="true">
+	<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none"><img src="images/manDealsLogo.png" id="manDealsLogo" /></a></h1>
+	</div>
+	<div data-role="content">
+		    <ul data-role="listview">
+				<li><img src="images/Store Auto.png"/></li>
+				<li>Deal Name: Oil Change</li>
+				<li>URL: http://www.autozone.com</li>
+				<li>Rating: 6</li>
+				<li>Fav deal: Yes</li>
+				<li>Exp Date: 2012/10/15</li>
+				<li>Notes: These are just some test notes.</li>		
+			</ul>
+		</div>
+		</div>
+	<div data-roll="page" id="storeEnt" data-add-back-btn="true">
+	<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none"><img src="images/manDealsLogo.png" id="manDealsLogo" /></a></h1>
+	</div>
+	<div data-role="content">
+			<ul data-role="listview">
+				<li><img src="images/Store Entertainment.png"/></li>
+				<li>Deal Name: BTTF boxset</li>
+				<li>URL: http://www.walmart.com</li>
+				<li>Rating: 10</li>
+				<li>Fav deal: Yes</li>
+				<li>Exp Date: 2012/10/15</li>
+				<li>Notes: These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, Park AV CD recording - free poster</li>
+				<li>URL:, http://www.parkavecd.com</li>
+				<li>Rating:, 7</li>
+				<li>Fav deal:, No</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, BOGO Halloween DVDs</li>
+				<li>URL:, http://www.bestbuy.com</li>
+				<li>Rating:, 9</li>
+				<li>Fav deal:, Yes</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+		</div>
+		</div>
+		<div data-roll="page" id="webEnt" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="images/manDealsLogo.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li><img src="images/Store Entertainment.png"/></li>
+				<li>Deal Name: Free Movie Tickets</li>
+				<li>URL: http://www.fandango.com</li>
+				<li>Rating: 10</li>
+				<li>Fav deal: Yes</li>
+				<li>Exp Date: 2012/10/15</li>
+				<li>Notes: These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, itunes free song</li>
+				<li>URL:, http://www.apple.com/itunes</li>
+				<li>Rating:, 9</li>
+				<li>Fav deal:, Yes</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, 1 month free netflix</li>
+				<li>URL:, http://www.netflix.com</li>
+				<li>Rating:, 5</li>
+				<li>Fav deal:, Yes</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, iTunes gift cards</li>
+				<li>URL:, http://www.bestbuy.com</li>
+				<li>Rating:, 6</li>
+				<li>Fav deal:, Yes</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, Steve Jobs Book</li>
+				<li>URL:, http://www.amazon.com</li>
+				<li>Rating:, 10</li>
+				<li>Fav deal:, Yes</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+		</div>
+	</div>
+	<div data-roll="page" id="storeGroom" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="images/manDealsLogo.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li><img src="images/Store Grooming.png"/></li>
+				<li>Deal Name: Mach3 razors</li>
+				<li>URL: http://www.walmart.com</li>
+				<li>Rating: 9</li>
+				<li>Fav deal: Yes</li>
+				<li>Exp Date: 2012/10/15</li>
+				<li>Notes: These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, BOGO Mach3 razors</li>
+				<li>URL:, http://www.publix.com</li>
+				<li>Rating:, 10</li>
+				<li>Fav deal:, Yes</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, BOGO TP</li>
+				<li>URL:, http://www.publix.com</li>
+				<li>Rating:, 8</li>
+				<li>Fav deal:, No</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, BOGO shaving cream</li>
+				<li>URL:, http://www.publix.com</li>
+				<li>Rating:, 7</li>
+				<li>Fav deal:, Yes</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+			</div>
+			</div>
+		<div data-roll="page" id="webGroom" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="images/manDealsLogo.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li><img src="images/Store Grooming.png"/></li>
+				<li>Deal Name: Mach3 razors</li>
+				<li>URL: http://www.walmart.com</li>
+				<li>Rating: 9</li>
+				<li>Fav deal: Yes</li>
+				<li>Exp Date: 2012/10/15</li>
+				<li>Notes: These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name:, Mach3 razors</li>
+				<li>URL:, http://www.walmart.com</li>
+				<li>Rating:, 9</li>
+				<li>Fav deal:, Yes</li>
+				<li>Exp Date:, 2012/10/15</li>
+				<li>Notes:, These are just some test notes.</li>		
+			</ul>
+			<ul data-role="listview">
+				<li></li>
+				<li>Deal Name: axe soap</li>
+				<li>URL: http://www.target.com</li>
+				<li>Rating: 8</li>
+				<li>Fav deal: Yes</li>
+				<li>Exp Date: 2012/10/15</li>
+				<li>Notes: These are just some test notes.</li>		
+			</ul>
+	</div>
+	</div>
+
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
