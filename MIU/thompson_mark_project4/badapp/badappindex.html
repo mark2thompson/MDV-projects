@@ -1,0 +1,323 @@
+<!doctype html>  
+<html lang="en">
+<!--Author Mark Thompson -->
+<!--MIU 1111 Project Web App part 1 -->
+<head>
+
+	<meta charset="utf-8"/>
+	
+	<title>Man Deals</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on"/>
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />	
+	<style type="text/css">
+		.ui-page {
+    	background-color:#828282;
+background-image: -moz-radial-gradient(50% 50%, ellipse cover, #828282, #3b3c3d 100%);
+background-image: -webkit-radial-gradient(50% 50%, ellipse cover, #828282, #3b3c3d 100%);
+background-image: -o-radial-gradient(50% 50%, ellipse cover, #828282, #3b3c3d 100%);
+background-image: -ms-radial-gradient(50% 50%, ellipse cover, #828282, #3b3c3d 100%);
+background-image: radial-gradient(50% 50%, ellipse cover, #828282, #3b3c3d 100%)
+	
+    	}
+	</style>
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+	
+</head>
+
+		
+	<div data-role="page" id="home">
+	
+  
+			<h1><a href="#home">Man Deals</a></h1>
+	<div data-role="content">
+		<div id="search">
+			<input type="text" id="search" placeholder="Search"/><a href="#"><img for="search" src="images/searchButton.png" id="searchButton"/></a>
+		</div>
+		<div id="cta">
+			<a href="#addDealBad"><img src="images/cta.png" alt="Man Deals - Enter Deal" id="manDealsCTA"/></a>
+		</div>
+		<div id="categories">
+			<p>Display your deals</p>
+			<img src="images/autoButton.png" id="autoButton" usemap ="#buttonAutoMap" />
+			<img src="images/entButton.png" id="entButton" usemap ="#buttonEntMap"/>
+			<img src="images/groomingButton.png" id="groomingButton" usemap ="#buttonGroomMap"/>
+			<map name="buttonAutoMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreAuto" alt="inStore" href="#storeAuto"/>
+				<area shape="rect" coords="205,10,288,38" id="webAuto" alt="web" href="#webAuto"/>
+			</map>
+			<map name="buttonEntMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreEnt" alt="inStore" href="#storeEnt"/>
+				<area shape="rect" coords="205,10,288,38" id="webent" alt="web" href="#webEnt"/>
+			</map>
+			<map name="buttonGroomMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreGrooming" alt="inStore" href="#storeGroom"/>
+				<area shape="rect" coords="205,10,288,38" id="webGrooming" alt="web" href="#webGroom"/>
+			</map></br>
+		</div>
+		<a href="../goodapp/index.html">GOOD APP Please refresh to see new styles</a>
+	</div>
+	</div>
+	
+	<div data-roll="page" id="addDealBad" data-add-back-btn="true">
+	
+		<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none">Man Deals</a></h1>
+		</div>
+		<div data-role="content">
+		<div id="dealz">
+		<form action="#" method="post" id="couponForm">
+				<legend>Add a Deal!</legend>
+				<ul id="errors"></ul>
+				<select id="dealType">
+					<!--Was not 100% sure on using the option group. For what I want to do I think it will make sence in the end-->
+					<optgroup id="webDeals" label="Web Deals" >
+						<option value="--Choose type of Deal--" selected="--Choose a deal type--">--Choose Type Of Deal--</option>
+						<option value="Web Auto">Auto</option>	
+						<option value="Web Grooming">Grooming</option>	
+						<option value="Web Entertainment">Entertainment</option>
+					</optgroup>
+					<optgroup id="storeDeals" label="In Store Deals">
+						<option value="Store Auto">Auto</option>	
+						<option value="Store Grooming">Grooming</option>
+						<option value="Store Entertainment">Entertainment</option>
+					</optgroup>
+				</select>		
+				<h2>Deal Info</h2>
+				<ul>
+					<li><label for="dname">Deal Name</label><input type="text" id="dname"/></li>
+					<li><label for="url">Store Website</label><input type="url" id="url" placeholder="http://www.manbargains.com"/></li>
+					<li><label for="hotDeal" id="hotDeal">Rate it!</label></li>
+					<li><input type="range" id="rangeBar" min="0" max="10" value="5" onchange="showRange(this.value)" /><span id="range">5</span></li>
+					<li><input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Favorite Deal</label></li>
+				</ul>
+				<ul>
+					<li><label for="exDate">Expiration Date</label><input type="date" id="exDate"/></li>
+					<li><label for="notes" id="notes1">Additional Notes</label><textarea cols="28" rows="5" id="notes" placeholder="Add extra notes here!"></textarea></li>
+				</ul>
+				<input type="submit" value="Submit Deal" id="submit" /><br />
+		</form></div><!--closes dealz-->
+			<a href="#" id="clear">Clear Deals</a>
+			<a href="#" id="displayLink">Display Deals</a>
+			<a href="#addDeal" id="addNew" style="display:none;">Add New Deal</a>
+			
+	</div>		
+	</div>
+	<div data-roll="page" id="storeAuto" data-add-back-btn="true">
+	<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none">Man Deals</a></h1>
+	</div>
+	<div data-role="content">
+		    <div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Auto.png"/>Oil Change</h3>
+				<p>URL: http://www.autozone.com</p>
+				<p>Rating: 6</p>
+				<p>Fav deal: Yes</p>
+				<p>Exp Date: 2012/10/15</p>
+				<p>Notes: These are just some test notes.</p>		
+			</div>
+		</div>
+		</div>
+		<div data-roll="page" id="webAuto" data-add-back-btn="true">
+	<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none">Man Deals</a></h1>
+	</div>
+	<div data-role="content">
+	       <div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Auto.png"/>Oil Change</h3>
+				<p>URL: http://www.autozone.com</p>
+				<p>Rating: 7</p>
+				<p>Fav deal: No</p>
+				<p>Exp Date: 2012/10/09</p>
+				<p>Notes: These are just some test notes.</p>
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Auto.png"/>Spark Plugs</h3>
+				<p>URL: http://www.summitracing.com</p>
+				<p>Rating: 5</p>
+				<p>Fav deal: No</p>
+				<p>Exp Date: 2012/10/15</p>
+				<p>Notes: These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Auto.png"/>Deal Name:, cheap gas cards</h3>
+				<p>URL:, http://www.fakecheapgascards.com</p>
+				<p>Rating:, 3</p>
+				<p>Fav deal:, No</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Auto.png"/>Deal Name:, car carpet cleaner</h3>
+				<p>URL:, http://www.awesomecarpetcleaner.com</p>
+				<p>Rating:, 9</p>
+				<p>Fav deal:, Yes</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+	</div>
+	<div data-roll="page" id="storeEnt" data-add-back-btn="true">
+	<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none">Man Deals</a></h1>
+	</div>
+	<div data-role="content">
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Entertainment.png"/>BTTF boxset</h3>
+				<p>URL: http://www.walmart.com</p>
+				<p>Rating: 10</p>
+				<p>Fav deal: Yes</p>
+				<p>Exp Date: 2012/10/15</p>
+				<p>Notes: These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Entertainment.png"/>Park AV CD recording - free poster</h3>
+				<p>URL: http://www.parkavecd.com</p>
+				<p>Rating: 7</p>
+				<p>Fav deal: No</p>
+				<p>Exp Date: 2012/10/15</p>
+				<p>Notes: These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Entertainment.png"/>BOGO Halloween DVDs</h3>
+				<p>URL: http://www.bestbuy.com</p>
+				<p>Rating: 9</p>
+				<p>Fav deal:, Yes</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+		</div>
+		</div>
+		<div data-roll="page" id="webEnt" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none">Man Deals</a></h1>
+		</div>
+		<div data-role="content">
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Entertainment.png"/>Deal Name: Free Movie Tickets</h3>
+				<p>URL: http://www.fandango.com</p>
+				<p>Rating: 10</p>
+				<p>Fav deal: Yes</p>
+				<p>Exp Date: 2012/10/15</p>
+				<p>Notes: These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Entertainment.png"/>Deal Name:, itunes free song</p>
+				<p>URL:, http://www.apple.com/itunes</h3>
+				<p>Rating:, 9</p>
+				<p>Fav deal:, Yes</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Entertainment.png"/>Deal Name:, 1 month free netflix</h3>
+				<p>URL:, http://www.netflix.com</p>
+				<p>Rating:, 5</p>
+				<p>Fav deal:, Yes</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Entertainment.png"/>Deal Name:, iTunes gift cards</h3>
+				<p>URL:, http://www.bestbuy.com</p>
+				<p>Rating:, 6</p>
+				<p>Fav deal:, Yes</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Entertainment.png"/>Deal Name:, Steve Jobs Book</h3>
+				<p>URL:, http://www.amazon.com</p>
+				<p>Rating:, 10</p>
+				<p>Fav deal:, Yes</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+		</div>
+	</div>
+	<div data-roll="page" id="storeGroom" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none">Man Deals</a></h1>
+		</div>
+		<div data-role="content">
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Grooming.png"/>Deal Name: Mach3 razors</h3>
+				<p>URL: http://www.walmart.com</p>
+				<p>Rating: 9</p>
+				<p>Fav deal: Yes</p>
+				<p>Exp Date: 2012/10/15</p>
+				<p>Notes: These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">
+				<h3><img src="images/Store Grooming.png"/>Deal Name:, BOGO Mach3 razors</h3>
+				<p>URL:, http://www.publix.com</p>
+				<p>Rating:, 10</p>
+				<p>Fav deal:, Yes</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">				
+				<h3><img src="images/Store Grooming.png"/>Deal Name:, BOGO TP</h3>
+				<p>URL:, http://www.publix.com</p>
+				<p>Rating:, 8</p>
+				<p>Fav deal:, No</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">				
+				<h3><img src="images/Store Grooming.png"/>Deal Name:, BOGO shaving cream</h3>
+				<p>URL:, http://www.publix.com</p>
+				<p>Rating:, 7</p>
+				<p>Fav deal:, Yes</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+			</div>
+			</div>
+		<div data-roll="page" id="webGroom" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none">Man Deals</a></h1>
+		</div>
+		<div data-role="content">
+			<div data-role="collapsible" data-collapsed="true">			
+				<h3><img src="images/Store Grooming.png"/>Deal Name: Mach3 razors</h3>
+				<p>URL: http://www.walmart.com</p>
+				<p>Rating: 9</p>
+				<p>Fav deal: Yes</p>
+				<p>Exp Date: 2012/10/15</p>
+				<p>Notes: These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">				
+				<h3><img src="images/Store Grooming.png"/>Deal Name:, Mach3 razors</h3>
+				<p>URL:, http://www.walmart.com</p>
+				<p>Rating:, 9</p>
+				<p>Fav deal:, Yes</p>
+				<p>Exp Date:, 2012/10/15</p>
+				<p>Notes:, These are just some test notes.</p>		
+			</div>
+			<div data-role="collapsible" data-collapsed="true">				
+				<h3><img src="images/Store Grooming.png"/>Deal Name: axe soap</h3>
+				<p>URL: http://www.target.com</p>
+				<p>Rating: 8</p>
+				<p>Fav deal: Yes</p>
+				<p>Exp Date: 2012/10/15</p>
+				<p>Notes: These are just some test notes.</p>		
+			</div>
+	</div>
+	</div>
+
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
