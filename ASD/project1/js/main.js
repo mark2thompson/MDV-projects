@@ -7,19 +7,21 @@
 //Wait until the DOM is ready
 $(document).ready(function(){	
 //********************************************************************************
+	
+
 //getElementById Function
-	function $(x){
+	function gtID(x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
 //********************************************************************************
 //search
-/*var search = $('search');
+/*var search = gtID('search');
 search.addEventListener("click", getSearch);
 
 	function getSearch(){
-		var category = $('dealType').value;
-		var term = $('search').value;
+		var category = gtID('dealType').value;
+		var term = gtID('search').value;
 	
 	
 //search by catagory
@@ -71,7 +73,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 //********************************************************************************
 //find the value of a selected radio button
 	function getCheckBoxValue(){
-		if($('favoriteDeal').checked){
+		if(gtID('favoriteDeal').checked){
 			favoriteValue = "Yes";
 		}else{
 			favoriteValue  = "No";
@@ -82,19 +84,19 @@ if (term != "" && category != "--Choose type of Deal--"){
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				$('couponForm').style.display = "none";
-				$('clear').style.display = "inline";
-				$('displayLink').style.display = "none";
-				$('addNew').style.display = "inline";
-				$('submit').style.display = "none";
+				gtID('couponForm').style.display = "none";
+				gtID('clear').style.display = "inline";
+				gtID('displayLink').style.display = "none";
+				gtID('addNew').style.display = "inline";
+				gtID('submit').style.display = "none";
 				break;
 			case "off":
-				$('couponForm').style.display = "block";
-				$('clear').style.display = "inline";
-				$('displayLink').style.display = "inline";
-				$('addNew').style.display = "none";
-				$('items').style.display = "none";
-				$('submit').style.display = "block";
+				gtID('couponForm').style.display = "block";
+				gtID('clear').style.display = "inline";
+				gtID('displayLink').style.display = "inline";
+				gtID('addNew').style.display = "none";
+				gtID('items').style.display = "none";
+				gtID('submit').style.display = "block";
 
 				break;
 			default:
@@ -115,13 +117,13 @@ if (term != "" && category != "--Choose type of Deal--"){
 		}
 	getCheckBoxValue();
 		var item 				= {};
-			item.dealType		= ["Type:", $('dealType').value];
-			item.dName			= ["Deal Name:", $('dname').value];
-			item.url			= ["URL:", $('url').value];
-			item.rangeBar		= ["Rating:", $('rangeBar').value];
+			item.dealType		= ["Type:", $('#dealType').val()];
+			item.dName			= ["Deal Name:", $('#dname').val()];
+			item.url			= ["URL:", $('#url').val()];
+			item.rangeBar		= ["Rating:", $('#rangeBar').val()];
 			item.favoriteDeal	= ["Fav deal:", favoriteValue];
-			item.exDate			= ["Exp Date:", $('exDate').value];
-			item.notes			= ["Notes:", $('notes').value];
+			item.exDate			= ["Exp Date:", $('#exDate').val()];
+			item.notes			= ["Notes:", $('#notes').val()];
 		localStorage.setItem(id, JSON.stringify(item));		
 		alert("Deal Saved");		
 	}
@@ -133,46 +135,46 @@ if (term != "" && category != "--Choose type of Deal--"){
 			autoFillData();
 			alert("There is no deals in Local Storage so default deals were added.");
 		}
-		var makeDiv = document.createElement('div');
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement('ul');
-		makeList.setAttribute("data-roll", "listview");
-		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
-		$('items').style.display = "block";
+		var makeDiv = $("<div></div>");
+		makeDiv.attr({"id": "items"});
+		var makeList = $("<ul></ul>");
+		makeList.attr({"data-role" : "listview"});
+		makeDiv.append(makeList);
+		$('body').append(makeDiv);
+		gtID('items').style.display = "block";
 		for(var i=0, len=localStorage.length; i<len;i++){
-			var makeLi = document.createElement('li');
-			var linksLi = document.createElement('li');
-			makeList.appendChild(makeLi);
+			var makeLi = $('<li></li>');
+			var linksLi = $('<li></li>');
+			makeList.append(makeLi);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
-			var makeSubList = document.createElement('ul');
-			makeLi.appendChild(makeSubList);
+			var makeSubList = $('<ul></ul>');
+			makeLi.append(makeSubList);
 			//add image for group
 			getImage(obj.dealType[1], makeSubList);
 			for(var n in obj){
-				var makeSubLi = document.createElement('li');
-				makeSubList.appendChild(makeSubLi);
+				var makeSubLi = $('<li></li>');
+				makeSubList.append(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubLi.innerHTML = optSubText;	
-				makeSubList.appendChild(linksLi);
+				makeSubList.append(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi); // creats edit and delete buttons for local storage. 
 		}
 	}
 	// get the images for the catagory
 	function getImage(typeName, makeSubList){
-		var imageLi = document.createElement('li');
-		makeSubList.appendChild(imageLi);
-		var newImg =  document.createElement('img');
-		var setSrc = newImg.setAttribute("src", "images/"+ typeName +".png");
-		imageLi.appendChild(newImg);
+		var imageLi = $('<li></li>');
+		makeSubList.append(imageLi);
+		var newImg = $('<img></img>');
+		var setSrc = newImg.attr("src", "images/"+ typeName +".png");
+		imageLi.append(newImg);
 	}
 //**************************THIS IS JUST FOR TESTING******************************
 	//JSON OBJECT... auto populate local storage. 
 	function autoFillData(){
-		var json = {
+		var JSON = {
 			"deal1": {
 				"dealType": ["Type:", "Web Auto"],
 				"dName": ["Deal Name:", "Oil Change"],
@@ -372,11 +374,11 @@ if (term != "" && category != "--Choose type of Deal--"){
 		var editText = "Edit Deal";
 		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
-		linksLi.appendChild(editLink);
+		linksLi.append(editLink);
 		
 		//add line break
 		var breakTag =  document.createElement('br');
-		linksLi.appendChild(breakTag);
+		linksLi.append(breakTag);
 		
 		//add delete single item link	
 		var deleteLink = document.createElement('a');
@@ -385,7 +387,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 		var deleteText = "Delete Deal";
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
-		linksLi.appendChild(deleteLink);
+		linksLi.append(deleteLink);
 	}
 //********************************************************************************
 	function editItem(){
@@ -396,21 +398,21 @@ if (term != "" && category != "--Choose type of Deal--"){
 		toggleControls("off");
 //********************************************************************************
 		//populate form fields with local storage values
-		$('dealType').value = item.dealType[1];
-		$('dname').value = item.dName[1];
-		$('url').value = item.url[1];
-		$('rangeBar').value = item.rangeBar[1];
-		$('exDate').value = item.exDate[1];
-		$('notes').value = item.notes[1];
+		gtID('dealType').value = item.dealType[1];
+		gtID('dname').value = item.dName[1];
+		gtID('url').value = item.url[1];
+		gtID('rangeBar').value = item.rangeBar[1];
+		gtID('exDate').value = item.exDate[1];
+		gtID('notes').value = item.notes[1];
 		if(item.favoriteDeal[1] === "Yes"){
-			$('favoriteDeal').setAttribute("checked", "checked");
+			gtID('favoriteDeal').setAttribute("checked", "checked");
 		}
 //********************************************************************************
 		// remove the initial listener from the input save contact button. 
 		save.removeEventListener("click", storeData);
 		//change the submit button value to edit button
-		$('submit').value = "Edit Deal";
-		var editSubmit = $('submit');
+		gtID('submit').value = "Edit Deal";
+		var editSubmit = gtID('submit');
 		//save the key value established in this function asa property of the editSubmit
 		//event so we can use that value when we save the data we editied .
 		editSubmit.addEventListener("click", validate);
@@ -444,9 +446,9 @@ if (term != "" && category != "--Choose type of Deal--"){
 // this is all part of the validate functions. 
 	function validate(e){
 		//define the elements we want to check
-		var getDealType = $('dealType');
-		var getDname 	= $('dname');
-		var getUrl		= $('url');
+		var getDealType = gtID('dealType');
+		var getDname 	= gtID('dname');
+		var getUrl		= gtID('url');
 		
 		//reset Error messages
 		errMsg.innerHTML = "";
@@ -494,14 +496,14 @@ if (term != "" && category != "--Choose type of Deal--"){
 	}
 //********************************************************************************
 //Variable defaults	
-	var errMsg = $('errors');
+	var errMsg = gtID('errors');
 //Set Link & Submit Click Events
 	
-	var displayLink = $("displayLink");
+	var displayLink = gtID("displayLink");
 	displayLink.addEventListener("click", getData);
-	var clearLink = $("clear");
+	var clearLink = gtID("clear");
 	clearLink.addEventListener("click", clearLocal);
-	var save = $('submit');
+	var save = gtID('submit');
 	save.addEventListener("click", validate);
 //********************************************************************************
 //closing
