@@ -174,23 +174,17 @@ if (term != "" && category != "--Choose type of Deal--"){
 // creat the edit and delete links for each stored item
 	function makeItemLinks(key, linksLi){
 //add edit single item link
-		var editLink =  document.createElement('a');
-		editLink.href = "#";
+		var editLink = $('<a href = "#">Edit Deal</a>');
 		editLink.key = key;
-		var editText = "Edit Deal";
-		editLink.addEventListener("click", editItem);
-		editLink.html = editText;
+		$(editLink).click(editItem);
 		linksLi.append(editLink);
 //add line break
-		var breakTag =  document.createElement('br');
+		var breakTag =  $('<br>');
 		linksLi.append(breakTag);
 //add delete single item link	
-		var deleteLink = document.createElement('a');
-		deleteLink.href = "#";
+		var deleteLink = $('<a href = "#">Delete Deal</a>');
 		deleteLink.key = key;
-		var deleteText = "Delete Deal";
-		deleteLink.addEventListener("click", deleteItem);
-		deleteLink.html = deleteText;
+		$(deleteLink).click(deleteItem);
 		linksLi.append(deleteLink);
 	}
 //********************************************************************************
