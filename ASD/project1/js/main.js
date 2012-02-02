@@ -2,20 +2,14 @@
 // MIU 1111 Project 1
 // Javascript data functions
 //********************************************************************************
-
-//********************************************************************************
 //Wait until the DOM is ready
 $(document).ready(function(){	
-//********************************************************************************
-	
-
-//getElementById Function
+//getElementById Function************************************************************
 	function gtID(x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
-//********************************************************************************
-//search
+//search***********************************************************************
 /*var search = gtID('search');
 search.addEventListener("click", getSearch);
 
@@ -70,8 +64,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 }
 }
 */
-//********************************************************************************
-//find the value of a selected radio button
+//find the value of a selected radio button***************************************
 	function getCheckBoxValue(){
 		if(gtID('favoriteDeal').checked){
 			favoriteValue = "Yes";
@@ -79,8 +72,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 			favoriteValue  = "No";
 		}
 	}
-//********************************************************************************
-//toggle display data or add deal
+//toggle display data or add deal**************************************************
 	function toggleControls(n){
 		switch(n){
 			case "on":
@@ -97,7 +89,6 @@ if (term != "" && category != "--Choose type of Deal--"){
 				$('#addNew').css('display' , 'none');
 				$('#items').css('display' , 'none');
 				$('#submit').css('display' , 'block');
-
 				break;
 			default:
 				return false;
@@ -106,13 +97,13 @@ if (term != "" && category != "--Choose type of Deal--"){
 //********************************************************************************
 //store the deal	
 	function storeData(key){
-		//if there is no key, this means this is a new item and needs a new key
+//if there is no key, this means this is a new item and needs a new key
 		if (!key){
 			var id = Math.floor(Math.random()*100000001);	
 		}else{
-			// set the id to the existing key so that it was save over the data
-			// the key is the same key thats been passed along from the editSubmit even handler
-			//to the validate function,. and then passed here, into the storeData function 
+// set the id to the existing key so that it was save over the data
+// the key is the same key thats been passed along from the editSubmit even handler
+//to the validate function,. and then passed here, into the storeData function 
 			id=key;
 		}
 	getCheckBoxValue();
@@ -151,7 +142,6 @@ if (term != "" && category != "--Choose type of Deal--"){
 			var obj = JSON.parse(value);
 			var makeSubList = $('<ul></ul>');
 			makeLi.append(makeSubList);
-			
 			getImage(obj.dealType[1], makeSubList);
 			for(var n in obj){
 				var obj = JSON.parse(value);
@@ -164,7 +154,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 			makeItemLinks(localStorage.key(i), linksLi); // creats edit and delete buttons for local storage. 
 		}
 	}
-	// get the images for the catagory
+// get the images for the catagory
 	function getImage(typeName, makeSubList){
 		var imageLi = $('<li></li>');
 		makeSubList.append(imageLi);
@@ -172,21 +162,18 @@ if (term != "" && category != "--Choose type of Deal--"){
 		var setSrc = newImg.attr("src", "images/"+ typeName +".png");
 		imageLi.append(newImg);
 	}
-//**************************THIS IS JUST FOR TESTING******************************
-	//JSON OBJECT... auto populate local storage. 
+//JSON OBJECT... auto populate local storage.*********************************************** 
 	function autoFillData(json){
-		//store the json obj into local storage
+//store the json obj into local storage
 		for(var n in json){
 			var id = Math.floor(Math.random()*100000001);
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
 	}
-//**************************THIS IS JUST FOR TESTING******************************
-//********************************************************************************
-	// make item links
-	// creat the edit and delete links for each stored item
+//make item links******************************************************************
+// creat the edit and delete links for each stored item
 	function makeItemLinks(key, linksLi){
-		//add edit single item link
+//add edit single item link
 		var editLink =  document.createElement('a');
 		editLink.href = "#";
 		editLink.key = key;
@@ -194,12 +181,10 @@ if (term != "" && category != "--Choose type of Deal--"){
 		editLink.addEventListener("click", editItem);
 		editLink.html = editText;
 		linksLi.append(editLink);
-		
-		//add line break
+//add line break
 		var breakTag =  document.createElement('br');
 		linksLi.append(breakTag);
-		
-		//add delete single item link	
+//add delete single item link	
 		var deleteLink = document.createElement('a');
 		deleteLink.href = "#";
 		deleteLink.key = key;
@@ -210,13 +195,12 @@ if (term != "" && category != "--Choose type of Deal--"){
 	}
 //********************************************************************************
 	function editItem(){
-		// Grab the data from local storage
+// Grab the data from local storage
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
-		//show the form
+//show the form
 		toggleControls("off");
-//********************************************************************************
-		//populate form fields with local storage values
+//populate form fields with local storage values******************************************************
 		gtID('dealType').value = item.dealType[1];
 		gtID('dname').value = item.dName[1];
 		gtID('url').value = item.url[1];
@@ -226,19 +210,17 @@ if (term != "" && category != "--Choose type of Deal--"){
 		if(item.favoriteDeal[1] === "Yes"){
 			gtID('favoriteDeal').setAttribute("checked", "checked");
 		}
-//********************************************************************************
-		// remove the initial listener from the input save contact button. 
+//remove the initial listener from the input save contact button. *********************************************
 		save.removeEventListener("click", storeData);
-		//change the submit button value to edit button
+//change the submit button value to edit button
 		gtID('submit').value = "Edit Deal";
 		var editSubmit = gtID('submit');
-		//save the key value established in this function asa property of the editSubmit
-		//event so we can use that value when we save the data we editied .
+//save the key value established in this function asa property of the editSubmit
+//event so we can use that value when we save the data we editied .
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;
 	}
-//********************************************************************************	
-	// delete deal function
+//delete deal function********************************************************************
 	function deleteItem(){
 		var ask = confirm("Are you sure you want to delete this deal?");
 		if (ask){
@@ -249,8 +231,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 			alert("Deal was not deleted.")	
 		}
 	}
-//********************************************************************************
-//clear deals	
+//clear deals**********************************************************************
 	function clearLocal(){
 		if(localStorage.length === 0){
 			alert("There is no data to clear.");
@@ -261,44 +242,40 @@ if (term != "" && category != "--Choose type of Deal--"){
 			return false;
 		}
 	}
-//********************************************************************************
-// this is all part of the validate functions. 
+//this is all part of the validate functions. **************************************************
 	function validate(e){
-		//define the elements we want to check
+//define the elements we want to check
 		var getDealType = gtID('dealType');
 		var getDname 	= gtID('dname');
-		var getUrl		= gtID('url');
-		
-		//reset Error messages
+		var getUrl		= gtID('url');	
+//reset Error messages
 		errMsg.html = "";
 		$(getDealType).css("border","1px solid black");
 		$(getDname).css("border","1px solid black");
 		$(getUrl).css("border","1px solid black");
-		
-		// get error messages
+// get error messages
 		var messageAry = [];
-		// type validation
+// type validation
 		if(getDealType.value === "--Choose type of Deal--"){
 			var typeError = "Please choose a deal type.";
 			$(getDealType).css("border","1px solid red");
 			messageAry.push(typeError);
 		}
-		//deal name validation 
+//deal name validation 
 		if(getDname.value === ""){
 			var dNameError = "Please enter a deal name.";
 			$(getDname).css("border","1px solid red");
 			messageAry.push(dNameError);
 		}
-		//url validate
+//url validate
         var urlTest = getUrl.value.match(/^(ht|Ht)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/);
 			if(urlTest === null){	
 			var urlError = "Please enter a URL.";
 			$(getUrl).css("border","1px solid red");
 			messageAry.push(urlError);
-			alert ("Please enter a valid URL");
-		
+			alert ("Please enter a valid URL");		
 		}
-		//if there are errors.... display them 
+//if there are errors.... display them 
 		if(messageAry.length >= 1){
 			for(var i=0, j=messageAry.length; i < j; i++){
 				var txt = document.createElement('li');
@@ -308,16 +285,14 @@ if (term != "" && category != "--Choose type of Deal--"){
 			e.preventDefault();
 		    return false;
 		}else{
-			//if everything is fine save the data... send the key value
-			//remember the key value
+//if everything is fine save the data... send the key value
+//remember the key value
 			storeData(this.key);
 		}	
 	}
-//********************************************************************************
-//Variable defaults	
+//Variable defaults	**************************************************************
 	var errMsg = gtID('errors');
 //Set Link & Submit Click Events
-	
 	var displayLink = gtID("displayLink");
 	displayLink.addEventListener("click", getData);
 	var clearLink = gtID("clear");
