@@ -155,7 +155,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 				var makeSubLi = document.createElement('li');
 				makeSubList.appendChild(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubLi.innerHTML = optSubText;	
+				makeSubLi.html = optSubText;	
 				makeSubList.appendChild(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi); // creats edit and delete buttons for local storage. 
