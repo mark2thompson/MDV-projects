@@ -84,19 +84,19 @@ if (term != "" && category != "--Choose type of Deal--"){
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				gtID('couponForm').style.display = "none";
-				gtID('clear').style.display = "inline";
-				gtID('displayLink').style.display = "none";
-				gtID('addNew').style.display = "inline";
-				gtID('submit').style.display = "none";
+				$('#couponForm').css('display','none');
+				$('#clear').css('display' , 'inline');
+				$('#displayLink').css('display' , 'none');
+				$('#addNew').css('display' , 'inline');
+				$('#submit').css('display' , 'none');
 				break;
-			case "off":
-				gtID('couponForm').style.display = "block";
-				gtID('clear').style.display = "inline";
-				gtID('displayLink').style.display = "inline";
-				gtID('addNew').style.display = "none";
-				gtID('items').style.display = "none";
-				gtID('submit').style.display = "block";
+			case 'off':
+				$('#couponForm').css('display' , 'block');
+				$('#clear').css('display' , 'inline');
+				$('#displayLink').css('display' , 'inline');
+				$('#addNew').css('display' , 'none');
+				$('#items').css('display' , 'none');
+				$('#submit').css('display' , 'block');
 
 				break;
 			default:
@@ -141,7 +141,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 		makeList.attr({"data-role" : "listview"});
 		makeDiv.append(makeList);
 		$('body').append(makeDiv);
-		gtID('items').style.display = "block";
+		$('items').css("block");
 		for(var i=0, len=localStorage.length; i<len;i++){
 			var makeLi = $('<li></li>');
 			var linksLi = $('<li></li>');
@@ -149,7 +149,6 @@ if (term != "" && category != "--Choose type of Deal--"){
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
-			console.log (obj)
 			var makeSubList = $('<ul></ul>');
 			makeLi.append(makeSubList);
 			
@@ -193,7 +192,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 		editLink.key = key;
 		var editText = "Edit Deal";
 		editLink.addEventListener("click", editItem);
-		editLink.innerHTML = editText;
+		editLink.html = editText;
 		linksLi.append(editLink);
 		
 		//add line break
@@ -206,7 +205,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 		deleteLink.key = key;
 		var deleteText = "Delete Deal";
 		deleteLink.addEventListener("click", deleteItem);
-		deleteLink.innerHTML = deleteText;
+		deleteLink.html = deleteText;
 		linksLi.append(deleteLink);
 	}
 //********************************************************************************
@@ -271,30 +270,30 @@ if (term != "" && category != "--Choose type of Deal--"){
 		var getUrl		= gtID('url');
 		
 		//reset Error messages
-		errMsg.innerHTML = "";
-		getDealType.style.border	= "1px solid black";
-		getDname.style.border 		= "1px solid black";
-		getUrl.style.border 		= "1px solid black";
+		errMsg.html = "";
+		getDealType.css("1px solid black");
+		getDname.css("1px solid black");
+		getUrl.css("1px solid black");
 		
 		// get error messages
 		var messageAry = [];
 		// type validation
 		if(getDealType.value === "--Choose type of Deal--"){
 			var typeError = "Please choose a deal type.";
-			getDealType.style.border = "1px solid red";
+			getDealType.css("1px solid red");
 			messageAry.push(typeError);
 		}
 		//deal name validation 
 		if(getDname.value === ""){
 			var dNameError = "Please enter a deal name.";
-			getDname.style.border = "1px solid red";
+			getDname.css("1px solid red");
 			messageAry.push(dNameError);
 		}
 		//url validate
         var urlTest = getUrl.value.match(/^(ht|Ht)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/);
 			if(urlTest === null){	
 			var urlError = "Please enter a URL.";
-			getUrl.style.border = "1px solid red";
+			getUrl.css("1px solid red");
 			messageAry.push(urlError);
 			alert ("Please enter a valid URL");
 		
@@ -303,7 +302,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 		if(messageAry.length >= 1){
 			for(var i=0, j=messageAry.length; i < j; i++){
 				var txt = document.createElement('li');
-				txt.innerHTML = messageAry[i];
+				txt.html = messageAry[i];
 				errMsg.appendChild(txt);
 			}
 			e.preventDefault();
