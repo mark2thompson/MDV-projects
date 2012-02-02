@@ -271,29 +271,29 @@ if (term != "" && category != "--Choose type of Deal--"){
 		
 		//reset Error messages
 		errMsg.html = "";
-		getDealType.css("1px solid black");
-		getDname.css("1px solid black");
-		getUrl.css("1px solid black");
+		$(getDealType).css("border","1px solid black");
+		$(getDname).css("border","1px solid black");
+		$(getUrl).css("border","1px solid black");
 		
 		// get error messages
 		var messageAry = [];
 		// type validation
 		if(getDealType.value === "--Choose type of Deal--"){
 			var typeError = "Please choose a deal type.";
-			getDealType.css("1px solid red");
+			$(getDealType).css("border","1px solid red");
 			messageAry.push(typeError);
 		}
 		//deal name validation 
 		if(getDname.value === ""){
 			var dNameError = "Please enter a deal name.";
-			getDname.css("1px solid red");
+			$(getDname).css("border","1px solid red");
 			messageAry.push(dNameError);
 		}
 		//url validate
         var urlTest = getUrl.value.match(/^(ht|Ht)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/);
 			if(urlTest === null){	
 			var urlError = "Please enter a URL.";
-			getUrl.css("1px solid red");
+			$(getUrl).css("border","1px solid red");
 			messageAry.push(urlError);
 			alert ("Please enter a valid URL");
 		
