@@ -156,7 +156,11 @@ if (term != "" && category != "--Choose type of Deal--"){
 				makeSubList.appendChild(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 <<<<<<< HEAD
+<<<<<<< HEAD
 				makeSubLi.innerHTML = optSubText;	
+=======
+				makeSubLi.html = optSubText;	
+>>>>>>> master
 =======
 				makeSubLi.html = optSubText;	
 >>>>>>> master
