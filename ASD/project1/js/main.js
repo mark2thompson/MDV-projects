@@ -211,7 +211,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 		var editSubmit = gtID('submit');
 //save the key value established in this function asa property of the editSubmit
 //event so we can use that value when we save the data we editied .
-		editSubmit.addEventListener("click", validate);
+		$(editSubmit).click(validate);
 		editSubmit.key = this.key;
 	}
 //delete deal function********************************************************************
@@ -272,9 +272,8 @@ if (term != "" && category != "--Choose type of Deal--"){
 //if there are errors.... display them 
 		if(messageAry.length >= 1){
 			for(var i=0, j=messageAry.length; i < j; i++){
-				var txt = document.createElement('li');
-				txt.html = messageAry[i];
-				errMsg.appendChild(txt);
+				var txt = $('<li></li>').html(messageAry[i]);
+				errMsg.append(txt);
 			}
 			e.preventDefault();
 		    return false;
@@ -285,12 +284,12 @@ if (term != "" && category != "--Choose type of Deal--"){
 		}	
 	}
 //Variable defaults	**************************************************************
-	var errMsg = gtID('errors');
+	var errMsg = $('#errors');
 //Set Link & Submit Click Events
 	var displayLink = gtID("displayLink");
-	displayLink.addEventListener("click", getData);
+	$(displayLink).click(getData);
 	var clearLink = gtID("clear");
-	clearLink.addEventListener("click", clearLocal);
+	$(clearLink).click(clearLocal);
 	var save = gtID('submit');
 	save.addEventListener("click", validate);
 //********************************************************************************
