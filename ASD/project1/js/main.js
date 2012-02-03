@@ -1,5 +1,5 @@
 // Author Mark Thompson
-// MIU 1111 Project 1
+// ASD 0212 project1
 // Javascript data functions
 //********************************************************************************
 //Wait until the DOM is ready
