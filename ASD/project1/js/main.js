@@ -291,7 +291,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 	var clearLink = gtID("clear");
 	$(clearLink).click(clearLocal);
 	var save = gtID('submit');
-	save.addEventListener("click", validate);
+	$(save).click(validate);
 //********************************************************************************
 //closing
 });
