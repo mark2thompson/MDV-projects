@@ -5,17 +5,17 @@
 //Wait until the DOM is ready
 $(document).ready(function(){	
 //getElementById Function************************************************************
-	function gtID(x){
+	 function $(x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
 //search***********************************************************************
-/*var search = gtID('search');
+/*var search = $('search');
 search.addEventListener("click", getSearch);
 
 	function getSearch(){
-		var category = gtID('dealType').value;
-		var term = gtID('search').value;
+		var category = $('dealType').value;
+		var term = $('search').value;
 	
 	
 //search by catagory
@@ -66,7 +66,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 */
 //find the value of a selected radio button***************************************
 	function getCheckBoxValue(){
-		if(gtID('favoriteDeal').checked){
+		if($('favoriteDeal').checked){
 			favoriteValue = "Yes";
 		}else{
 			favoriteValue  = "No";
@@ -94,6 +94,14 @@ if (term != "" && category != "--Choose type of Deal--"){
 				return false;
 		}
 	}
+	// assume that the XML above is in a string named "xml"
+var data = $.parseXML(XMLdata);
+// wrap the XML in a jQuery object to make it easier to work with
+var items = $( data );
+items.find("item").each(function(){
+    var item = $(this);
+    console.log("Name: ", item.find("name"));
+});
 //********************************************************************************
 //store the deal	
 	function storeData(key){
@@ -108,13 +116,14 @@ if (term != "" && category != "--Choose type of Deal--"){
 		}
 	getCheckBoxValue();
 		var item 				= {};
-			item.dealType		= ["Type:", $('#dealType').val()];
-			item.dName			= ["Deal Name:", $('#dname').val()];
-			item.url			= ["URL:", $('#url').val()];
-			item.rangeBar		= ["Rating:", $('#rangeBar').val()];
+			item.dealType		= ["Type:", $("#dealType").val()];
+			console.log(item.dealType);
+			item.dName			= ["Deal Name:", $("#dname").val()];
+			item.url			= ["URL:", $(url).val()];
+			item.rangeBar		= ["Rating:", $(rangeBar).val()];
 			item.favoriteDeal	= ["Fav deal:", favoriteValue];
-			item.exDate			= ["Exp Date:", $('#exDate').val()];
-			item.notes			= ["Notes:", $('#notes').val()];
+			item.exDate			= ["Exp Date:", $(exDate).val()];
+			item.notes			= ["Notes:", $(notes).val()];
 		localStorage.setItem(id, JSON.stringify(item));		
 		alert("Deal Saved");		
 	}
@@ -195,20 +204,20 @@ if (term != "" && category != "--Choose type of Deal--"){
 //show the form
 		toggleControls("off");
 //populate form fields with local storage values******************************************************
-		gtID('dealType').value = item.dealType[1];
-		gtID('dname').value = item.dName[1];
-		gtID('url').value = item.url[1];
-		gtID('rangeBar').value = item.rangeBar[1];
-		gtID('exDate').value = item.exDate[1];
-		gtID('notes').value = item.notes[1];
+		$(dealType).value = item.dealType[1];
+		$(name).value = item.dName[1];
+		$(url).value = item.url[1];
+		$(rangeBar).value = item.rangeBar[1];
+		$(exDate).value = item.exDate[1];
+		$(notes).value = item.notes[1];
 		if(item.favoriteDeal[1] === "Yes"){
-			gtID('favoriteDeal').setAttribute("checked", "checked");
+			$('favoriteDeal').setAttribute("checked", "checked");
 		}
 //remove the initial listener from the input save contact button. *********************************************
 		save.removeEventListener("click", storeData);
 //change the submit button value to edit button
-		gtID('submit').value = "Edit Deal";
-		var editSubmit = gtID('submit');
+		$('submit').value = "Edit Deal";
+		var editSubmit = $('submit');
 //save the key value established in this function asa property of the editSubmit
 //event so we can use that value when we save the data we editied .
 		$(editSubmit).click(validate);
@@ -239,36 +248,44 @@ if (term != "" && category != "--Choose type of Deal--"){
 //this is all part of the validate functions. **************************************************
 	function validate(e){
 //define the elements we want to check
-		var getDealType = gtID('dealType');
-		var getDname 	= gtID('dname');
-		var getUrl		= gtID('url');	
+		var getDealType = $('#dealType');
+		var getDname 	= $('#dname');
+		var getUrl		= $('#url');	
 //reset Error messages
 		errMsg.html = "";
-		$(getDealType).css("border","1px solid black");
-		$(getDname).css("border","1px solid black");
-		$(getUrl).css("border","1px solid black");
+		$("#getDealType").css("border","1px solid black");
+		$("#getDname").css("border","1px solid black");
+		$("#getUrl").css("border","1px solid black");
 // get error messages
 		var messageAry = [];
 // type validation
 		if(getDealType.value === "--Choose type of Deal--"){
 			var typeError = "Please choose a deal type.";
-			$(getDealType).css("border","1px solid red");
+			$("#getDealType").css("border","1px solid red");
 			messageAry.push(typeError);
 		}
 //deal name validation 
 		if(getDname.value === ""){
 			var dNameError = "Please enter a deal name.";
-			$(getDname).css("border","1px solid red");
+			$("#getDname").css("border","1px solid red");
 			messageAry.push(dNameError);
 		}
 //url validate
-        var urlTest = getUrl.value.match(/^(ht|Ht)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/);
+/*     var urlTest = getUrl.value.match(/^(ht|Ht)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/);
 			if(urlTest === null){	
 			var urlError = "Please enter a URL.";
-			$(getUrl).css("border","1px solid red");
+			$("#getUrl").css("border","1px solid red");
 			messageAry.push(urlError);
 			alert ("Please enter a valid URL");		
-		}
+		}*/
+		$("#url").validate({
+  rules: {
+    field: {
+      required: true,
+      url: true
+    }
+  }
+});
 //if there are errors.... display them 
 		if(messageAry.length >= 1){
 			for(var i=0, j=messageAry.length; i < j; i++){
@@ -278,7 +295,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 			e.preventDefault();
 		    return false;
 		}else{
-//if everything is fine save the data... send the key value
+//if everything is fine save the data... send the value
 //remember the key value
 			storeData(this.key);
 		}	
@@ -286,11 +303,11 @@ if (term != "" && category != "--Choose type of Deal--"){
 //Variable defaults	**************************************************************
 	var errMsg = $('#errors');
 //Set Link & Submit Click Events
-	var displayLink = gtID("displayLink");
+	var displayLink = $("#displayLink");
 	$(displayLink).click(getData);
-	var clearLink = gtID("clear");
+	var clearLink = $("#clear");
 	$(clearLink).click(clearLocal);
-	var save = gtID('submit');
+	var save = $('#submit');
 	$(save).click(validate);
 //********************************************************************************
 //closing
