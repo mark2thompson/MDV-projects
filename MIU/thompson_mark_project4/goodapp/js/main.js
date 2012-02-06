@@ -156,9 +156,12 @@ if (term != "" && category != "--Choose type of Deal--"){
 				makeSubList.appendChild(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 <<<<<<< HEAD
+<<<<<<< HEAD
 				makeSubLi.html = optSubText;	
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> gh-pages
 <<<<<<< HEAD
 <<<<<<< HEAD
 				makeSubLi.innerHTML = optSubText;	
@@ -171,6 +174,9 @@ if (term != "" && category != "--Choose type of Deal--"){
 =======
 				makeSubLi.html = optSubText;	
 >>>>>>> master
+<<<<<<< HEAD
+>>>>>>> gh-pages
+=======
 >>>>>>> gh-pages
 				makeSubList.appendChild(linksLi);
 			}
