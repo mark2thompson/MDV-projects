@@ -5,30 +5,17 @@
 //Wait until the DOM is ready
 $(document).ready(function(){	
 //getElementById Function************************************************************
-<<<<<<< HEAD
 	function gtID(x){
-=======
-	 function $(x){
->>>>>>> gh-pages
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
 //search***********************************************************************
-<<<<<<< HEAD
 /*var search = gtID('search');
 search.addEventListener("click", getSearch);
 
 	function getSearch(){
 		var category = gtID('dealType').value;
 		var term = gtID('search').value;
-=======
-/*var search = $('search');
-search.addEventListener("click", getSearch);
-
-	function getSearch(){
-		var category = $('dealType').value;
-		var term = $('search').value;
->>>>>>> gh-pages
 	
 	
 //search by catagory
@@ -79,11 +66,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 */
 //find the value of a selected radio button***************************************
 	function getCheckBoxValue(){
-<<<<<<< HEAD
 		if(gtID('favoriteDeal').checked){
-=======
-		if($('favoriteDeal').checked){
->>>>>>> gh-pages
 			favoriteValue = "Yes";
 		}else{
 			favoriteValue  = "No";
@@ -111,17 +94,6 @@ if (term != "" && category != "--Choose type of Deal--"){
 				return false;
 		}
 	}
-<<<<<<< HEAD
-=======
-	// assume that the XML above is in a string named "xml"
-var data = $.parseXML(XMLdata);
-// wrap the XML in a jQuery object to make it easier to work with
-var items = $( data );
-items.find("item").each(function(){
-    var item = $(this);
-    console.log("Name: ", item.find("name"));
-});
->>>>>>> gh-pages
 //********************************************************************************
 //store the deal	
 	function storeData(key){
@@ -136,7 +108,6 @@ items.find("item").each(function(){
 		}
 	getCheckBoxValue();
 		var item 				= {};
-<<<<<<< HEAD
 			item.dealType		= ["Type:", $('#dealType').val()];
 			item.dName			= ["Deal Name:", $('#dname').val()];
 			item.url			= ["URL:", $('#url').val()];
@@ -144,16 +115,6 @@ items.find("item").each(function(){
 			item.favoriteDeal	= ["Fav deal:", favoriteValue];
 			item.exDate			= ["Exp Date:", $('#exDate').val()];
 			item.notes			= ["Notes:", $('#notes').val()];
-=======
-			item.dealType		= ["Type:", $("#dealType").val()];
-			console.log(item.dealType);
-			item.dName			= ["Deal Name:", $("#dname").val()];
-			item.url			= ["URL:", $(url).val()];
-			item.rangeBar		= ["Rating:", $(rangeBar).val()];
-			item.favoriteDeal	= ["Fav deal:", favoriteValue];
-			item.exDate			= ["Exp Date:", $(exDate).val()];
-			item.notes			= ["Notes:", $(notes).val()];
->>>>>>> gh-pages
 		localStorage.setItem(id, JSON.stringify(item));		
 		alert("Deal Saved");		
 	}
@@ -234,7 +195,6 @@ items.find("item").each(function(){
 //show the form
 		toggleControls("off");
 //populate form fields with local storage values******************************************************
-<<<<<<< HEAD
 		gtID('dealType').value = item.dealType[1];
 		gtID('dname').value = item.dName[1];
 		gtID('url').value = item.url[1];
@@ -243,27 +203,12 @@ items.find("item").each(function(){
 		gtID('notes').value = item.notes[1];
 		if(item.favoriteDeal[1] === "Yes"){
 			gtID('favoriteDeal').setAttribute("checked", "checked");
-=======
-		$(dealType).value = item.dealType[1];
-		$(name).value = item.dName[1];
-		$(url).value = item.url[1];
-		$(rangeBar).value = item.rangeBar[1];
-		$(exDate).value = item.exDate[1];
-		$(notes).value = item.notes[1];
-		if(item.favoriteDeal[1] === "Yes"){
-			$('favoriteDeal').setAttribute("checked", "checked");
->>>>>>> gh-pages
 		}
 //remove the initial listener from the input save contact button. *********************************************
 		save.removeEventListener("click", storeData);
 //change the submit button value to edit button
-<<<<<<< HEAD
 		gtID('submit').value = "Edit Deal";
 		var editSubmit = gtID('submit');
-=======
-		$('submit').value = "Edit Deal";
-		var editSubmit = $('submit');
->>>>>>> gh-pages
 //save the key value established in this function asa property of the editSubmit
 //event so we can use that value when we save the data we editied .
 		$(editSubmit).click(validate);
@@ -294,7 +239,6 @@ items.find("item").each(function(){
 //this is all part of the validate functions. **************************************************
 	function validate(e){
 //define the elements we want to check
-<<<<<<< HEAD
 		var getDealType = gtID('dealType');
 		var getDname 	= gtID('dname');
 		var getUrl		= gtID('url');	
@@ -303,32 +247,17 @@ items.find("item").each(function(){
 		$(getDealType).css("border","1px solid black");
 		$(getDname).css("border","1px solid black");
 		$(getUrl).css("border","1px solid black");
-=======
-		var getDealType = $('#dealType');
-		var getDname 	= $('#dname');
-		var getUrl		= $('#url');	
-//reset Error messages
-		errMsg.html = "";
-		$("#getDealType").css("border","1px solid black");
-		$("#getDname").css("border","1px solid black");
-		$("#getUrl").css("border","1px solid black");
->>>>>>> gh-pages
 // get error messages
 		var messageAry = [];
 // type validation
 		if(getDealType.value === "--Choose type of Deal--"){
 			var typeError = "Please choose a deal type.";
-<<<<<<< HEAD
 			$(getDealType).css("border","1px solid red");
-=======
-			$("#getDealType").css("border","1px solid red");
->>>>>>> gh-pages
 			messageAry.push(typeError);
 		}
 //deal name validation 
 		if(getDname.value === ""){
 			var dNameError = "Please enter a deal name.";
-<<<<<<< HEAD
 			$(getDname).css("border","1px solid red");
 			messageAry.push(dNameError);
 		}
@@ -340,27 +269,6 @@ items.find("item").each(function(){
 			messageAry.push(urlError);
 			alert ("Please enter a valid URL");		
 		}
-=======
-			$("#getDname").css("border","1px solid red");
-			messageAry.push(dNameError);
-		}
-//url validate
-/*     var urlTest = getUrl.value.match(/^(ht|Ht)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/);
-			if(urlTest === null){	
-			var urlError = "Please enter a URL.";
-			$("#getUrl").css("border","1px solid red");
-			messageAry.push(urlError);
-			alert ("Please enter a valid URL");		
-		}*/
-		$("#url").validate({
-  rules: {
-    field: {
-      required: true,
-      url: true
-    }
-  }
-});
->>>>>>> gh-pages
 //if there are errors.... display them 
 		if(messageAry.length >= 1){
 			for(var i=0, j=messageAry.length; i < j; i++){
@@ -370,11 +278,7 @@ items.find("item").each(function(){
 			e.preventDefault();
 		    return false;
 		}else{
-<<<<<<< HEAD
 //if everything is fine save the data... send the key value
-=======
-//if everything is fine save the data... send the value
->>>>>>> gh-pages
 //remember the key value
 			storeData(this.key);
 		}	
@@ -382,19 +286,11 @@ items.find("item").each(function(){
 //Variable defaults	**************************************************************
 	var errMsg = $('#errors');
 //Set Link & Submit Click Events
-<<<<<<< HEAD
 	var displayLink = gtID("displayLink");
 	$(displayLink).click(getData);
 	var clearLink = gtID("clear");
 	$(clearLink).click(clearLocal);
 	var save = gtID('submit');
-=======
-	var displayLink = $("#displayLink");
-	$(displayLink).click(getData);
-	var clearLink = $("#clear");
-	$(clearLink).click(clearLocal);
-	var save = $('#submit');
->>>>>>> gh-pages
 	$(save).click(validate);
 //********************************************************************************
 //closing
