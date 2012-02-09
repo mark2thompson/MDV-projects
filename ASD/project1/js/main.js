@@ -151,12 +151,17 @@ $.ajax({
 });
 	}
 	var getXML = function(){
-		toggleControls("on");
 		$.ajax({
     		url      : "XMLdata.xml",
     		type     : "GET",
     		dataType : "xml",
     		success  : function(xml){
+    		toggleControls("on");
+    		var makeXmlDiv = $("<div></div>");
+            		makeXmlDiv.attr({
+            		"data-role":"page",
+					"id": "XMLitems"
+					});
   			$(xml).find("item").each(function(){
                 var xmlItem = {};
                     xmlItem.dealtype = ["Type:",$(this).find("dealType").text()];
@@ -166,25 +171,31 @@ $.ajax({
                     xmlItem.favoriteDeal = ["Fav deal:",$(this).find("favoriteDeal").text()];
                     xmlItem.exDate = ["Exp Date:",$(this).find("exDate").text()];
                     xmlItem.notes = ["Notes:",$(this).find("notes").text()];					
-            })           
-  			}
-		});
-		var makeXmlDiv = $("<div></div>");
-            		makeXmlDiv.attr({
-						"id": "XMLitems",
-						"data-role":"page"});
-					var makeXmlList = $("<ul></ul>");
+            	var makeXmlList = $("<ul></ul>");
 					makeXmlDiv.append(makeXmlList);
 					$('body').append(makeXmlDiv);
 					$('XMLitems').css("block");
-					var makeLi = $('<li></li>');
-					makeXmlList.append(makeLi);
-					for(var n in obj){
-						var obj = xmlItem.dealType[1] + xmlItem.dName[1];
-						console.log(obj);
+						var makeLi = $('<li></li>');
+						var linksLi = $('<li></li>');
+						makeXmlList.append(makeLi);
+						var obj = xmlItem
+						var makeSubList = $("<ul></ul>");
+						makeSubList.attr({"data-role" : "listview"});
+						makeLi.append(makeSubList);
+							for(var n in obj){
+								console.log(optSubText);
+							var makeSubLi = $('<li></li>');
+							makeSubList.append(makeSubLi);
 						var optSubText = obj[n][0]+" "+obj[n][1];
-						makeLi.html(optSubText);	
-					}			
+						makeSubLi.html(optSubText);
+						makeSubList.append(linksLi);	
+					}
+            })
+           
+					
+  			}
+		});
+			
 	}
 	var getData = function(){
 		toggleControls("on");
