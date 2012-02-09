@@ -81,6 +81,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 				$('#displayLink').css('display' , 'none');
 				$('#addNew').css('display' , 'inline');
 				$('#submit').css('display' , 'none');
+				$('#jsonButton').css('display', 'inline');
 				break;
 			case 'off':
 				$('#couponForm').css('display' , 'block');
@@ -89,6 +90,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 				$('#addNew').css('display' , 'none');
 				$('#items').css('display' , 'none');
 				$('#submit').css('display' , 'block');
+				$('#jsonButton').css('display' , 'inline');
 				break;
 			default:
 				return false;
@@ -109,27 +111,56 @@ if (term != "" && category != "--Choose type of Deal--"){
 	getCheckBoxValue();
 		var item 				= {};
 			item.dealType		= ["Type:", $('#dealType').val()];
-			item.dName			= ["Deal Name:", $('#dname').val()];
+			item.dName			= ["Deal Name:", $('#dName').val()];
 			item.url			= ["URL:", $('#url').val()];
 			item.rangeBar		= ["Rating:", $('#rangeBar').val()];
 			item.favoriteDeal	= ["Fav deal:", favoriteValue];
 			item.exDate			= ["Exp Date:", $('#exDate').val()];
 			item.notes			= ["Notes:", $('#notes').val()];
 		localStorage.setItem(id, JSON.stringify(item));		
-		alert("Deal Saved");		
+		alert("Deal Saved");
+		window.location.reload(true);
 	}
 //********************************************************************************
-//get the data
-	function getData(){
+/*get the data
+	$.ajax({
+    url      : "XMLdata.xml",
+    type     : "GET",
+    dataType : "xml",
+    success  : function(data, status) {
+        console.log(status, data);
+    }
+});
+$.ajax({
+    url      : "data.csv",
+    type     : "GET",
+    dataType : "csv",
+    success  : function(data, status) {
+        console.log(status, data);
+    }
+});
+*/
+	var getXML = function(){
+		$.ajax({
+    		url      : "XMLdata.xml",
+    		type     : "GET",
+    		dataType : "xml",
+    		success  : function(data, status) {
+        	console.log(status, data);
+    }
+});
+	
+	}
+	var getData = function(){
 		toggleControls("on");
 		if(localStorage.length === 0){
 			autoFillData(defaultsJson);
-			alert("There is no deals in Local Storage so default deals were added.");
 		}
 		var makeDiv = $("<div></div>");
-		makeDiv.attr({"id": "items"});
+		makeDiv.attr({
+		"id": "items",
+		"data-role":"page"});
 		var makeList = $("<ul></ul>");
-		makeList.attr({"data-role" : "listview"});
 		makeDiv.append(makeList);
 		$('body').append(makeDiv);
 		$('items').css("block");
@@ -139,23 +170,24 @@ if (term != "" && category != "--Choose type of Deal--"){
 			makeList.append(makeLi);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+			var obj = jQuery.parseJSON(value);
 			var makeSubList = $('<ul></ul>');
+			makeSubList.attr({"data-role" : "listview"});
 			makeLi.append(makeSubList);
 			getImage(obj.dealType[1], makeSubList);
 			for(var n in obj){
-				var obj = JSON.parse(value);
+				var obj = jQuery.parseJSON(value);
 				var makeSubLi = $('<li></li>');
 				makeSubList.append(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubLi.html (optSubText);	
+				makeSubLi.html(optSubText);	
 				makeSubList.append(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi); // creats edit and delete buttons for local storage. 
 		}
 	}
 // get the images for the catagory
-	function getImage(typeName, makeSubList){
+	var getImage = function(typeName, makeSubList){
 		var imageLi = $('<li></li>');
 		makeSubList.append(imageLi);
 		var newImg = $('<img></img>');
@@ -178,7 +210,6 @@ if (term != "" && category != "--Choose type of Deal--"){
 		editLink.key = key;
 		$(editLink).click(editItem);
 		linksLi.append(editLink);
-//add line break
 		var breakTag =  $('<br>');
 		linksLi.append(breakTag);
 //add delete single item link	
@@ -191,12 +222,13 @@ if (term != "" && category != "--Choose type of Deal--"){
 	function editItem(){
 // Grab the data from local storage
 		var value = localStorage.getItem(this.key);
-		var item = JSON.parse(value);
+		var item = jQuery.parseJSON(value);
 //show the form
 		toggleControls("off");
 //populate form fields with local storage values******************************************************
+		console.log(dealType[1]);
 		gtID('dealType').value = item.dealType[1];
-		gtID('dname').value = item.dName[1];
+		gtID('dName').value = item.dName[1];
 		gtID('url').value = item.url[1];
 		gtID('rangeBar').value = item.rangeBar[1];
 		gtID('exDate').value = item.exDate[1];
@@ -240,12 +272,12 @@ if (term != "" && category != "--Choose type of Deal--"){
 	function validate(e){
 //define the elements we want to check
 		var getDealType = gtID('dealType');
-		var getDname 	= gtID('dname');
+		var getdName 	= gtID('dname');
 		var getUrl		= gtID('url');	
 //reset Error messages
 		errMsg.html = "";
 		$(getDealType).css("border","1px solid black");
-		$(getDname).css("border","1px solid black");
+		$(getdName).css("border","1px solid black");
 		$(getUrl).css("border","1px solid black");
 // get error messages
 		var messageAry = [];
@@ -256,9 +288,9 @@ if (term != "" && category != "--Choose type of Deal--"){
 			messageAry.push(typeError);
 		}
 //deal name validation 
-		if(getDname.value === ""){
+		if(getdName.value === ""){
 			var dNameError = "Please enter a deal name.";
-			$(getDname).css("border","1px solid red");
+			$(getdName).css("border","1px solid red");
 			messageAry.push(dNameError);
 		}
 //url validate
@@ -286,6 +318,10 @@ if (term != "" && category != "--Choose type of Deal--"){
 //Variable defaults	**************************************************************
 	var errMsg = $('#errors');
 //Set Link & Submit Click Events
+	var xmlButton = gtID("xmlButton")
+	$(xmlButton).click(getXML);
+	var jsonButton = gtID("jsonButton")
+	$(jsonButton).click(getData);
 	var displayLink = gtID("displayLink");
 	$(displayLink).click(getData);
 	var clearLink = gtID("clear");
