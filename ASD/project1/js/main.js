@@ -140,22 +140,58 @@ $.ajax({
     }
 });
 */
-	var getXML = function(){
+	var getCSV = function(){
 		$.ajax({
-    		url      : "XMLdata.xml",
-    		type     : "GET",
-    		dataType : "xml",
+    		url      : "data.csv",
+   		 	type     : "GET",
+    		dataType : "html",
     		success  : function(data, status) {
         	console.log(status, data);
     }
 });
-	
+	}
+	var getXML = function(){
+		toggleControls("on");
+		$.ajax({
+    		url      : "XMLdata.xml",
+    		type     : "GET",
+    		dataType : "xml",
+    		success  : function(xml){
+  			$(xml).find("item").each(function(){
+                var xmlItem = {};
+                    xmlItem.dealtype = ["Type:",$(this).find("dealType").text()];
+                    xmlItem.dName = ["Deal Name:",$(this).find("dName").text()];
+                    xmlItem.url = ["URL:",$(this).find("url").text()];
+                    xmlItem.rangeBar = ["Rating:",$(this).find("rangeBar").text()];
+                    xmlItem.favoriteDeal = ["Fav deal:",$(this).find("favoriteDeal").text()];
+                    xmlItem.exDate = ["Exp Date:",$(this).find("exDate").text()];
+                    xmlItem.notes = ["Notes:",$(this).find("notes").text()];					
+            })           
+  			}
+		});
+		var makeXmlDiv = $("<div></div>");
+            		makeXmlDiv.attr({
+						"id": "XMLitems",
+						"data-role":"page"});
+					var makeXmlList = $("<ul></ul>");
+					makeXmlDiv.append(makeXmlList);
+					$('body').append(makeXmlDiv);
+					$('XMLitems').css("block");
+					var makeLi = $('<li></li>');
+					makeXmlList.append(makeLi);
+					for(var n in obj){
+						var obj = xmlItem.dealType[1] + xmlItem.dName[1];
+						console.log(obj);
+						var optSubText = obj[n][0]+" "+obj[n][1];
+						makeLi.html(optSubText);	
+					}			
 	}
 	var getData = function(){
 		toggleControls("on");
 		if(localStorage.length === 0){
 			autoFillData(defaultsJson);
 		}
+		
 		var makeDiv = $("<div></div>");
 		makeDiv.attr({
 		"id": "items",
@@ -318,6 +354,8 @@ $.ajax({
 //Variable defaults	**************************************************************
 	var errMsg = $('#errors');
 //Set Link & Submit Click Events
+	var csvButton = gtID("csvButton")
+	$(csvButton).click(getCSV);
 	var xmlButton = gtID("xmlButton")
 	$(xmlButton).click(getXML);
 	var jsonButton = gtID("jsonButton")
