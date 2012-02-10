@@ -1,5 +1,5 @@
 // Author Mark Thompson
-// ASD 0212 project1
+// ASD 0212 project2
 // Javascript data functions
 //********************************************************************************
 //Wait until the DOM is ready
@@ -81,7 +81,6 @@ if (term != "" && category != "--Choose type of Deal--"){
 				$('#displayLink').css('display' , 'none');
 				$('#addNew').css('display' , 'inline');
 				$('#submit').css('display' , 'none');
-				$('#jsonButton').css('display', 'inline');
 				break;
 			case 'off':
 				$('#couponForm').css('display' , 'block');
@@ -90,7 +89,6 @@ if (term != "" && category != "--Choose type of Deal--"){
 				$('#addNew').css('display' , 'none');
 				$('#items').css('display' , 'none');
 				$('#submit').css('display' , 'block');
-				$('#jsonButton').css('display' , 'inline');
 				break;
 			default:
 				return false;
@@ -122,37 +120,52 @@ if (term != "" && category != "--Choose type of Deal--"){
 		window.location.reload(true);
 	}
 //********************************************************************************
-/*get the data
-	$.ajax({
-    url      : "XMLdata.xml",
-    type     : "GET",
-    dataType : "xml",
-    success  : function(data, status) {
-        console.log(status, data);
-    }
-});
-$.ajax({
-    url      : "data.csv",
-    type     : "GET",
-    dataType : "csv",
-    success  : function(data, status) {
-        console.log(status, data);
-    }
-});
-*/
 	var getCSV = function(){
 		$.ajax({
-    		url      : "data.csv",
+    		url      : "XHR/data.csv",
    		 	type     : "GET",
     		dataType : "html",
-    		success  : function(data, status) {
-        	console.log(status, data);
+    		success  : function(csv) {
+    		toggleControls("on");
+    		var makeCSVDiv = $("<div></div>");
+            		makeCSVDiv.attr({
+            		"data-role":"page",
+					"id": "CSVitems"
+					});
+			var col = csv.split("\n");	
+			for (var i=1; i < col.length; i++ ){
+				var cols = col[i];
+				var text = cols.split(",");
+				console.log(col[i]);
+				var makeCSVList = $("<ul></ul>");
+					makeCSVDiv.append(makeCSVList);
+					$('body').append(makeCSVDiv);
+					$('CSVitems').css("block");
+						var makeLi = $('<li></li>');
+						var linksLi = $('<li></li>');
+						makeCSVList.append(makeLi);
+						var obj = text
+						var makeSubList = $("<ul></ul>");
+						makeSubList.attr({"data-role" : "listview"});
+						makeLi.append(makeSubList);
+						var makeSubLi = $('<li>'+text[0]+'</li>'+
+										  '<li>'+text[1]+'</li>'+
+										  '<li>'+text[2]+'</li>'+
+										  '<li>'+text[3]+'</li>'+
+										  '<li>'+text[4]+'</li>'+
+										  '<li>'+text[5]+'</li>'+
+										  '<li>'+text[6]+'</li>');
+						makeSubList.append(makeSubLi);
+						makeSubList.append(linksLi);	
+					
+				
+			}
     }
 });
 	}
 	var getXML = function(){
 		$.ajax({
-    		url      : "XMLdata.xml",
+    		url      : "XHR/XMLdata.xml",
     		type     : "GET",
     		dataType : "xml",
     		success  : function(xml){
@@ -183,19 +196,15 @@ $.ajax({
 						makeSubList.attr({"data-role" : "listview"});
 						makeLi.append(makeSubList);
 							for(var n in obj){
-								console.log(optSubText);
 							var makeSubLi = $('<li></li>');
 							makeSubList.append(makeSubLi);
 						var optSubText = obj[n][0]+" "+obj[n][1];
 						makeSubLi.html(optSubText);
 						makeSubList.append(linksLi);	
 					}
-            })
-           
-					
+            })			
   			}
-		});
-			
+		});		
 	}
 	var getData = function(){
 		toggleControls("on");
