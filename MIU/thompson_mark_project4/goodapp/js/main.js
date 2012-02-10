@@ -158,6 +158,15 @@ if (term != "" && category != "--Choose type of Deal--"){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+				makeSubLi.html = optSubText;	
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> gh-pages
+<<<<<<< HEAD
+>>>>>>> master
+<<<<<<< HEAD
 				makeSubLi.innerHTML = optSubText;	
 =======
 				makeSubLi.html = optSubText;	
@@ -167,6 +176,13 @@ if (term != "" && category != "--Choose type of Deal--"){
 >>>>>>> master
 =======
 				makeSubLi.html = optSubText;	
+>>>>>>> master
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> gh-pages
+=======
+>>>>>>> gh-pages
 >>>>>>> master
 				makeSubList.appendChild(linksLi);
 			}

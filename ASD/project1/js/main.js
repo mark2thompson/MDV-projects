@@ -1,21 +1,21 @@
 // Author Mark Thompson
-// ASD 0212 project1
+// ASD 0212 project2
 // Javascript data functions
 //********************************************************************************
 //Wait until the DOM is ready
 $(document).ready(function(){	
 //getElementById Function************************************************************
-	 function $(x){
+	function gtID(x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
 //search***********************************************************************
-/*var search = $('search');
+/*var search = gtID('search');
 search.addEventListener("click", getSearch);
 
 	function getSearch(){
-		var category = $('dealType').value;
-		var term = $('search').value;
+		var category = gtID('dealType').value;
+		var term = gtID('search').value;
 	
 	
 //search by catagory
@@ -66,7 +66,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 */
 //find the value of a selected radio button***************************************
 	function getCheckBoxValue(){
-		if($('favoriteDeal').checked){
+		if(gtID('favoriteDeal').checked){
 			favoriteValue = "Yes";
 		}else{
 			favoriteValue  = "No";
@@ -94,14 +94,6 @@ if (term != "" && category != "--Choose type of Deal--"){
 				return false;
 		}
 	}
-	// assume that the XML above is in a string named "xml"
-var data = $.parseXML(XMLdata);
-// wrap the XML in a jQuery object to make it easier to work with
-var items = $( data );
-items.find("item").each(function(){
-    var item = $(this);
-    console.log("Name: ", item.find("name"));
-});
 //********************************************************************************
 //store the deal	
 	function storeData(key){
@@ -116,29 +108,115 @@ items.find("item").each(function(){
 		}
 	getCheckBoxValue();
 		var item 				= {};
-			item.dealType		= ["Type:", $("#dealType").val()];
-			console.log(item.dealType);
-			item.dName			= ["Deal Name:", $("#dname").val()];
-			item.url			= ["URL:", $(url).val()];
-			item.rangeBar		= ["Rating:", $(rangeBar).val()];
+			item.dealType		= ["Type:", $('#dealType').val()];
+			item.dName			= ["Deal Name:", $('#dName').val()];
+			item.url			= ["URL:", $('#url').val()];
+			item.rangeBar		= ["Rating:", $('#rangeBar').val()];
 			item.favoriteDeal	= ["Fav deal:", favoriteValue];
-			item.exDate			= ["Exp Date:", $(exDate).val()];
-			item.notes			= ["Notes:", $(notes).val()];
+			item.exDate			= ["Exp Date:", $('#exDate').val()];
+			item.notes			= ["Notes:", $('#notes').val()];
 		localStorage.setItem(id, JSON.stringify(item));		
-		alert("Deal Saved");		
+		alert("Deal Saved");
+		window.location.reload(true);
 	}
 //********************************************************************************
-//get the data
-	function getData(){
+	var getCSV = function(){
+		$.ajax({
+    		url      : "XHR/data.csv",
+   		 	type     : "GET",
+    		dataType : "html",
+    		success  : function(csv) {
+    		toggleControls("on");
+    		var makeCSVDiv = $("<div></div>");
+            		makeCSVDiv.attr({
+            		"data-role":"page",
+					"id": "CSVitems"
+					});
+			var col = csv.split("\n");	
+			for (var i=1; i < col.length; i++ ){
+				var cols = col[i];
+				var text = cols.split(",");
+				console.log(col[i]);
+				var makeCSVList = $("<ul></ul>");
+					makeCSVDiv.append(makeCSVList);
+					$('body').append(makeCSVDiv);
+					$('CSVitems').css("block");
+						var makeLi = $('<li></li>');
+						var linksLi = $('<li></li>');
+						makeCSVList.append(makeLi);
+						var obj = text
+						var makeSubList = $("<ul></ul>");
+						makeSubList.attr({"data-role" : "listview"});
+						makeLi.append(makeSubList);
+						var makeSubLi = $('<li>'+text[0]+'</li>'+
+										  '<li>'+text[1]+'</li>'+
+										  '<li>'+text[2]+'</li>'+
+										  '<li>'+text[3]+'</li>'+
+										  '<li>'+text[4]+'</li>'+
+										  '<li>'+text[5]+'</li>'+
+										  '<li>'+text[6]+'</li>');
+						makeSubList.append(makeSubLi);
+						makeSubList.append(linksLi);	
+					
+				
+			}
+    }
+});
+	}
+	var getXML = function(){
+		$.ajax({
+    		url      : "XHR/XMLdata.xml",
+    		type     : "GET",
+    		dataType : "xml",
+    		success  : function(xml){
+    		toggleControls("on");
+    		var makeXmlDiv = $("<div></div>");
+            		makeXmlDiv.attr({
+            		"data-role":"page",
+					"id": "XMLitems"
+					});
+  			$(xml).find("item").each(function(){
+                var xmlItem = {};
+                    xmlItem.dealtype = ["Type:",$(this).find("dealType").text()];
+                    xmlItem.dName = ["Deal Name:",$(this).find("dName").text()];
+                    xmlItem.url = ["URL:",$(this).find("url").text()];
+                    xmlItem.rangeBar = ["Rating:",$(this).find("rangeBar").text()];
+                    xmlItem.favoriteDeal = ["Fav deal:",$(this).find("favoriteDeal").text()];
+                    xmlItem.exDate = ["Exp Date:",$(this).find("exDate").text()];
+                    xmlItem.notes = ["Notes:",$(this).find("notes").text()];					
+            	var makeXmlList = $("<ul></ul>");
+					makeXmlDiv.append(makeXmlList);
+					$('body').append(makeXmlDiv);
+					$('XMLitems').css("block");
+						var makeLi = $('<li></li>');
+						var linksLi = $('<li></li>');
+						makeXmlList.append(makeLi);
+						var obj = xmlItem
+						var makeSubList = $("<ul></ul>");
+						makeSubList.attr({"data-role" : "listview"});
+						makeLi.append(makeSubList);
+							for(var n in obj){
+							var makeSubLi = $('<li></li>');
+							makeSubList.append(makeSubLi);
+						var optSubText = obj[n][0]+" "+obj[n][1];
+						makeSubLi.html(optSubText);
+						makeSubList.append(linksLi);	
+					}
+            })			
+  			}
+		});		
+	}
+	var getData = function(){
 		toggleControls("on");
 		if(localStorage.length === 0){
 			autoFillData(defaultsJson);
-			alert("There is no deals in Local Storage so default deals were added.");
 		}
+		
 		var makeDiv = $("<div></div>");
-		makeDiv.attr({"id": "items"});
+		makeDiv.attr({
+		"id": "items",
+		"data-role":"page"});
 		var makeList = $("<ul></ul>");
-		makeList.attr({"data-role" : "listview"});
 		makeDiv.append(makeList);
 		$('body').append(makeDiv);
 		$('items').css("block");
@@ -148,23 +226,24 @@ items.find("item").each(function(){
 			makeList.append(makeLi);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
-			var obj = JSON.parse(value);
+			var obj = jQuery.parseJSON(value);
 			var makeSubList = $('<ul></ul>');
+			makeSubList.attr({"data-role" : "listview"});
 			makeLi.append(makeSubList);
 			getImage(obj.dealType[1], makeSubList);
 			for(var n in obj){
-				var obj = JSON.parse(value);
+				var obj = jQuery.parseJSON(value);
 				var makeSubLi = $('<li></li>');
 				makeSubList.append(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubLi.html (optSubText);	
+				makeSubLi.html(optSubText);	
 				makeSubList.append(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi); // creats edit and delete buttons for local storage. 
 		}
 	}
 // get the images for the catagory
-	function getImage(typeName, makeSubList){
+	var getImage = function(typeName, makeSubList){
 		var imageLi = $('<li></li>');
 		makeSubList.append(imageLi);
 		var newImg = $('<img></img>');
@@ -187,7 +266,6 @@ items.find("item").each(function(){
 		editLink.key = key;
 		$(editLink).click(editItem);
 		linksLi.append(editLink);
-//add line break
 		var breakTag =  $('<br>');
 		linksLi.append(breakTag);
 //add delete single item link	
@@ -200,24 +278,25 @@ items.find("item").each(function(){
 	function editItem(){
 // Grab the data from local storage
 		var value = localStorage.getItem(this.key);
-		var item = JSON.parse(value);
+		var item = jQuery.parseJSON(value);
 //show the form
 		toggleControls("off");
 //populate form fields with local storage values******************************************************
-		$(dealType).value = item.dealType[1];
-		$(name).value = item.dName[1];
-		$(url).value = item.url[1];
-		$(rangeBar).value = item.rangeBar[1];
-		$(exDate).value = item.exDate[1];
-		$(notes).value = item.notes[1];
+		console.log(dealType[1]);
+		gtID('dealType').value = item.dealType[1];
+		gtID('dName').value = item.dName[1];
+		gtID('url').value = item.url[1];
+		gtID('rangeBar').value = item.rangeBar[1];
+		gtID('exDate').value = item.exDate[1];
+		gtID('notes').value = item.notes[1];
 		if(item.favoriteDeal[1] === "Yes"){
-			$('favoriteDeal').setAttribute("checked", "checked");
+			gtID('favoriteDeal').setAttribute("checked", "checked");
 		}
 //remove the initial listener from the input save contact button. *********************************************
 		save.removeEventListener("click", storeData);
 //change the submit button value to edit button
-		$('submit').value = "Edit Deal";
-		var editSubmit = $('submit');
+		gtID('submit').value = "Edit Deal";
+		var editSubmit = gtID('submit');
 //save the key value established in this function asa property of the editSubmit
 //event so we can use that value when we save the data we editied .
 		$(editSubmit).click(validate);
@@ -248,44 +327,36 @@ items.find("item").each(function(){
 //this is all part of the validate functions. **************************************************
 	function validate(e){
 //define the elements we want to check
-		var getDealType = $('#dealType');
-		var getDname 	= $('#dname');
-		var getUrl		= $('#url');	
+		var getDealType = gtID('dealType');
+		var getdName 	= gtID('dname');
+		var getUrl		= gtID('url');	
 //reset Error messages
 		errMsg.html = "";
-		$("#getDealType").css("border","1px solid black");
-		$("#getDname").css("border","1px solid black");
-		$("#getUrl").css("border","1px solid black");
+		$(getDealType).css("border","1px solid black");
+		$(getdName).css("border","1px solid black");
+		$(getUrl).css("border","1px solid black");
 // get error messages
 		var messageAry = [];
 // type validation
 		if(getDealType.value === "--Choose type of Deal--"){
 			var typeError = "Please choose a deal type.";
-			$("#getDealType").css("border","1px solid red");
+			$(getDealType).css("border","1px solid red");
 			messageAry.push(typeError);
 		}
 //deal name validation 
-		if(getDname.value === ""){
+		if(getdName.value === ""){
 			var dNameError = "Please enter a deal name.";
-			$("#getDname").css("border","1px solid red");
+			$(getdName).css("border","1px solid red");
 			messageAry.push(dNameError);
 		}
 //url validate
-/*     var urlTest = getUrl.value.match(/^(ht|Ht)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/);
+        var urlTest = getUrl.value.match(/^(ht|Ht)tps?:\/\/[a-z0-9-\.]+\.[a-z]{2,4}\/?([^\s<>\#%"\,\{\}\\|\\\^\[\]`]+)?$/);
 			if(urlTest === null){	
 			var urlError = "Please enter a URL.";
-			$("#getUrl").css("border","1px solid red");
+			$(getUrl).css("border","1px solid red");
 			messageAry.push(urlError);
 			alert ("Please enter a valid URL");		
-		}*/
-		$("#url").validate({
-  rules: {
-    field: {
-      required: true,
-      url: true
-    }
-  }
-});
+		}
 //if there are errors.... display them 
 		if(messageAry.length >= 1){
 			for(var i=0, j=messageAry.length; i < j; i++){
@@ -295,7 +366,7 @@ items.find("item").each(function(){
 			e.preventDefault();
 		    return false;
 		}else{
-//if everything is fine save the data... send the value
+//if everything is fine save the data... send the key value
 //remember the key value
 			storeData(this.key);
 		}	
@@ -303,11 +374,17 @@ items.find("item").each(function(){
 //Variable defaults	**************************************************************
 	var errMsg = $('#errors');
 //Set Link & Submit Click Events
-	var displayLink = $("#displayLink");
+	var csvButton = gtID("csvButton")
+	$(csvButton).click(getCSV);
+	var xmlButton = gtID("xmlButton")
+	$(xmlButton).click(getXML);
+	var jsonButton = gtID("jsonButton")
+	$(jsonButton).click(getData);
+	var displayLink = gtID("displayLink");
 	$(displayLink).click(getData);
-	var clearLink = $("#clear");
+	var clearLink = gtID("clear");
 	$(clearLink).click(clearLocal);
-	var save = $('#submit');
+	var save = gtID('submit');
 	$(save).click(validate);
 //********************************************************************************
 //closing
