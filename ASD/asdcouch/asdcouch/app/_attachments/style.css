@@ -31,7 +31,7 @@ h1{
 	width: 300px;
 
 }
-#autoButton, #entButton, #groomingButton, #jsonButton, #xmlButton,#csvButton{
+#autoButton, #entButton, #groomingButton, #jsonButton, #xmlButton,#csvButton, #getDatabase{
 	margin-left: -5px;
 	width: 300px;
 	margin-top: -4px;

@@ -120,6 +120,44 @@ if (term != "" && category != "--Choose type of Deal--"){
 		window.location.reload(true);
 	}
 //********************************************************************************
+//get database
+	var getDB = function(){
+		$.ajax({
+			url		: "_view/deals",
+			dataType: "json",
+			success	: function(data){
+				$.each(data.rows, function(index,deal){
+					var dName = deal.value.dName;
+					var dealType = deal.value.dealType;
+					var exDate = deal.value.exDate;
+					var favoriteDeal = deal.value.favoriteDeal;
+					var notes = deal.value.notes;
+					var rangeBar = deal.value.rangeBar;
+					var url = deal.value.url;
+					console.log(dealType);
+					var dbListview = $('<ul>')
+					dbListview.attr({"data-role" : "listview"});
+					$('#dataBaseList').append(dbListview);
+					dbListview.append(
+							$(
+							'<li>' + dealType[0] + dealType[1] + '</li>' +
+							'<li>' + dName[0] + dName[1] + '</li>' +
+							'<li>' + dealType[0] + dealType[1] + '</li>' +
+							'<li>' + exDate[0] + exDate[1] + '</li>' +
+							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
+							'<li>' + notes[0] + notes[1] + '</li>' +
+							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
+							'<li>' + url[0] + url[1] + '</li>'
+							
+							)
+					);
+				});
+				$('#dataBaseList').listview('refresh');
+			}
+		});
+	}	
+//********************************************************************************
+
 	var getCSV = function(){
 		$.ajax({
     		url      : "XHR/data.csv",
@@ -374,6 +412,8 @@ if (term != "" && category != "--Choose type of Deal--"){
 //Variable defaults	**************************************************************
 	var errMsg = $('#errors');
 //Set Link & Submit Click Events
+	var getDatabase = gtID("getDatabase")
+	$(getDatabase).click(getDB);
 	var csvButton = gtID("csvButton")
 	$(csvButton).click(getCSV);
 	var xmlButton = gtID("xmlButton")
