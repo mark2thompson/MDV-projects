@@ -3,6 +3,16 @@
 // Javascript data functions
 //********************************************************************************
 //Wait until the DOM is ready
+//********************************************************************************
+//couch additions
+$('#home').live("pageshow", function(){
+	$.couch.db("asdproject").view("mandeals/deals",{
+		success: function(data){
+			
+		}
+	});
+});
+	
 $(document).ready(function(){	
 //getElementById Function************************************************************
 	function gtID(x){
@@ -119,6 +129,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 		alert("Deal Saved");
 		window.location.reload(true);
 	}
+
 //********************************************************************************
 //get database
 	var getDB = function(){
