@@ -8,7 +8,7 @@
 $('#home').live("pageshow", function(){
 	$.couch.db("asdproject").view("mandeals/deals",{
 		success: function(data){
-			
+			console.log(data);
 		}
 	});
 });
@@ -145,7 +145,6 @@ if (term != "" && category != "--Choose type of Deal--"){
 					var notes = deal.value.notes;
 					var rangeBar = deal.value.rangeBar;
 					var url = deal.value.url;
-					console.log(dealType);
 					var dbListview = $('<ul>')
 					dbListview.attr({"data-role" : "listview"});
 					$('#dataBaseList').append(dbListview);
