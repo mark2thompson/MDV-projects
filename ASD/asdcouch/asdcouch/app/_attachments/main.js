@@ -6,19 +6,49 @@
 //********************************************************************************
 //couch additions
 $('#home').live("pageshow", function(){
-	$.couch.db("asdproject").view("mandeals/deals",{
-		success: function(data){
-			console.log(data);
-		}
-	});
-});
 	
-$(document).ready(function(){	
+
+	
+//$(document).ready(function(){	
 //getElementById Function************************************************************
 	function gtID(x){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
+	var getDB = function(){
+		$.couch.db("asdproject").view("mandeals/deals",{
+			success: function(data){
+				console.log(data);
+				$('#dataBaseList').empty();
+				$.each(data.rows, function(index,deal){
+					var dName = deal.value.dName;
+					var dealType = deal.value.dealType;
+					var exDate = deal.value.exDate;
+					var favoriteDeal = deal.value.favoriteDeal;
+					var notes = deal.value.notes;
+					var rangeBar = deal.value.rangeBar;
+					var url = deal.value.url;
+					//var dbListview = $('<ul>')
+					//dbListview.attr({"data-role" : "listview"});
+					$('#dataBaseList').append(
+							$('<li></li>'+
+							'<li>' + dealType[0] + dealType[1] + '</li>' +
+							'<li>' + dName[0] + dName[1] + '</li>' +
+							'<li>' + exDate[0] + exDate[1] + '</li>' +
+							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
+							'<li>' + notes[0] + notes[1] + '</li>' +
+							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
+							'<li>' + url[0] + url[1] + '</li>'
+							
+							
+							
+							)
+					);
+				});
+				$('#dataBaseList').listview('refresh');
+			}
+		});
+		}
 //search***********************************************************************
 /*var search = gtID('search');
 search.addEventListener("click", getSearch);
@@ -132,7 +162,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 
 //********************************************************************************
 //get database
-	var getDB = function(){
+/*	var getDB = function(){
 		$.ajax({
 			url		: "_view/deals",
 			dataType: "json",
@@ -166,6 +196,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 			}
 		});
 	}	
+*/
 //********************************************************************************
 
 	var getCSV = function(){
@@ -422,8 +453,8 @@ if (term != "" && category != "--Choose type of Deal--"){
 //Variable defaults	**************************************************************
 	var errMsg = $('#errors');
 //Set Link & Submit Click Events
-	var getDatabase = gtID("getDatabase")
-	$(getDatabase).click(getDB);
+	var getDatabase = gtID("getAllDeals")
+	$(getAllDeals).click(getDB);
 	var csvButton = gtID("csvButton")
 	$(csvButton).click(getCSV);
 	var xmlButton = gtID("xmlButton")

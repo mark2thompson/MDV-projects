@@ -44,7 +44,7 @@
 		</div>
 		<div id="allData">
 			<p>Display Item Data</p>
-			<a href="#dataBase"><img src="getDatabase.png" id="getDatabase" />
+			<a href="#displayDeals"><img src="getDatabase.png" id="getDatabase" />
 			<a href="#items"><img src="jsonbutton.png" id="jsonButton" />
 			<a href="#XMLitems"><img src="xmlbutton.png" id="xmlButton" />
 			<a href="#CSVitems"><img src="csvbutton.png" id="csvButton" />		
@@ -74,15 +74,89 @@
 	</div>
 	</div>
 	
-	<div data-roll="page" id="dataBase">
+	<div data-role="page" id="displayDeals">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul data-role="listview">
+			<li><a href="#webDealList">Web Deals</a></li>
+			<li><a href="#storeDealList">Store Deals</a></li>
+			<li id="getAllDeals"><a href="#dataBase">All Deals</a></li>					
+		</ul>
+	
+	</div>
+	
+	<div data-role="page" id="webDealList">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul data-role="listview">
+			<li><a href="#webAutoView"><img src="Store Auto.png"/>Auto</a></li>
+			<li><a href="#webEntertainmentView"><img src="Store Entertainment.png"/>Entertainment</a>
+			<li><a href="#webGroomingView"><img src="Store Grooming.png"/>Grooming</a></li>
+		</ul>
+	
+	</div>
+	
+	<div data-role="page" id="storeDealList">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul data-role="listview">
+			<li><a href="#storeAutoView"><img src="Store Auto.png"/>Auto</a></li>
+			<li><a href="#storeEntertainmentView"><img src="Store Entertainment.png"/>Entertainment</a>
+			<li><a href="#storeGroomingView"><img src="Store Grooming.png"/>Grooming</a></li>
+		</ul>	
+	</div>
+	
+	<div data-role="page" id="webAutoView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="webAutoList" data-role="listview">
+			
+		</ul>	
+	</div>
+	<div data-role="page" id="webEntertainmentView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="webEntList" data-role="listview"></ul>	
+	</div>
+	<div data-role="page" id="webGroomingView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="webGroomList" data-role="listview"></ul>	
+	</div>
+	<div data-role="page" id="storeAutoView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="storeAutoList" data-role="listview"></ul>	
+	</div>
+	<div data-role="page" id="storeEntertainmentView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="storeEntList" data-role="listview"></ul>	
+	</div>
+	<div data-role="page" id="storeGroomingView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="storeGroomList" data-role="listview"></ul>	
+	</div>
+	
+	<div data-role="page" id="dataBase">
 		<div data-role="header" data-position="fixed">
 		<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
 		</div>
 		<ul id="dataBaseList" data-role="listview">
 		</ul>	
 	</div>
-	
-	<div data-roll="page" id="addDeal" data-add-back-btn="true">
+
+	<div data-role="page" id="addDeal" data-add-back-btn="true">
 	
 		<div data-role="header" data-position="fixed">
 		<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
