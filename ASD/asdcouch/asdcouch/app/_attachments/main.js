@@ -31,21 +31,205 @@ $('#home').live("pageshow", function(){
 					//var dbListview = $('<ul>')
 					//dbListview.attr({"data-role" : "listview"});
 					$('#dataBaseList').append(
-							$('<li></li>'+
+							$(
 							'<li>' + dealType[0] + dealType[1] + '</li>' +
 							'<li>' + dName[0] + dName[1] + '</li>' +
 							'<li>' + exDate[0] + exDate[1] + '</li>' +
 							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
 							'<li>' + notes[0] + notes[1] + '</li>' +
 							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
-							'<li>' + url[0] + url[1] + '</li>'
-							
-							
-							
+							'<li>' + url[0] + url[1] + '</li>'+
+							'<li data-role="list-divider"></li>'	
 							)
 					);
 				});
 				$('#dataBaseList').listview('refresh');
+			}
+		});
+		}
+	var getWebAuto = function(){
+		$.couch.db("asdproject").view("mandeals/deals",{
+			success: function(data){
+				console.log(data);
+				$('#webAutoList').empty();
+				$.each(data.rows, function(index,deal){
+					var dName = deal.value.dName;
+					var dealType = deal.value.dealType;
+					var exDate = deal.value.exDate;
+					var favoriteDeal = deal.value.favoriteDeal;
+					var notes = deal.value.notes;
+					var rangeBar = deal.value.rangeBar;
+					var url = deal.value.url;
+					if (dealType[1] === "Web Auto"){
+						$('#webAutoList').append(
+							$(
+							'<li>' + dName[0] + dName[1] + '</li>' +
+							'<li>' + exDate[0] + exDate[1] + '</li>' +
+							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
+							'<li>' + notes[0] + notes[1] + '</li>' +
+							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
+							'<li>' + url[0] + url[1] + '</li>'+
+							'<li data-role="list-divider"></li>'
+							)
+					);
+					};
+				});
+				$('#webAutoList').listview('refresh');
+			}
+		});
+		}
+	var getWebEnt = function(){
+		$.couch.db("asdproject").view("mandeals/deals",{
+			success: function(data){
+				console.log(data);
+				$('#webEntList').empty();
+				$.each(data.rows, function(index,deal){
+					var dName = deal.value.dName;
+					var dealType = deal.value.dealType;
+					var exDate = deal.value.exDate;
+					var favoriteDeal = deal.value.favoriteDeal;
+					var notes = deal.value.notes;
+					var rangeBar = deal.value.rangeBar;
+					var url = deal.value.url;
+					if (dealType[1] === "Web Entertainment"){
+						$('#webEntList').append(
+							$(
+							'<li>' + dName[0] + dName[1] + '</li>' +
+							'<li>' + exDate[0] + exDate[1] + '</li>' +
+							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
+							'<li>' + notes[0] + notes[1] + '</li>' +
+							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
+							'<li>' + url[0] + url[1] + '</li>'+
+							'<li data-role="list-divider"></li>'
+							)
+					);
+					};
+				});
+				$('#webEntList').listview('refresh');
+			}
+		});
+		}
+	var getWebGroom = function(){
+		$.couch.db("asdproject").view("mandeals/deals",{
+			success: function(data){
+				console.log(data);
+				$('#webGroomList').empty();
+				$.each(data.rows, function(index,deal){
+					var dName = deal.value.dName;
+					var dealType = deal.value.dealType;
+					var exDate = deal.value.exDate;
+					var favoriteDeal = deal.value.favoriteDeal;
+					var notes = deal.value.notes;
+					var rangeBar = deal.value.rangeBar;
+					var url = deal.value.url;
+					if (dealType[1] === "Web Grooming"){
+						$('#webGroomList').append(
+							$(
+							'<li>' + dName[0] + dName[1] + '</li>' +
+							'<li>' + exDate[0] + exDate[1] + '</li>' +
+							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
+							'<li>' + notes[0] + notes[1] + '</li>' +
+							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
+							'<li>' + url[0] + url[1] + '</li>'+
+							'<li data-role="list-divider"></li>'
+							)
+					);
+					};
+				});
+				$('#webGroomList').listview('refresh');
+			}
+		});
+		}
+	var getStoreAuto = function(){
+		$.couch.db("asdproject").view("mandeals/deals",{
+			success: function(data){
+				console.log(data);
+				$('#storeAutoList').empty();
+				$.each(data.rows, function(index,deal){
+					var dName = deal.value.dName;
+					var dealType = deal.value.dealType;
+					var exDate = deal.value.exDate;
+					var favoriteDeal = deal.value.favoriteDeal;
+					var notes = deal.value.notes;
+					var rangeBar = deal.value.rangeBar;
+					var url = deal.value.url;
+					if (dealType[1] === "Store Auto"){
+						$('#storeAutoList').append(
+							$(
+							'<li>' + dName[0] + dName[1] + '</li>' +
+							'<li>' + exDate[0] + exDate[1] + '</li>' +
+							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
+							'<li>' + notes[0] + notes[1] + '</li>' +
+							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
+							'<li>' + url[0] + url[1] + '</li>'+
+							'<li data-role="list-divider"></li>'
+							)
+					);
+					};
+				});
+				$('#storeAutoList').listview('refresh');
+			}
+		});
+		}
+	var getStoreEnt = function(){
+		$.couch.db("asdproject").view("mandeals/deals",{
+			success: function(data){
+				console.log(data);
+				$('#storeEntList').empty();
+				$.each(data.rows, function(index,deal){
+					var dName = deal.value.dName;
+					var dealType = deal.value.dealType;
+					var exDate = deal.value.exDate;
+					var favoriteDeal = deal.value.favoriteDeal;
+					var notes = deal.value.notes;
+					var rangeBar = deal.value.rangeBar;
+					var url = deal.value.url;
+					if (dealType[1] === "Store Entertainment"){
+						$('#storeEntList').append(
+							$(
+							'<li>' + dName[0] + dName[1] + '</li>' +
+							'<li>' + exDate[0] + exDate[1] + '</li>' +
+							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
+							'<li>' + notes[0] + notes[1] + '</li>' +
+							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
+							'<li>' + url[0] + url[1] + '</li>'+
+							'<li data-role="list-divider"></li>'	
+							)
+					);
+					};
+				});
+				$('#storeEntList').listview('refresh');
+			}
+		});
+		}
+	var getStoreGroom = function(){
+		$.couch.db("asdproject").view("mandeals/deals",{
+			success: function(data){
+				console.log(data);
+				$('#storeGroomList').empty();
+				$.each(data.rows, function(index,deal){
+					var dName = deal.value.dName;
+					var dealType = deal.value.dealType;
+					var exDate = deal.value.exDate;
+					var favoriteDeal = deal.value.favoriteDeal;
+					var notes = deal.value.notes;
+					var rangeBar = deal.value.rangeBar;
+					var url = deal.value.url;
+					if (dealType[1] === "Store Grooming"){
+						$('#storeGroomList').append(
+							$(
+							'<li>' + dName[0] + dName[1] + '</li>' +
+							'<li>' + exDate[0] + exDate[1] + '</li>' +
+							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
+							'<li>' + notes[0] + notes[1] + '</li>' +
+							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
+							'<li>' + url[0] + url[1] + '</li>'+
+							'<li data-role="list-divider"></li>'
+							)
+					);
+					};
+				});
+				$('#storeGroomList').listview('refresh');
 			}
 		});
 		}
@@ -453,6 +637,20 @@ if (term != "" && category != "--Choose type of Deal--"){
 //Variable defaults	**************************************************************
 	var errMsg = $('#errors');
 //Set Link & Submit Click Events
+	var getStoreDeals = gtID("getStoreDeals")
+	$(getStoreDeals).click(getStoreAuto);
+	var getStoreDeals = gtID("getStoreDeals")
+	$(getStoreDeals).click(getStoreEnt);
+	var getStoreDeals = gtID("getStoreDeals")
+	$(getStoreDeals).click(getStoreGroom);
+	var getWebDeals = gtID("getWebDeals")
+	$(getWebDeals).click(getWebEnt);
+	var getWebDeals = gtID("getWebDeals")
+	$(getWebDeals).click(getWebGroom);
+	var getWebDeals = gtID("getWebDeals")
+	$(getWebDeals).click(getWebEnt);
+	var getWebDeals = gtID("getWebDeals")
+	$(getWebDeals).click(getWebAuto);
 	var getDatabase = gtID("getAllDeals")
 	$(getAllDeals).click(getDB);
 	var csvButton = gtID("csvButton")

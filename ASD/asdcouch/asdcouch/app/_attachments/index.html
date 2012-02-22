@@ -43,11 +43,12 @@
 			<a href="#addDeal"><img src="cta.png" alt="Man Deals - Enter Deal" id="manDealsCTA"/></a>
 		</div>
 		<div id="allData">
-			<p>Display Item Data</p>
-			<a href="#displayDeals"><img src="getDatabase.png" id="getDatabase" />
-			<a href="#items"><img src="jsonbutton.png" id="jsonButton" />
-			<a href="#XMLitems"><img src="xmlbutton.png" id="xmlButton" />
-			<a href="#CSVitems"><img src="csvbutton.png" id="csvButton" />		
+		
+			<ul data-role="listview">
+			<li id="getWebDeals"><a href="#webDealList">Web Deals</a></li>
+			<li id="getStoreDeals"><a href="#storeDealList">Store Deals</a></li>
+			<li id="getAllDeals"><a href="#dataBase">All Deals</a></li>					
+		</ul>	
 		</div>
 <!--		<div id="categories">
 			<p>Display your deals</p>
@@ -78,11 +79,7 @@
 		<div data-role="header" data-position="fixed">
 			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
 		</div>
-		<ul data-role="listview">
-			<li><a href="#webDealList">Web Deals</a></li>
-			<li><a href="#storeDealList">Store Deals</a></li>
-			<li id="getAllDeals"><a href="#dataBase">All Deals</a></li>					
-		</ul>
+		
 	
 	</div>
 	
@@ -113,46 +110,45 @@
 		<div data-role="header" data-position="fixed">
 			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
 		</div>
-		<ul id="webAutoList" data-role="listview">
-			
+		<ul id="webAutoList" data-role="listview" data-divider-theme="a">	
 		</ul>	
 	</div>
 	<div data-role="page" id="webEntertainmentView">
 		<div data-role="header" data-position="fixed">
 			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
 		</div>
-		<ul id="webEntList" data-role="listview"></ul>	
+		<ul id="webEntList" data-role="listview" data-divider-theme="a"></ul>	
 	</div>
 	<div data-role="page" id="webGroomingView">
 		<div data-role="header" data-position="fixed">
 			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
 		</div>
-		<ul id="webGroomList" data-role="listview"></ul>	
+		<ul id="webGroomList" data-role="listview" data-divider-theme="a"></ul>	
 	</div>
 	<div data-role="page" id="storeAutoView">
 		<div data-role="header" data-position="fixed">
 			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
 		</div>
-		<ul id="storeAutoList" data-role="listview"></ul>	
+		<ul id="storeAutoList" data-role="listview" data-divider-theme="a"></ul>	
 	</div>
 	<div data-role="page" id="storeEntertainmentView">
 		<div data-role="header" data-position="fixed">
 			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
 		</div>
-		<ul id="storeEntList" data-role="listview"></ul>	
+		<ul id="storeEntList" data-role="listview" data-divider-theme="a"></ul>	
 	</div>
 	<div data-role="page" id="storeGroomingView">
 		<div data-role="header" data-position="fixed">
 			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
 		</div>
-		<ul id="storeGroomList" data-role="listview"></ul>	
+		<ul id="storeGroomList" data-role="listview" data-divider-theme="a"></ul>	
 	</div>
 	
 	<div data-role="page" id="dataBase">
 		<div data-role="header" data-position="fixed">
 		<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
 		</div>
-		<ul id="dataBaseList" data-role="listview">
+		<ul id="dataBaseList" data-role="listview" data-divider-theme="a">
 		</ul>	
 	</div>
 
