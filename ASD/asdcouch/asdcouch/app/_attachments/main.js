@@ -8,6 +8,7 @@
 $('#home').live("pageshow", function(){
 	
 	
+	
 //$(document).ready(function(){	
 //getElementById Function************************************************************
 	function gtID(x){
@@ -233,8 +234,8 @@ $('#home').live("pageshow", function(){
 			}
 		});
 		}
-	$.couch.db("asdproject").saveDoc(storeData
-		);
+	
+
 //search***********************************************************************
 /*var search = gtID('search');
 search.addEventListener("click", getSearch);
@@ -289,7 +290,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 	}
 }
 }
-*/
+
 //find the value of a selected radio button***************************************
 	function getCheckBoxValue(){
 		if(gtID('favoriteDeal').checked){
@@ -341,16 +342,14 @@ if (term != "" && category != "--Choose type of Deal--"){
 			item.favoriteDeal	= ["Fav deal:", favoriteValue];
 			item.exDate			= ["Exp Date:", $('#exDate').val()];
 			item.notes			= ["Notes:", $('#notes').val()];
-			console.log(item);
 		//localStorage.setItem(id, JSON.stringify(item));		
 		alert("Deal Saved");
-		
 		window.location.reload(true);
 	}
 
 //********************************************************************************
 //get database
-/*	var getDB = function(){
+	var getDB = function(){
 		$.ajax({
 			url		: "_view/deals",
 			dataType: "json",
@@ -526,7 +525,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
 	}
-*/
+
 //make item links******************************************************************
 // creat the edit and delete links for each stored item
 	function makeItemLinks(key, linksLi){
@@ -640,8 +639,10 @@ if (term != "" && category != "--Choose type of Deal--"){
 			storeData(this.key);
 		}	
 	}
+*/	
+
 //Variable defaults	**************************************************************
-	var errMsg = $('#errors');
+//	var errMsg = $('#errors');
 //Set Link & Submit Click Events
 	var getStoreDeals = gtID("getStoreDeals")
 	$(getStoreDeals).click(getStoreAuto);
@@ -659,8 +660,8 @@ if (term != "" && category != "--Choose type of Deal--"){
 	$(getWebDeals).click(getWebAuto);
 	var getDatabase = gtID("getAllDeals")
 	$(getAllDeals).click(getDB);
-	var save = gtID('submit');
-	$(save).click(validate);
+//	var save = gtID('submit');
+//	$(save).click(validate);
 //********************************************************************************
 //closing
 });
