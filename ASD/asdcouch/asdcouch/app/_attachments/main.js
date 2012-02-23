@@ -7,8 +7,42 @@
 //couch additions
 $('#home').live("pageshow", function(){
 	
+
 	
-	
+	$("#submit").click(function (event){
+		event.preventDefault();
+		$.couch.db("asdproject").view("mandeals/deals", {
+			success: function(data){
+				var newID = data.rows; 
+				var valID = newID.length;
+				var addID = valID+1;
+				var dealID = ("deal"+addID)
+				console.log(dealID);
+				
+		var document = {};
+		document._id = (dealID);
+		document.dealType = ["Type: ", $('select#dealType').val()];
+		document.dName = ["Deal Name: ", $("input#dname").val()];
+		document.url = ["URL: ", $("input#url").val()];
+		document.rangeBar = ["Rating: ", $("input#rangeBar").val()];
+		document.favoriteDeal = ["Fav Deal: ", $("input#favoriteDeal").val()];
+		document.exDate = ["Exp Date: ",$("input#exDate").val()];
+		document.notes = ["Notes: ", $("textarea#notes").val()];
+		$.couch.db("asdproject").saveDoc(document, {
+			success: function() {
+				alert("Deal Saved");
+				$.mobile.changePage ( "#addDeal", "slidedown", true, true);
+			},
+			error: function() {
+				alert( "Cannot save" );
+			}
+		});
+		return false;
+	}
+});
+	});
+
+		
 //$(document).ready(function(){	
 //getElementById Function************************************************************
 	function gtID(x){
@@ -19,7 +53,6 @@ $('#home').live("pageshow", function(){
 	var getDB = function(){
 		$.couch.db("asdproject").view("mandeals/deals",{
 			success: function(data){
-				console.log(data);
 				$('#dataBaseList').empty();
 				$.each(data.rows, function(index,deal){
 					var dName = deal.value.dName;
