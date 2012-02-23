@@ -7,7 +7,6 @@
 //couch additions
 $('#home').live("pageshow", function(){
 	
-
 	
 //$(document).ready(function(){	
 //getElementById Function************************************************************
@@ -15,6 +14,7 @@ $('#home').live("pageshow", function(){
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
+
 	var getDB = function(){
 		$.couch.db("asdproject").view("mandeals/deals",{
 			success: function(data){
@@ -233,6 +233,8 @@ $('#home').live("pageshow", function(){
 			}
 		});
 		}
+	$.couch.db("asdproject").saveDoc(storeData
+		);
 //search***********************************************************************
 /*var search = gtID('search');
 search.addEventListener("click", getSearch);
@@ -339,8 +341,10 @@ if (term != "" && category != "--Choose type of Deal--"){
 			item.favoriteDeal	= ["Fav deal:", favoriteValue];
 			item.exDate			= ["Exp Date:", $('#exDate').val()];
 			item.notes			= ["Notes:", $('#notes').val()];
-		localStorage.setItem(id, JSON.stringify(item));		
+			console.log(item);
+		//localStorage.setItem(id, JSON.stringify(item));		
 		alert("Deal Saved");
+		
 		window.location.reload(true);
 	}
 
@@ -380,7 +384,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 			}
 		});
 	}	
-*/
+
 //********************************************************************************
 
 	var getCSV = function(){
@@ -513,6 +517,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 		var setSrc = newImg.attr("src", "images/"+ typeName +".png");
 		imageLi.append(newImg);
 	}
+
 //JSON OBJECT... auto populate local storage.*********************************************** 
 	function autoFillData(json){
 //store the json obj into local storage
@@ -521,6 +526,7 @@ if (term != "" && category != "--Choose type of Deal--"){
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
 	}
+*/
 //make item links******************************************************************
 // creat the edit and delete links for each stored item
 	function makeItemLinks(key, linksLi){
@@ -653,16 +659,6 @@ if (term != "" && category != "--Choose type of Deal--"){
 	$(getWebDeals).click(getWebAuto);
 	var getDatabase = gtID("getAllDeals")
 	$(getAllDeals).click(getDB);
-	var csvButton = gtID("csvButton")
-	$(csvButton).click(getCSV);
-	var xmlButton = gtID("xmlButton")
-	$(xmlButton).click(getXML);
-	var jsonButton = gtID("jsonButton")
-	$(jsonButton).click(getData);
-	var displayLink = gtID("displayLink");
-	$(displayLink).click(getData);
-	var clearLink = gtID("clear");
-	$(clearLink).click(clearLocal);
 	var save = gtID('submit');
 	$(save).click(validate);
 //********************************************************************************
