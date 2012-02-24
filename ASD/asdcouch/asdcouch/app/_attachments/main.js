@@ -268,7 +268,7 @@ $('#home').live("pageshow", function(){
 					var url = deal.value.url;
 					if (dealType[1] === "Store Grooming"){
 						$('#storeGroomList').append(
-							$('<li id="aDeal">'+
+							$('<li>'+
 									'<h3>' + dealType[0] + dealType[1] + '</h3>' +
 									'<p>' + dName[0] + dName[1] + '</p>' +
 									'<p>' + exDate[0] + exDate[1] + '</p>' +
@@ -287,23 +287,6 @@ $('#home').live("pageshow", function(){
 			}
 		});
 		}
-$("#aDeal").click(function(event){
-	var target = $(event.target);
-	i'if (target.is('l)){
-		id = target.attr("id");
-		if (target.hasClass("remove")) {
-			$.couch.db('asdproject').openDoc(id,{
-					success: function(doc){
-						$.couch.db('asdproject').removeDoc(doc, {
-								success: function() {
-									alert("Deal Deleted")
-								}
-								});
-					}
-					});
-		}
-	}
-});
 
 //search***********************************************************************
 /*var search = gtID('search');
