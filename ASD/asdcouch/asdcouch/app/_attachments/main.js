@@ -65,14 +65,16 @@ $('#home').live("pageshow", function(){
 					//var dbListview = $('<ul>')
 					//dbListview.attr({"data-role" : "listview"});
 					$('#dataBaseList').append(
-							$(
-							'<li>' + dealType[0] + dealType[1] + '</li>' +
-							'<li>' + dName[0] + dName[1] + '</li>' +
-							'<li>' + exDate[0] + exDate[1] + '</li>' +
-							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
-							'<li>' + notes[0] + notes[1] + '</li>' +
-							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
-							'<li>' + url[0] + url[1] + '</li>'+
+							$('<li>'+
+							'<h3>' + dealType[0] + dealType[1] + '</h3>' +
+							'<p>' + dName[0] + dName[1] + '</p>' +
+							'<p>' + exDate[0] + exDate[1] + '</p>' +
+							'<p>' + favoriteDeal[0] + favoriteDeal[1] + '</p>' +
+							'<p>' + notes[0] + notes[1] + '</p>' +
+							'<p>' + rangeBar[0] + rangeBar[1] + '</p>' +
+							'<p>' + url[0] + url[1] + '</p>'+
+							'<a href="#"data-roll="button" class="remove" id="delete">'+ "Delete" +'</a>'+
+							'</li>'+
 							'<li data-role="list-divider"></li>'	
 							)
 					);
@@ -96,14 +98,17 @@ $('#home').live("pageshow", function(){
 					var url = deal.value.url;
 					if (dealType[1] === "Web Auto"){
 						$('#webAutoList').append(
-							$(
-							'<li>' + dName[0] + dName[1] + '</li>' +
-							'<li>' + exDate[0] + exDate[1] + '</li>' +
-							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
-							'<li>' + notes[0] + notes[1] + '</li>' +
-							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
-							'<li>' + url[0] + url[1] + '</li>'+
-							'<li data-role="list-divider"></li>'
+							$('<li>'+
+									'<h3>' + dealType[0] + dealType[1] + '</h3>' +
+									'<p>' + dName[0] + dName[1] + '</p>' +
+									'<p>' + exDate[0] + exDate[1] + '</p>' +
+									'<p>' + favoriteDeal[0] + favoriteDeal[1] + '</p>' +
+									'<p>' + notes[0] + notes[1] + '</p>' +
+									'<p>' + rangeBar[0] + rangeBar[1] + '</p>' +
+									'<p>' + url[0] + url[1] + '</p>'+
+									'<a href="#"data-roll="button" class="remove" id="delete">'+ "Delete" +'</a>'+
+									'</li>'+
+									'<li data-role="list-divider"></li>'	
 							)
 					);
 					};
@@ -127,14 +132,17 @@ $('#home').live("pageshow", function(){
 					var url = deal.value.url;
 					if (dealType[1] === "Web Entertainment"){
 						$('#webEntList').append(
-							$(
-							'<li>' + dName[0] + dName[1] + '</li>' +
-							'<li>' + exDate[0] + exDate[1] + '</li>' +
-							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
-							'<li>' + notes[0] + notes[1] + '</li>' +
-							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
-							'<li>' + url[0] + url[1] + '</li>'+
-							'<li data-role="list-divider"></li>'
+							$('<li>'+
+									'<h3>' + dealType[0] + dealType[1] + '</h3>' +
+									'<p>' + dName[0] + dName[1] + '</p>' +
+									'<p>' + exDate[0] + exDate[1] + '</p>' +
+									'<p>' + favoriteDeal[0] + favoriteDeal[1] + '</p>' +
+									'<p>' + notes[0] + notes[1] + '</p>' +
+									'<p>' + rangeBar[0] + rangeBar[1] + '</p>' +
+									'<p>' + url[0] + url[1] + '</p>'+
+									'<a href="#"data-roll="button" class="remove" id="delete">'+ "Delete" +'</a>'+
+									'</li>'+
+									'<li data-role="list-divider"></li>'	
 							)
 					);
 					};
@@ -158,14 +166,17 @@ $('#home').live("pageshow", function(){
 					var url = deal.value.url;
 					if (dealType[1] === "Web Grooming"){
 						$('#webGroomList').append(
-							$(
-							'<li>' + dName[0] + dName[1] + '</li>' +
-							'<li>' + exDate[0] + exDate[1] + '</li>' +
-							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
-							'<li>' + notes[0] + notes[1] + '</li>' +
-							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
-							'<li>' + url[0] + url[1] + '</li>'+
-							'<li data-role="list-divider"></li>'
+							$('<li>'+
+									'<h3>' + dealType[0] + dealType[1] + '</h3>' +
+									'<p>' + dName[0] + dName[1] + '</p>' +
+									'<p>' + exDate[0] + exDate[1] + '</p>' +
+									'<p>' + favoriteDeal[0] + favoriteDeal[1] + '</p>' +
+									'<p>' + notes[0] + notes[1] + '</p>' +
+									'<p>' + rangeBar[0] + rangeBar[1] + '</p>' +
+									'<p>' + url[0] + url[1] + '</p>'+
+									'<a href="#"data-roll="button" class="remove" id="delete">'+ "Delete" +'</a>'+
+									'</li>'+
+									'<li data-role="list-divider"></li>'	
 							)
 					);
 					};
@@ -189,14 +200,17 @@ $('#home').live("pageshow", function(){
 					var url = deal.value.url;
 					if (dealType[1] === "Store Auto"){
 						$('#storeAutoList').append(
-							$(
-							'<li>' + dName[0] + dName[1] + '</li>' +
-							'<li>' + exDate[0] + exDate[1] + '</li>' +
-							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
-							'<li>' + notes[0] + notes[1] + '</li>' +
-							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
-							'<li>' + url[0] + url[1] + '</li>'+
-							'<li data-role="list-divider"></li>'
+							$('<li>'+
+									'<h3>' + dealType[0] + dealType[1] + '</h3>' +
+									'<p>' + dName[0] + dName[1] + '</p>' +
+									'<p>' + exDate[0] + exDate[1] + '</p>' +
+									'<p>' + favoriteDeal[0] + favoriteDeal[1] + '</p>' +
+									'<p>' + notes[0] + notes[1] + '</p>' +
+									'<p>' + rangeBar[0] + rangeBar[1] + '</p>' +
+									'<p>' + url[0] + url[1] + '</p>'+
+									'<a href="#"data-roll="button" class="remove" id="delete">'+ "Delete" +'</a>'+
+									'</li>'+
+									'<li data-role="list-divider"></li>'	
 							)
 					);
 					};
@@ -220,14 +234,17 @@ $('#home').live("pageshow", function(){
 					var url = deal.value.url;
 					if (dealType[1] === "Store Entertainment"){
 						$('#storeEntList').append(
-							$(
-							'<li>' + dName[0] + dName[1] + '</li>' +
-							'<li>' + exDate[0] + exDate[1] + '</li>' +
-							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
-							'<li>' + notes[0] + notes[1] + '</li>' +
-							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
-							'<li>' + url[0] + url[1] + '</li>'+
-							'<li data-role="list-divider"></li>'	
+							$('<li>'+
+									'<h3>' + dealType[0] + dealType[1] + '</h3>' +
+									'<p>' + dName[0] + dName[1] + '</p>' +
+									'<p>' + exDate[0] + exDate[1] + '</p>' +
+									'<p>' + favoriteDeal[0] + favoriteDeal[1] + '</p>' +
+									'<p>' + notes[0] + notes[1] + '</p>' +
+									'<p>' + rangeBar[0] + rangeBar[1] + '</p>' +
+									'<p>' + url[0] + url[1] + '</p>'+
+									'<a href="#"data-roll="button" class="remove" id="delete">'+ "Delete" +'</a>'+
+									'</li>'+
+									'<li data-role="list-divider"></li>'		
 							)
 					);
 					};
@@ -251,14 +268,17 @@ $('#home').live("pageshow", function(){
 					var url = deal.value.url;
 					if (dealType[1] === "Store Grooming"){
 						$('#storeGroomList').append(
-							$(
-							'<li>' + dName[0] + dName[1] + '</li>' +
-							'<li>' + exDate[0] + exDate[1] + '</li>' +
-							'<li>' + favoriteDeal[0] + favoriteDeal[1] + '</li>' +
-							'<li>' + notes[0] + notes[1] + '</li>' +
-							'<li>' + rangeBar[0] + rangeBar[1] + '</li>' +
-							'<li>' + url[0] + url[1] + '</li>'+
-							'<li data-role="list-divider"></li>'
+							$('<li id="aDeal">'+
+									'<h3>' + dealType[0] + dealType[1] + '</h3>' +
+									'<p>' + dName[0] + dName[1] + '</p>' +
+									'<p>' + exDate[0] + exDate[1] + '</p>' +
+									'<p>' + favoriteDeal[0] + favoriteDeal[1] + '</p>' +
+									'<p>' + notes[0] + notes[1] + '</p>' +
+									'<p>' + rangeBar[0] + rangeBar[1] + '</p>' +
+									'<p>' + url[0] + url[1] + '</p>'+
+									'<a href="#"data-roll="button" class="remove" id="delete">'+ "Delete" +'</a>'+
+									'</li>'+
+									'<li data-role="list-divider"></li>'	
 							)
 					);
 					};
@@ -267,7 +287,23 @@ $('#home').live("pageshow", function(){
 			}
 		});
 		}
-	
+$("#aDeal").click(function(event){
+	var target = $(event.target);
+	i'if (target.is('l)){
+		id = target.attr("id");
+		if (target.hasClass("remove")) {
+			$.couch.db('asdproject').openDoc(id,{
+					success: function(doc){
+						$.couch.db('asdproject').removeDoc(doc, {
+								success: function() {
+									alert("Deal Deleted")
+								}
+								});
+					}
+					});
+		}
+	}
+});
 
 //search***********************************************************************
 /*var search = gtID('search');
