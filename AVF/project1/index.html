@@ -1,0 +1,125 @@
+<!doctype html>  
+<html lang="en">
+<!--Author Mark Thompson -->
+<!--ASD 0212 project2 -->
+<head>
+
+	<meta charset="utf-8"/>
+	
+	<title>Man Deals</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on"/>
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<style type="text/css">
+		.ui-page {
+    	background: transparent url(images/mandealsbackground.png);
+    	}
+	</style>	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+</head>
+
+		
+	<div data-role="page" id="home">
+	
+  
+			<h1><a href="#home"><img src="images/manDealsLogo.png" id="manDealsLogo" /></a></h1>
+	<div data-role="content">
+		<div id="search">
+			<input type="text" id="search" placeholder="Search"/><a href="#"><img for="search" src="images/searchButton.png" id="searchButton"/></a>
+		</div>
+		<div id="cta">
+			<a href="#addDeal"><img src="images/cta.png" alt="Man Deals - Enter Deal" id="manDealsCTA"/></a>
+		</div>
+		<div id="allData">
+			<p>Display Item Data</p>
+			<a href="#items"><img src="images/jsonbutton.png" id="jsonButton" />
+			<a href="#XMLitems"><img src="images/xmlbutton.png" id="xmlButton" />
+			<a href="#CSVitems"><img src="images/csvbutton.png" id="csvButton" />		
+		</div>
+<!--		<div id="categories">
+			<p>Display your deals</p>
+			<img src="images/autoButton.png" id="autoButton" usemap ="#buttonAutoMap" />
+			<img src="images/entButton.png" id="entButton" usemap ="#buttonEntMap"/>
+			<img src="images/groomingButton.png" id="groomingButton" usemap ="#buttonGroomMap"/>
+			<map name="buttonAutoMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreAuto" alt="inStore" href="#storeAuto"/>
+				<area shape="rect" coords="205,10,288,38" id="webAuto" alt="web" href="#webAuto"/>
+			</map>
+			<map name="buttonEntMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreEnt" alt="inStore" href="#storeEnt"/>
+				<area shape="rect" coords="205,10,288,38" id="webent" alt="web" href="#webEnt"/>
+			</map>
+			<map name="buttonGroomMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreGrooming" alt="inStore" href="#storeGroom"/>
+				<area shape="rect" coords="205,10,288,38" id="webGrooming" alt="web" href="#webGroom"/>
+			</map></br>
+		</div>
+		<div data-role="footer">	
+		--!>
+</div><!-- /footer -->
+		
+	</div>
+	</div>
+	
+	<div data-roll="page" id="addDeal" data-add-back-btn="true">
+	
+		<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none"><img src="images/manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<div data-role="content">
+		<div id="dealz">
+		<form action="#" method="post" id="couponForm">
+				<legend>Add a Deal!</legend>
+				<ul id="errors"></ul>
+				<select id="dealType" data-native-menu="false">
+					<!--Was not 100% sure on using the option group. For what I want to do I think it will make sence in the end-->
+					<optgroup id="webDeals" label="Web Deals">
+						<option value="--Choose type of Deal--" selected="--Choose a deal type--">--Choose Type Of Deal--</option>
+						<option value="Web Auto">Auto</option>	
+						<option value="Web Grooming">Grooming</option>	
+						<option value="Web Entertainment">Entertainment</option>
+					</optgroup>
+					<optgroup id="storeDeals" label="In Store Deals">
+						<option value="Store Auto">Auto</option>	
+						<option value="Store Grooming">Grooming</option>
+						<option value="Store Entertainment">Entertainment</option>
+					</optgroup>
+				</select>		
+				<h2>Deal Info</h2>
+				<ul>
+					<li><label for="dname">Name your DEAL!</label><input type="text" id="dname" placeholder="i.e. Oil Change"/></li>
+					<li><label for="url">Store Website</label><input type="url" id="url" value="http://" placeholder="www.manbargains.com"/></li>
+					<li><label for="hotDeal" id="hotDeal">How much are you saving?</label></li>
+					<li><input type="range" id="rangeBar" min="0" max="100" value="10"/></li>
+					<li><input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Top Deal?</label></li>
+				</ul>
+				<ul>
+					<li><label for="exDate">Expiration Date</label><input type="date" id="exDate" value="11/20/2013"/></li>
+					<li><label for="notes" id="notes1">Additional Notes</label><textarea cols="28" rows="5" id="notes" placeholder="Add notes here!"></textarea></li>
+				</ul>
+				<input type="submit" value="Submit Deal" id="submit" data-theme="b"/><br />
+		</form></div><!--closes dealz-->
+			<a href="#" id="clear">Clear Deals</a>
+			<a href="#" id="displayLink">Display Deals</a>
+			<a href="#addDeal" id="addNew" style="display:none;">Add New Deal</a>
+			
+	</div>		
+	</div>
+	<!-- JavaScript under here -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/defaultsJson.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	
+</body>
+</html>

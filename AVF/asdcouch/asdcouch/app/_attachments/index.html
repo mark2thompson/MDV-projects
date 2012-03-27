@@ -1,0 +1,205 @@
+<!doctype html>  
+<html lang="en">
+<!--Author Mark Thompson -->
+<!--ASD 0212 project2 -->
+<head>
+
+	<meta charset="utf-8"/>
+	
+	<title>Man Deals</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on"/>
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<style type="text/css">
+		.ui-page {
+    	background: transparent url(mandealsbackground.png);
+    	}
+	</style>	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script src="jquery.couch.js"></script>
+</head>
+
+		
+	<div data-role="page" id="home">
+	
+  
+			<h1><a href="#home"><img src="manDealsLogo.png" id="manDealsLogo" /></a></h1>
+	<div data-role="content">
+		<div id="search">
+			<input type="text" id="search" placeholder="Search"/><a href="#"><img for="search" src="searchButton.png" id="searchButton"/></a>
+		</div>
+		<div id="cta">
+			<a href="#addDeal"><img src="cta.png" alt="Man Deals - Enter Deal" id="manDealsCTA"/></a>
+		</div>
+		<div id="allData">
+		
+			<ul data-role="listview">
+			<li id="getWebDeals"><a href="#webDealList">Web Deals</a></li>
+			<li id="getStoreDeals"><a href="#storeDealList">Store Deals</a></li>
+			<li id="getAllDeals"><a href="#dataBase">All Deals</a></li>					
+		</ul>	
+		</div>
+<!--		<div id="categories">
+			<p>Display your deals</p>
+			<img src="images/autoButton.png" id="autoButton" usemap ="#buttonAutoMap" />
+			<img src="images/entButton.png" id="entButton" usemap ="#buttonEntMap"/>
+			<img src="images/groomingButton.png" id="groomingButton" usemap ="#buttonGroomMap"/>
+			<map name="buttonAutoMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreAuto" alt="inStore" href="#storeAuto"/>
+				<area shape="rect" coords="205,10,288,38" id="webAuto" alt="web" href="#webAuto"/>
+			</map>
+			<map name="buttonEntMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreEnt" alt="inStore" href="#storeEnt"/>
+				<area shape="rect" coords="205,10,288,38" id="webent" alt="web" href="#webEnt"/>
+			</map>
+			<map name="buttonGroomMap">
+				<area shape="rect" coords="113,10,195,38" id="inStoreGrooming" alt="inStore" href="#storeGroom"/>
+				<area shape="rect" coords="205,10,288,38" id="webGrooming" alt="web" href="#webGroom"/>
+			</map></br>
+		</div>
+		<div data-role="footer">	
+		--!>
+</div><!-- /footer -->
+		
+	</div>
+	</div>
+	
+	<div data-role="page" id="displayDeals">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		
+	
+	</div>
+	
+	<div data-role="page" id="webDealList">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul data-role="listview">
+			<li><a href="#webAutoView"><img src="Store Auto.png"/>Auto</a></li>
+			<li><a href="#webEntertainmentView"><img src="Store Entertainment.png"/>Entertainment</a>
+			<li><a href="#webGroomingView"><img src="Store Grooming.png"/>Grooming</a></li>
+		</ul>
+	
+	</div>
+	
+	<div data-role="page" id="storeDealList">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul data-role="listview">
+			<li><a href="#storeAutoView"><img src="Store Auto.png"/>Auto</a></li>
+			<li><a href="#storeEntertainmentView"><img src="Store Entertainment.png"/>Entertainment</a>
+			<li><a href="#storeGroomingView"><img src="Store Grooming.png"/>Grooming</a></li>
+		</ul>	
+	</div>
+	
+	<div data-role="page" id="webAutoView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="webAutoList" data-role="listview" data-divider-theme="a">	
+		</ul>	
+	</div>
+	<div data-role="page" id="webEntertainmentView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="webEntList" data-role="listview" data-divider-theme="a"></ul>	
+	</div>
+	<div data-role="page" id="webGroomingView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="webGroomList" data-role="listview" data-divider-theme="a"></ul>	
+	</div>
+	<div data-role="page" id="storeAutoView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="storeAutoList" data-role="listview" data-divider-theme="a"></ul>	
+	</div>
+	<div data-role="page" id="storeEntertainmentView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="storeEntList" data-role="listview" data-divider-theme="a"></ul>	
+	</div>
+	<div data-role="page" id="storeGroomingView">
+		<div data-role="header" data-position="fixed">
+			<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="storeGroomList" data-role="listview" data-divider-theme="a"></ul>	
+	</div>
+	
+	<div data-role="page" id="dataBase">
+		<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<ul id="dataBaseList" data-role="listview" data-divider-theme="a">
+		</ul>	
+	</div>
+
+	<div data-role="page" id="addDeal" data-add-back-btn="true">
+	
+		<div data-role="header" data-position="fixed">
+		<h1><a href="#home" style="text-decoration: none"><img src="manDealsLogoHome.png" id="manDealsLogo" /></a></h1>
+		</div>
+		<div data-role="content">
+		<div id="dealz">
+		<form action="#" method="get" id="couponForm">
+				<legend>Add a Deal!</legend>
+				<ul id="errors"></ul>
+				<select id="dealType" data-native-menu="false">
+					<!--Was not 100% sure on using the option group. For what I want to do I think it will make sence in the end-->
+					<optgroup id="webDeals" label="Web Deals">
+						<option value="--Choose type of Deal--" selected="--Choose a deal type--">--Choose Type Of Deal--</option>
+						<option value="Web Auto">Auto</option>	
+						<option value="Web Grooming">Grooming</option>	
+						<option value="Web Entertainment">Entertainment</option>
+					</optgroup>
+					<optgroup id="storeDeals" label="In Store Deals">
+						<option value="Store Auto">Auto</option>	
+						<option value="Store Grooming">Grooming</option>
+						<option value="Store Entertainment">Entertainment</option>
+					</optgroup>
+				</select>		
+				<h2>Deal Info</h2>
+				<ul>
+					<li><label for="dname">Name your DEAL!</label><input type="text" id="dname" placeholder="i.e. Oil Change"/></li>
+					<li><label for="url">Store Website</label><input type="url" id="url" value="http://" placeholder="www.manbargains.com"/></li>
+					<li><label for="hotDeal" id="hotDeal">How much are you saving?</label></li>
+					<li><input type="range" id="rangeBar" min="0" max="100" value="10"/></li>
+					<li><input type="checkbox" id="favoriteDeal"/><label for="favoriteDeal">Top Deal?</label></li>
+				</ul>
+				<ul>
+					<li><label for="exDate">Expiration Date</label><input type="date" id="exDate" value="11/20/2013"/></li>
+					<li><label for="notes" id="notes1">Additional Notes</label><textarea cols="28" rows="5" id="notes" placeholder="Add notes here!"></textarea></li>
+				</ul>
+				<a href="#" id="submit" data-role="button" data-theme="a">Submit</a><br />
+		</form></div><!--closes dealz-->
+			<a href="#" id="clear">Clear Deals</a>
+			<a href="#" id="displayLink">Display Deals</a>
+			<a href="#addDeal" id="addNew" style="display:none;">Add New Deal</a>
+			
+	</div>		
+	</div>
+	<!-- JavaScript under here -->
+	
+	<script type="text/javascript" src="main.js"></script>
+	<!--  script type="text/javascript" src="js/defaultsJson.js"></script -->
+	
+</body>
+</html>

@@ -1,0 +1,71 @@
+/*
+Title: html Styles
+by: Mark Thompson
+*/
+
+body{
+	font-style: regular;
+	font-family: Arial, Andale Mono, Trebuchet;
+	width: auto;
+	margin: auto;	
+	font-size: 20px;
+}
+h1{
+	margin: 8px 0 -10px 8px;
+}
+#search{
+	margin-left: -2px;
+	width: 247px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#searchButton{
+	float: right;
+	margin-right: -50px;
+	margin-top: -30px;
+}
+#manDealsCTA{
+	margin-top: 15px;
+	margin-bottom: 10px;
+	margin-left: -5px;
+	width: 300px;
+
+}
+#autoButton, #entButton, #groomingButton, #jsonButton, #xmlButton,#csvButton, #getDatabase{
+	margin-left: -5px;
+	width: 300px;
+	margin-top: -4px;
+}
+form{
+	width: auto;
+	margin-top: 8px;
+	font-size: 15px;
+	padding: 5px;
+	border: 1px solid #323232;
+	background:#B3B3B3;
+
+}
+
+p{	
+	margin-top: 10px;
+	font-size: 20px;
+}
+#favoriteDeal{
+	margin-top: 6px;
+	width: 300px;
+}
+ul, li{
+	margin-left: -8px;
+    list-style-type: none;
+}
+label{ 
+	display: block;
+}
+#dname{
+	font-size: 14px;
+	width: 250px;
+}
+#url{
+	font-size: 14px;
+	width: 250px;
+}

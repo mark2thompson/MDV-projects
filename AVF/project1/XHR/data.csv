@@ -1,0 +1,6 @@
+dealType, dName, url, rangeBar, favoriteDeal, exDate, notes
+Web Auto,"Oil Change",www.autozone.com, 25, No, 2012/02/05,"These are test notes"
+Store Auto,"Oil Change",www.autozone.com, 25, No, 2012/02/05,"These are test notes"
+Web Grooming,Razors,www.walmart.com, 15, Yes, 2012/03/12,"These are test notes"
+Web Entertainment,Netflix,www.netflix.com, 100, Yes, 2012/12/05,"These are test notes"
+Web Grooming,"Shaving Cream",www.dollargeneral.com, 50, Yes, 2012/01/01,"These are test notes"
