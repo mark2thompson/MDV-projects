@@ -1,0 +1,50 @@
+/*
+Launch page style
+Mark Thompson
+*/
+body{
+	font-style: regular;
+	font-family: century gothic, Myriad Pro, sans-serif;
+	width: auto;
+	margin-left: 20px;	
+	font-size: 16px;
+	color: #666666;
+	background:#F4F4F4;
+}
+h1{
+	color:#000000;
+}
+h2{
+	color: #4D4D4D;
+}
+#info{
+	padding-left: 5px;
+	height: 60px;
+	margin: -10px -10px 0 -10px;
+	background: #666666;
+	color:#ffffff;
+}
+#revised,#original{
+	float:left;
+	margin-bottom:20px;
+}
+#native,#res,#info{
+	margin-top: 30px;
+	clear:both;
+}
+p{
+	margin-top: -20px;
+}
+a{
+	color:#DF7401;
+}
+#original{
+	margin-right: 20px;
+}
+p{
+	margin-bottom: 0px;
+}
+#res{
+	background: #ffffff;
+	width: 250px;
+}
