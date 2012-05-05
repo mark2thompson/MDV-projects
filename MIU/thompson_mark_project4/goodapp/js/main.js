@@ -158,13 +158,19 @@ if (term != "" && category != "--Choose type of Deal--"){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> master
 				makeSubLi.html = optSubText;	
 =======
 <<<<<<< HEAD
 =======
 >>>>>>> gh-pages
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 <<<<<<< HEAD
 				makeSubLi.innerHTML = optSubText;	
@@ -178,8 +184,14 @@ if (term != "" && category != "--Choose type of Deal--"){
 				makeSubLi.html = optSubText;	
 >>>>>>> master
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+>>>>>>> gh-pages
+=======
+>>>>>>> gh-pages
+>>>>>>> master
+=======
 >>>>>>> gh-pages
 =======
 >>>>>>> gh-pages
