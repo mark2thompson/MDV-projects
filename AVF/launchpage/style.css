@@ -9,28 +9,38 @@ body{
 	margin-left: 20px;	
 	font-size: 16px;
 	color: #666666;
-	background:#F4F4F4;
+	background-image:url('images/woodbg.png');
 }
-h1{
-	color:#000000;
+#header{
+	background-color:#ffffff;
+	width:818px;
+}
+#crud{
+	background-color:#ffffff;
+	padding-left:20px;
+	height:300px;
+	width:400px;
+	float:left;
 }
 h2{
 	color: #4D4D4D;
 }
-#info{
-	padding-left: 5px;
-	height: 60px;
-	margin: -10px -10px 0 -10px;
-	background: #666666;
-	color:#ffffff;
+#content{
+	background-color: #ffffff;
+	height:300px;
+	width: 400px;
+	float:left;
+}
+#native{
+	background:#ffffff;
+	padding:20px;
+	height:200px;
+	width:779px;
+	float:left;
 }
 #revised,#original{
 	float:left;
 	margin-bottom:20px;
-}
-#native,#res,#info{
-	margin-top: 30px;
-	clear:both;
 }
 p{
 	margin-top: -20px;
@@ -38,13 +48,17 @@ p{
 a{
 	color:#DF7401;
 }
+
+}
 #original{
 	margin-right: 20px;
 }
 p{
 	margin-bottom: 0px;
 }
-#res{
-	background: #ffffff;
-	width: 250px;
+#footer{
+	width:818px;
+	clear:both;
+	background: #666666;
+	color:#ffffff;
 }
