@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="styles.css" type="text/css" />
 	<!-- iPad/iPhone specific css below, add after your main css-->
 	<link rel="stylesheet" media="only screen and (max-device-width: 1024px)" href="ipad.css" type="text/css" />		
-	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />		
+	<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="iphone.css" type="text/css" />	
+    <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/c/video.js"></script>
 	
 	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
 	<script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
     <script type="text/javascript">
+    
 
 
 	// If you want to prevent dragging, uncomment this section
@@ -48,15 +51,38 @@
 	function onDeviceReady()
 	{
 		// do your thing!
-		navigator.notification.alert("Cordova is working")
-	}
+		navigator.notification.alert("This is ManDeals Demo App")
+    }
     
+        document.addEventListener("deviceready", onDeviceReady, false);
+        
+        function geoClick() {
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }
+        
+        function onSuccess(position) {
+            var element = document.getElementById('geolocation');
+            element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' + 'Longitude: ' + position.coords.longitude + '<br />';
+        }
+
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
     </script>
   </head>
   <body onload="onBodyLoad()">
-      
       <a href="index.html" style="text-decoration: none"><h1><img src="images/manDealsLogo.png" id="manDealsLogo" /></h1></br></a>
-            
-          	
+      <h2>Demo App</h2>
+      <div id=media>
+        <h3>Reflection Video<h3>  
+          <video id="my_video_1" class="video-js vjs-default-skin" controls
+              preload="auto" width="640" height="264" poster="my_video_poster.png"
+              data-setup="{}">
+              <source src="video/test.m4v" type='video/mp4'>
+          </video>
+      </div>
+    <div id="geoDiv"></div>
+      <button onclick="geoClick()">Get Location</button>
   </body>
 </html>
