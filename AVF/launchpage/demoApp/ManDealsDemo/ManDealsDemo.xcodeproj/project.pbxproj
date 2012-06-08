@@ -291,6 +291,7 @@
 		62B56ABA155BED8A006B0ABF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = markthompson;
 			};
 			buildConfigurationList = 62B56ABD155BED8A006B0ABF /* Build configuration list for PBXProject "ManDealsDemo" */;
@@ -426,6 +427,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -436,6 +438,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -453,9 +456,11 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -479,6 +484,7 @@
 					"DEBUG=1,",
 					"CORDOVA_FRAMEWORK=1",
 				);
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ManDealsDemo/ManDealsDemo-Info.plist";
 				OTHER_LDFLAGS = (
 					"-weak_framework",
@@ -509,6 +515,7 @@
 					"NDEBUG=1,",
 					"CORDOVA_FRAMEWORK=1",
 				);
+				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "ManDealsDemo/ManDealsDemo-Info.plist";
 				OTHER_LDFLAGS = (
 					"-weak_framework",
@@ -546,6 +553,7 @@
 				62B56B21155BED8C006B0ABF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
