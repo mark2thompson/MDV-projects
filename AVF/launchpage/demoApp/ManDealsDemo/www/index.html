@@ -38,10 +38,7 @@
 		// TODO: do something with the url passed in.
 	}
 	*/
-    var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value 
-
-	
+ 	
 	function onBodyLoad()
 	{		
 		document.addEventListener("deviceready", onDeviceReady, false);
@@ -53,114 +50,86 @@
 	for more details -jm */
 	function onDeviceReady()
 	{
-		// do your thing!
-		navigator.notification.alert("This is ManDeals Demo App")
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-        navigator.compass.getCurrentHeading(onSuccess, onError);
+		navigator.notification.alert("This is ManDeals Demo App"),
+        pictureSource=navigator.camera.PictureSourceType,
+        destinationType=navigator.camera.DestinationType,
+        startWatch();
     }
-    
         document.addEventListener("deviceready", onDeviceReady, false);
-        
+        ///////////      
         function geoClick() {
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         }
-        
-        // onSuccess Geolocation
-
         function onSuccess(position) {
             var element = document.getElementById('geolocation');
             element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
             'Longitude: '          + position.coords.longitude             + '<br />';
         }
-        
-        // onError Callback receives a PositionError object
-        //
         function onError(error) {
             alert('code: '    + error.code    + '\n' +
                   'message: ' + error.message + '\n');
         }
-        // Called when a photo is successfully retrieved
-        //
+  /////////
         function onPhotoDataSuccess(imageData) {
-            // Uncomment to view the base64 encoded image data
-            // console.log(imageData);
-            
-            // Get image handle
-            //
+        
             var smallImage = document.getElementById('smallImage');
             
-            // Unhide image elements
-            //
             smallImage.style.display = 'block';
             
-            // Show the captured photo
-            // The inline CSS rules are used to resize the image
-            //
             smallImage.src = "data:image/jpeg;base64," + imageData;
         }
         
-        // Called when a photo is successfully retrieved
-        //
         function onPhotoURISuccess(imageURI) {
-            // Uncomment to view the image file URI 
-            // console.log(imageURI);
-            
-            // Get image handle
-            //
             var largeImage = document.getElementById('largeImage');
-            
-            // Unhide image elements
-            //
             largeImage.style.display = 'block';
-            
-            // Show the captured photo
-            // The inline CSS rules are used to resize the image
-            //
             largeImage.src = imageURI;
         }
-        
-        // A button will call this function
-        //
         function capturePhoto() {
-            // Take picture using device camera and retrieve image as base64-encoded string
             navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
                                         destinationType: destinationType.DATA_URL });
         }
         
-        // A button will call this function
-        //
         function capturePhotoEdit() {
-            // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
             navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
                                         destinationType: destinationType.DATA_URL });
         }
-        
-        // A button will call this function
-        //
         function getPhoto(source) {
-            // Retrieve image file location from specified source
             navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
                                         destinationType: destinationType.FILE_URI,
                                         sourceType: source });
         }
-        
-        // Called if something bad happens.
-        // 
         function onFail(message) {
             alert('Failed because: ' + message);
         }
       
-        function getTheHeading(heading) {
-            alert('Heading: ' + heading.magneticHeading);
+        var watchID = null;
+        
+        function startWatch() {
+            // Update compass every 3 seconds
+            var options = { frequency: 3000 };
+            watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+        }
+        
+        function stopWatch() {
+            if (watchID) {
+                navigator.compass.clearWatch(watchID);
+                watchID = null;
+            }
+        }
+        
+        // onSuccess: Get the current heading
+        //
+        function onSuccess(heading) {
+            var element = document.getElementById('heading');
+            element.innerHTML = 'Heading: ' + heading.magneticHeading;
         }
         
         // onError: Failed to get the heading
         //
         function onError(compassError) {
-            alert('Compass Error: ' + compassError.code);
+            alert('Compass error: ' + compassError.code);
         }
-       */
+
     </script>
   </head>
   <body onload="onBodyLoad()">
@@ -185,9 +154,8 @@
           <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
           <img style="display:none;" id="largeImage" src="" />
       </div>
-      <div id=heading>
-          <h1>Example</h1>
-         <button onclick="getTheHeading();">Get your Heading</button>
-          </div>
+          <div id="heading">Waiting for heading...</div>
+          <button onclick="startWatch();">Start Watching</button>
+          <button onclick="stopWatch();">Stop Watching</button>
   </body>
 </html>
