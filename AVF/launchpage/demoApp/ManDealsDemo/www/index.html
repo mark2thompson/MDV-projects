@@ -55,6 +55,9 @@
 	{
 		// do your thing!
 		navigator.notification.alert("This is ManDeals Demo App")
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+        navigator.compass.getCurrentHeading(onSuccess, onError);
     }
     
         document.addEventListener("deviceready", onDeviceReady, false);
@@ -77,11 +80,6 @@
             alert('code: '    + error.code    + '\n' +
                   'message: ' + error.message + '\n');
         }
-        function onDeviceReady() {
-            pictureSource=navigator.camera.PictureSourceType;
-            destinationType=navigator.camera.DestinationType;
-        }
-        
         // Called when a photo is successfully retrieved
         //
         function onPhotoDataSuccess(imageData) {
@@ -152,13 +150,8 @@
         function onFail(message) {
             alert('Failed because: ' + message);
         }
-        function onDeviceReady() {
-            navigator.compass.getCurrentHeading(onSuccess, onError);
-        }
-        
-        // onSuccess: Get the current heading
-        //
-        function onSuccess(heading) {
+      
+        function getTheHeading(heading) {
             alert('Heading: ' + heading.magneticHeading);
         }
         
@@ -167,7 +160,7 @@
         function onError(compassError) {
             alert('Compass Error: ' + compassError.code);
         }
-       
+       */
     </script>
   </head>
   <body onload="onBodyLoad()">
@@ -194,7 +187,7 @@
       </div>
       <div id=heading>
           <h1>Example</h1>
-          <p>getCurrentHeading</p>
+         <button onclick="getTheHeading();">Get your Heading</button>
           </div>
   </body>
 </html>
