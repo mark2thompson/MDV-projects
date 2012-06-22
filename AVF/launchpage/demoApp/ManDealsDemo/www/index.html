@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title></title>
+  <title>Man Deals</title>
   
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
 	<meta charset="utf-8">
@@ -16,146 +16,25 @@
 	
 	<!-- If your application is targeting iOS BEFORE 4.0 you MUST put json2.js from http://www.JSON.org/json2.js into your www directory and include it here -->
 	<script type="text/javascript" charset="utf-8" src="cordova-1.7.0.js"></script>
-    <script type="text/javascript">
-    
-
-
-	// If you want to prevent dragging, uncomment this section
-	/*
-	function preventBehavior(e) 
-	{ 
-      e.preventDefault(); 
-    };
-	document.addEventListener("touchmove", preventBehavior, false);
-	*/
-	
-	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
-	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
-	for more details -jm */
-	/*
-	function handleOpenURL(url)
-	{
-		// TODO: do something with the url passed in.
-	}
-	*/
- 	
-	function onBodyLoad()
-	{		
-		document.addEventListener("deviceready", onDeviceReady, false);
-	}
-	
-	/* When this function is called, Cordova has been initialized and is ready to roll */
-	/* If you are supporting your own protocol, the var invokeString will contain any arguments to the app launch.
-	see http://iphonedevelopertips.com/cocoa/launching-your-own-application-via-a-custom-url-scheme.html
-	for more details -jm */
-	function onDeviceReady()
-	{
-		navigator.notification.alert("This is ManDeals Demo App"),
-        pictureSource=navigator.camera.PictureSourceType,
-        destinationType=navigator.camera.DestinationType,
-        startWatch();
-    }
-        document.addEventListener("deviceready", onDeviceReady, false);
-        ///////////      
-        function geoClick() {
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
-        }
-        function onSuccess(position) {
-            var element = document.getElementById('geolocation');
-            element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-            'Longitude: '          + position.coords.longitude             + '<br />';
-        }
-        function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-                  'message: ' + error.message + '\n');
-        }
-  /////////
-        function onPhotoDataSuccess(imageData) {
-        
-            var smallImage = document.getElementById('smallImage');
-            
-            smallImage.style.display = 'block';
-            
-            smallImage.src = "data:image/jpeg;base64," + imageData;
-        }
-        
-        function onPhotoURISuccess(imageURI) {
-            var largeImage = document.getElementById('largeImage');
-            largeImage.style.display = 'block';
-            largeImage.src = imageURI;
-        }
-        function capturePhoto() {
-            navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-                                        destinationType: destinationType.DATA_URL });
-        }
-        
-        function capturePhotoEdit() {
-            navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
-                                        destinationType: destinationType.DATA_URL });
-        }
-        function getPhoto(source) {
-            navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
-                                        destinationType: destinationType.FILE_URI,
-                                        sourceType: source });
-        }
-        function onFail(message) {
-            alert('Failed because: ' + message);
-        }
-      
-        var watchID = null;
-        
-        function startWatch() {
-            // Update compass every 3 seconds
-            var options = { frequency: 3000 };
-            watchID = navigator.compass.watchHeading(onSuccess, onError, options);
-        }
-        
-        function stopWatch() {
-            if (watchID) {
-                navigator.compass.clearWatch(watchID);
-                watchID = null;
-            }
-        }
-        
-        // onSuccess: Get the current heading
-        //
-        function onSuccess(heading) {
-            var element = document.getElementById('heading');
-            element.innerHTML = 'Heading: ' + heading.magneticHeading;
-        }
-        
-        // onError: Failed to get the heading
-        //
-        function onError(compassError) {
-            alert('Compass error: ' + compassError.code);
-        }
-
-    </script>
+   
   </head>
   <body onload="onBodyLoad()">
       <a href="index.html" style="text-decoration: none"><h1><img src="images/manDealsLogo.png" id="manDealsLogo" /></h1></br></a>
       <h2>Demo App</h2>
       <div id=media>
         <h3>Reflection Video<h3>  
-          <video id="my_video_1" class="video-js vjs-default-skin" controls
-              preload="auto" width="640" height="264" poster="my_video_poster.png"
-              data-setup="{}">
-              <source src="video/test.m4v" type='video/mp4'>
-          </video>
+        <video id="my_video_1" class="video-js vjs-default-skin" controls
+            preload="auto" width="640" height="264" poster="my_video_poster.png"
+            data-setup="{}">
+            <source src="video/test.m4v" type='video/mp4'>
+        </video>
       </div>
-    <div id="geoDiv"></div>
-      <button onclick="geoClick()">Get Location</button>
-      <p id="geolocation">Location</p>
-      <div id=camera>
-          <button onclick="capturePhoto();">Capture Photo</button> <br>
-          <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
-          <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-          <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-          <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-          <img style="display:none;" id="largeImage" src="" />
+      <div id=features>
+          <a href="alert.html"><div class="button" onclick="display_alert()"/><img src="images/alert.png"id="alert"/></a>
+          <a href="camera.html"><img src="images/camera.png"id="camera"/></a>
+          <a href="geol.html"><img src="images/location.png"id="location"/></a>
+          <a href="heading.html"><img src="images/heading.png"id="heading"/></a>
       </div>
-          <div id="heading">Waiting for heading...</div>
-          <button onclick="startWatch();">Start Watching</button>
-          <button onclick="stopWatch();">Stop Watching</button>
+    <script type="text/javascript" charset="utf-8" src="main.js"></script>
   </body>
 </html>

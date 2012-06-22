@@ -1,0 +1,51 @@
+/*
+Title: html Styles
+by: Mark Thompson
+*/
+
+body{
+	background-image:url('images/mandealsbackground.png');
+	font-style: regular;
+	font-family: Arial, Andale Mono, Trebuchet;
+	width: auto;
+	margin: auto;	
+	font-size: 20px;
+}
+h1{
+	margin: 8px 0 -10px 8px;
+}
+h2{
+	color: #323232;
+	margin-top: -15px;
+}
+#favoriteDeal{
+	margin-top: 6px;
+}
+li{
+	margin-left: -15px;
+}
+ul, li{
+    list-style-type: none;
+}
+a{
+	color:#F62217;
+}
+#geolocation{
+    color:ffffff;
+    float:left;
+}
+label{ 
+	display: block;
+}
+#features{
+    margin-left: 10px;
+    border:2px solid #a1a1a1;
+    padding:10px; 
+    background:#dddddd;
+    width:190px;
+    border-radius:10px;
+}
+#alert,#camera,#location,#heading {
+    margin-top:-10px;
+    margin-bottom:-20px;
+}

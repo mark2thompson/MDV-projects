@@ -34,7 +34,7 @@ h2{
 #native{
 	background:#ffffff;
 	padding:20px;
-	height:200px;
+	height:300px;
 	width:779px;
 	float:left;
 }
@@ -44,21 +44,24 @@ h2{
 }
 p{
 	margin-top: -20px;
+	margin-bottom: 0px;
 }
 a{
 	color:#DF7401;
 }
-
-}
 #original{
 	margin-right: 20px;
-}
-p{
-	margin-bottom: 0px;
 }
 #footer{
 	width:818px;
 	clear:both;
 	background: #666666;
 	color:#ffffff;
+}
+ul{
+    list-style-type: none;
+}
+#location,#camera,#alert,#heading{
+	margin-bottom: -30px;
+	margin-top: -10px;
 }
