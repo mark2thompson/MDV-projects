@@ -51,15 +51,16 @@
         NSLog (@"Great work pushing ahead");
     
     }
-    else if (pushUps == NO || pushUpAmount < 30){
-        NSLog (@"Better get to work on those pushups!");
-    
-    }
     else{
-        NSlog (@"Are you doing anything?")
+        NSLog (@"Better get to work on those pushups!");
     }
     
-   
+    //Perform a single for loop printing out values to the console
+    
+    for (int x=1; x <= 10; x++)
+    {
+        NSLog(@"Jumping Jacks: %d", x);
+    }
     
     int hello=0;
     return YES;
