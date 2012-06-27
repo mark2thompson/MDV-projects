@@ -78,6 +78,17 @@
             NSLog (@"Situps: %i", j);
         }
     }
+    //Perform a while loop that increments an int variable and outputs to the console.
+    NSLog(@"OK last thing, Let's do some crunches!!!!");
+    int crunch = 1;
+        
+    while (crunch <= 10) {
+        NSLog(@"crunch: %d\n", crunch);
+        
+        crunch++;
+    }
+    NSLog(@"That was a great workout!");
+    
     
     int hello=0;
     return YES;
