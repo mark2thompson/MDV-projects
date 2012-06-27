@@ -27,6 +27,8 @@
     
     
     /*Create a variable using the float data type. Cast the float to an int and using NSLog, output both the initial float value as well as the int value.*/
+    NSLog(@"Let's do a quick workout!");
+    NSLog(@"Start with some pushups!");
     
     float workOutTime = 0.5f;
     int minInHour = 60;
@@ -45,7 +47,7 @@
     int pushUpAmount = pushUpsTime * pushUpsAMin;
     
     if (pushUps == YES && pushUpAmount == 30){
-        NSLog(@"Good job on the pushups!!!");
+        NSLog(@"Good job on the %d pushups", pushUpAmount);
     }
     else if (pushUps == YES && pushUpAmount > 30){
         NSLog (@"Great work pushing ahead");
@@ -56,10 +58,25 @@
     }
     
     //Perform a single for loop printing out values to the console
+    NSLog (@"Jumping Jack time!");
     
     for (int x=1; x <= 10; x++)
     {
         NSLog(@"Jumping Jacks: %d", x);
+    }
+    
+    //Perform a nested loop printing out values to the console
+    NSLog(@"Lets do 2 reps of situps!");
+    int j;
+    for (int i = 1; i < 3; i++){
+        if (i == 1){
+            NSLog(@"Lets do the first rep!");
+        }else{
+            NSLog(@"Lets do the second rep");
+        }
+        for (j = 1; j < 10; j++) {
+            NSLog (@"Situps: %i", j);
+        }
     }
     
     int hello=0;
