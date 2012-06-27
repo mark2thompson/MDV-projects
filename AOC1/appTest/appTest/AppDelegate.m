@@ -36,11 +36,32 @@
     NSLog(@"workOutTime=%f", workOutTime);
     NSLog(@"workOutInMin=%d", workOutInMin);
     
+    //Perform an AND, OR comparison. Use float, int and BOOL types. BOOL values should be YES or NO and written in all caps.
+    //Use an if, else if and else check using any of the data types of your choice.
+
+    BOOL pushUps = YES;
+    float pushUpsAMin = 1.5f;
+    int pushUpsTime = 20;
+    int pushUpAmount = pushUpsTime * pushUpsAMin;
+    
+    if (pushUps == YES && pushUpAmount == 30){
+        NSLog(@"Good job on the pushups!!!");
+    }
+    else if (pushUps == YES && pushUpAmount > 30){
+        NSLog (@"Great work pushing ahead");
+    
+    }
+    else if (pushUps == NO || pushUpAmount < 30){
+        NSLog (@"Better get to work on those pushups!");
+    
+    }
+    else{
+        NSlog (@"Are you doing anything?")
+    }
+    
+   
+    
     int hello=0;
-    
-    
-    
-    
     return YES;
 }
 
