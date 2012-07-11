@@ -35,7 +35,7 @@
         authorLab.backgroundColor = [UIColor yellowColor];
         authorLab.textColor =[UIColor redColor];
     };
-    UILabel *authorName = [[UILabel alloc]initWithFrame:CGRectMake(100, 60.0f, 220.0f, 20.0f)];
+    UILabel *authorName = [[UILabel alloc]initWithFrame:CGRectMake(100.0f, 60.0f, 220.0f, 20.0f)];
     if (authorName != nil)
     {
         authorName.text = @"Walter Isaacson";
@@ -43,10 +43,48 @@
         authorName.backgroundColor = [UIColor purpleColor];
         authorName.textColor =[UIColor greenColor];
     };
+    UILabel *publishLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 100.0f, 80.0f, 20.0f)];
+    if (publishLab != nil)
+    {
+        publishLab.text = @"Published:";
+        publishLab.textAlignment = UITextAlignmentRight;
+        publishLab.backgroundColor = [UIColor grayColor];
+        publishLab.textColor =[UIColor whiteColor];
+    };
+    UILabel *publishDate = [[UILabel alloc]initWithFrame:CGRectMake(100.0f, 100.0f, 220.0f, 20.0f)];
+    if (publishDate != nil)
+    {
+        publishDate.text = @"October 24, 2011";
+        publishDate.textAlignment = UITextAlignmentLeft;
+        publishDate.backgroundColor = [UIColor whiteColor];
+        publishDate.textColor =[UIColor blackColor];
+    };
+    UILabel *summaryLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 130.0f, 80.0f, 20.0f)];
+    if (summaryLab != nil)
+    {
+        summaryLab.text = @"Summary";
+        summaryLab.textAlignment = UITextAlignmentLeft;
+        summaryLab.backgroundColor = [UIColor blueColor];
+        summaryLab.textColor =[UIColor redColor];
+    };
+    UILabel *summaryText = [[UILabel alloc]initWithFrame:CGRectMake(0, 150.0f, 320.0f, 100.0f)];
+        summaryText.numberOfLines = 0;
+    if (summaryText != nil)
+    {
+        summaryText.text = @"This is a book about the life of Steve Jobs. It starts with his early life and reads through his time at Apple, Next, Pixar, and back to Apple.";
+        summaryText.textAlignment = UITextAlignmentCenter;
+        summaryText.backgroundColor = [UIColor greenColor];
+        summaryText.textColor =[UIColor redColor];
+    };
+
+
     [self.view addSubview:bookName];
     [self.view addSubview:authorLab];
     [self.view addSubview:authorName];
-
+    [self.view addSubview:publishLab];
+    [self.view addSubview:publishDate];
+    [self.view addSubview:summaryLab];
+    [self.view addSubview:summaryText];
     
 
 }
