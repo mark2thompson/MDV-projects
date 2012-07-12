@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h" 
+
 
 @interface ViewController ()
 
@@ -15,6 +17,7 @@
 @implementation ViewController
 
 - (void)viewDidLoad
+
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -76,8 +79,38 @@
         summaryText.backgroundColor = [UIColor greenColor];
         summaryText.textColor =[UIColor redColor];
     };
-
-
+    //Create an NSArray of 5 items talked about in the book. These items will be NSStrings. Add the items to the array.
+    UILabel *bioLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 300.0f, 100.0f, 20.0f)];
+    if (bioLable != nil)
+    {
+    bioLable.text = @"List of items:";
+    bioLable.textAlignment = UITextAlignmentLeft;
+    bioLable.backgroundColor = [UIColor yellowColor];
+    bioLable.textColor =[UIColor redColor];
+    };
+    
+   
+    
+    NSArray *sjBioItems = [[NSArray alloc] initWithObjects: @"Apple",
+                           @"Macintosh",
+                           @"Next", 
+                           @"Pixar", 
+                           @"Apple TV", nil];
+    NSMutableString *sjBioList = [[NSMutableString alloc] init];
+    for (int i=0; i<sjBioItems.count; i++){
+        NSString *bio = [sjBioItems objectAtIndex:i];
+        if (sjBioItems.count == i+1){
+            [sjBioList appendString:bio];
+        } else {
+            [sjBioList appendString:[[NSString alloc] initWithFormat:@"%@, ", bio]];
+        }
+    };
+    UILabel *biolist = [[UILabel alloc] initWithFrame:CGRectMake(0, 320.0f, 320.0f, 30.0f)];
+    biolist.text = sjBioList;
+    biolist.textAlignment = UITextAlignmentCenter;
+    biolist.backgroundColor = [UIColor blueColor];
+    biolist.textColor =[UIColor orangeColor];
+    
     [self.view addSubview:bookName];
     [self.view addSubview:authorLab];
     [self.view addSubview:authorName];
@@ -85,6 +118,8 @@
     [self.view addSubview:publishDate];
     [self.view addSubview:summaryLab];
     [self.view addSubview:summaryText];
+    [self.view addSubview:bioLable];
+    [self.view addSubview:biolist];
     
 
 }
