@@ -34,16 +34,6 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    //Create an NSArray of 5 items talked about in the book. These items will be NSStrings. Add the items to the array.
-    
-    NSString * apl = @"Apple";
-    NSString * pix = @"Pixar";
-    NSString * nxt = @"Next";
-    NSString * iph = @"iPhone";
-    NSString * tv = @"Apple TV";
-    NSArray 
-    
-    
     
     return YES;
 }
