@@ -60,6 +60,19 @@
 - (NSNumber *)Add:(NSInteger)firstNum  addNum:(NSInteger)secondNum {
     return [NSNumber numberWithInteger:(firstNum + secondNum)];
 }
+
+
+//Create a function called Compare that takes two NSInteger values. Return true or false based on whether the values are equal.
+
+- (BOOL)Compare:(NSInteger)firstNum compNum:(NSInteger)secondNum {
+    BOOL compBool;
+    if (firstNum == secondNum) {
+        compBool = YES;
+    } else {
+        compBool = NO;
+    }
+    return compBool;
+}
 //--------------------------------------------------------------------------------
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
