@@ -31,9 +31,9 @@
     [super viewDidAppear:animated];
     //added viewDidAppear function
     
-    //Create a function called Add. This function will take two NSInteger or int types and return the result of an addition between these two.
+  
+ 
     
-    //Create a function called Compare that takes two NSInteger values. Return true or false based on whether the values are equal.
     
     //Create a function called Append. This function will take two NSStrings and return a new NSString containing the appended strings using an NSMutableString and the Append method.
     
@@ -43,6 +43,8 @@
     
     //Call the Add function passing in two integer values. Capture the return of this function into a variable.
     
+    
+    
     //Bundle the returned integer into an NSNumber and then convert it to a NSString and pass it to the DisplayAlertWithString function.
     
     //Give it some text for the title. The message will read, "The number is 00". Replace the 00 with the integer passed into the function.
@@ -51,6 +53,14 @@
     
 
 }
+//--------------------------------------------------------------------------------
+//start of project3
+//Create a function called Add. This function will take two NSInteger or int types and return the result of an addition between these two.
+
+- (NSNumber *)Add:(NSInteger)firstNum  addNum:(NSInteger)secondNum {
+    return [NSNumber numberWithInteger:(firstNum + secondNum)];
+}
+//--------------------------------------------------------------------------------
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
