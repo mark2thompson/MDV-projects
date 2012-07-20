@@ -13,7 +13,7 @@
 
 }
 - (NSNumber *)Add:(NSInteger)firstNum  addNum:(NSInteger)secondNum;
-
+- (BOOL)Compare:(NSInteger)firstNum compNum:(NSInteger)secondNum;
 
 
 @end
