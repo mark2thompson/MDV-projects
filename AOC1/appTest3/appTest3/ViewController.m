@@ -30,22 +30,31 @@
 {
     [super viewDidAppear:animated];
     //added viewDidAppear function
+    
     //Call the Append function with two NSStrings. Capture the result and display a UIAlertView with the appended string using displayAlertWithString.
     NSString *firstString = @"look at ";
     NSString *secondString = @"this";
     [self DisplayAlertWithString:[self Append:firstString addString:secondString]];
 
-    
-    
     //Call the Add function passing in two integer values. Capture the return of this function into a variable.
-    
-    
-    
     //Bundle the returned integer into an NSNumber and then convert it to a NSString and pass it to the DisplayAlertWithString function.
-    
+    NSInteger firstNum = 20;
+    NSInteger secondNum = 11;
+    NSNumber *theNumer = [self Add:firstNum addNum:secondNum];
+    NSString *theNumString = [theNumer stringValue];
     //Give it some text for the title. The message will read, "The number is 00". Replace the 00 with the integer passed into the function.
+    NSString *theTitle = [NSString stringWithFormat:@"The number is "];
+    NSString *theMessage = [self Append:theTitle addString:theNumString];
+    [self DisplayAlertWithString:theMessage];
     
     //Call the Compare function with two integer values. If Compare returns true, display an UIAlertView both with the input values and the result using the DisplayAlertWithString function
+    bool compValue = [self Compare:firstNum compNum:secondNum];
+    if (compValue == YES)
+    {
+        [self DisplayAlertWithString:[NSString stringWithFormat:@"The numbers are equal %i %i", firstNum, secondNum]];
+    }else{
+        [self DisplayAlertWithString:[NSString stringWithFormat: @"The numbers are not equal %i %i ", firstNum, secondNum]];
+    }
     
 
 }
