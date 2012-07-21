@@ -31,6 +31,10 @@
     [super viewDidAppear:animated];
     //added viewDidAppear function
     //Call the Append function with two NSStrings. Capture the result and display a UIAlertView with the appended string using displayAlertWithString.
+    NSString *firstString = @"look at ";
+    NSString *secondString = @"this";
+    [self DisplayAlertWithString:[self Append:firstString addString:secondString]];
+
     
     
     //Call the Add function passing in two integer values. Capture the return of this function into a variable.
