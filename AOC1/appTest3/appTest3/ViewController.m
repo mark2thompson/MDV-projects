@@ -34,8 +34,7 @@
   
  
     
-    
-    //Create a function called Append. This function will take two NSStrings and return a new NSString containing the appended strings using an NSMutableString and the Append method.
+  
     
     //Call the Append function with two NSStrings. Capture the result and display a UIAlertView with the appended string using displayAlertWithString.
     
@@ -57,14 +56,16 @@
 //start of project3
 //Create a function called Add. This function will take two NSInteger or int types and return the result of an addition between these two.
 
-- (NSNumber *)Add:(NSInteger)firstNum  addNum:(NSInteger)secondNum {
+- (NSNumber *)Add:(NSInteger)firstNum  addNum:(NSInteger)secondNum 
+{
     return [NSNumber numberWithInteger:(firstNum + secondNum)];
 }
 
 
 //Create a function called Compare that takes two NSInteger values. Return true or false based on whether the values are equal.
 
-- (BOOL)Compare:(NSInteger)firstNum compNum:(NSInteger)secondNum {
+- (BOOL)Compare:(NSInteger)firstNum compNum:(NSInteger)secondNum 
+{
     BOOL compBool;
     if (firstNum == secondNum) {
         compBool = YES;
@@ -72,6 +73,13 @@
         compBool = NO;
     }
     return compBool;
+}
+
+//Create a function called Append. This function will take two NSStrings and return a new NSString containing the appended strings using an NSMutableString and the Append method.
+
+- (NSString *)Append:(NSString *)firstString addString:(NSString *)secondString 
+{
+    return [NSString stringWithFormat:@"%@%@", firstString, secondString];
 }
 //--------------------------------------------------------------------------------
 
