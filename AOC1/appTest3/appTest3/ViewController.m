@@ -30,15 +30,8 @@
 {
     [super viewDidAppear:animated];
     //added viewDidAppear function
-    
-  
- 
-    
-  
-    
     //Call the Append function with two NSStrings. Capture the result and display a UIAlertView with the appended string using displayAlertWithString.
     
-    //Create a function called DisplayAlertWithString. This function will take as a parameter an NSString.
     
     //Call the Add function passing in two integer values. Capture the return of this function into a variable.
     
@@ -80,6 +73,17 @@
 - (NSString *)Append:(NSString *)firstString addString:(NSString *)secondString 
 {
     return [NSString stringWithFormat:@"%@%@", firstString, secondString];
+}
+
+
+//Create a function called DisplayAlertWithString. This function will take as a parameter an NSString.
+- (void)DisplayAlertWithString:(NSString *)string
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"This is my alert" message:string delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    if (alert != nil){
+        
+        [alert show];
+    }
 }
 //--------------------------------------------------------------------------------
 
