@@ -28,13 +28,22 @@
     //Create a UITextField to the right of the username label
     UITextField *userField = [[UITextField alloc]initWithFrame:CGRectMake(90.0f, 10.0f, 220.0f, 30.0f)];
     if (userField != nil)
-        {
-            userField.borderStyle = UITextBorderStyleRoundedRect;
-        }
+    {
+        userField.borderStyle = UITextBorderStyleRoundedRect;
+    };
+    //Create a rounded rectangle UIButton of any color under the UITextField with the text "Login" on it.
+    UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    if (loginButton != nil)
+    {
+        loginButton.frame = CGRectMake(210.0f, 60.0f, 100.0f, 30.0f);
+        [loginButton setTitle:@"Login" forState:UIControlStateNormal];
+        
+    }
     
     
     [self.view addSubview:userName]; 
     [self.view addSubview:userField];
+    [self.view addSubview:loginButton];
     
 }
 
