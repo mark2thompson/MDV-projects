@@ -38,12 +38,22 @@
         loginButton.frame = CGRectMake(210.0f, 60.0f, 100.0f, 30.0f);
         [loginButton setTitle:@"Login" forState:UIControlStateNormal];
         
-    }
+    };
+    //Create another UILabel beneath with the default text "Please Enter Username".
+    UILabel *unDialog = [[UILabel alloc]initWithFrame:CGRectMake(0, 120.0f, 320.0f, 60.0f)];
+    if (unDialog != nil)
+    {
+        unDialog.text = @"Please Enter Username";
+        unDialog.textAlignment = UITextAlignmentCenter;
+        unDialog.backgroundColor = [UIColor grayColor];
+        unDialog.textColor = [UIColor whiteColor];
+    };
     
     
     [self.view addSubview:userName]; 
     [self.view addSubview:userField];
     [self.view addSubview:loginButton];
+    [self.view addSubview:unDialog];
     
 }
 
