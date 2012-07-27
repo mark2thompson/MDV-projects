@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #define button_zero 0
 #define button_one 1
+#define button_two 2
 
 @interface ViewController ()
 
@@ -32,6 +33,8 @@
     if (userField != nil)
     {
         userField.borderStyle = UITextBorderStyleRoundedRect;
+       
+        
     };
     //Create a rounded rectangle UIButton of any color under the UITextField with the text "Login" on it.
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -56,19 +59,36 @@
     UIButton *dateButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     if (dateButton != nil)
     {
-        dateButton.frame = CGRectMake(230.0f, 0, 100.0f, 30.0f);
+        dateButton.frame = CGRectMake(0, 230.0f, 100.0f, 30.0f);
         //Add the text "Show Date" to the button
         [dateButton setTitle:@"Show Date" forState:UIControlStateNormal];
         //Add an action to the button that when clicked, it will call the same onClick handler you already defined. Make sure to add a tag to the date button so you know which one was pressed.
         dateButton.tag = button_one;
         [dateButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     };
-
+    //Create a UIButton using either the light or dark info type and position it somewhere near the bottom of the screen.        
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    if (infoButton != nil)
+    {
+        infoButton.frame = CGRectMake(10.0f, 360.0f, 25.0f, 25.0f);
+        infoButton.tag = button_two;
+        [infoButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    //Create a UILabel beneath it that contains no initial text.
+    blankLabel = [[UILabel alloc]initWithFrame:CGRectMake(10.0f, 400.0f, 320.0f, 40.0f)];
+    if (blankLabel != nil)
+    {
+        blankLabel.numberOfLines = 0;
+    };
+    
     [self.view addSubview:userName]; 
     [self.view addSubview:userField];
     [self.view addSubview:loginButton];
     [self.view addSubview:unDialog];
     [self.view addSubview:dateButton];
+    [self.view addSubview:infoButton];
+    [self.view addSubview:blankLabel];
     
 }
 //onClickfunction
@@ -83,6 +103,7 @@
                 [unDialog resignFirstResponder];
                 NSString *logged = [NSString stringWithFormat:@"User: %@ has been logged in", userField.text, nil];
                 unDialog.text = logged;
+                [userField endEditing:YES];
             }
         else 
             {
@@ -107,9 +128,14 @@
         {
             [alertView show];
         }
-       
     }
+    else if(loginButton.tag == button_two)
+    //When the button is pressed, have the text "This application was created by: Firstname Lastname" appear in the info UILabel. Please replace firstname lastname with your name.
+        {
+            blankLabel.text = @"This application was created by: Mark Thompson";
+        }
 };
+
 
 - (void)viewDidUnload
 {
