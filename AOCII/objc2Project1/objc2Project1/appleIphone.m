@@ -11,11 +11,13 @@
 
 @implementation appleIphone
 
--(void)setAttributes
+-(id)init
 {
-    howManyIown = 1;
-    productName = @"iPhone";
-    appleProduct = APPLEPRODUCT_IPHONE;
+    if (self = [super init])
+    {
+        [self setAttributes:APPLEPRODUCT_IPHONE name:@"iPhone" amount:1];
+    }
+    return self;
 }
 
 @end

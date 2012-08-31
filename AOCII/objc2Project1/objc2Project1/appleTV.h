@@ -11,6 +11,4 @@
 
 @interface appleTV : appleBase
 
--(void)setAttributes;
-
 @end

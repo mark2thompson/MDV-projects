@@ -11,11 +11,13 @@
 
 @implementation appleTV
 
--(void)setAttributes
+-(id)init
 {
-    howManyIown = 2;
-    productName = @"Apple TV";
-    appleProduct = APPLEPRODUCT_TV;
+    if (self = [super init])
+    {
+        [self setAttributes:APPLEPRODUCT_TV name:@"Apple TV" amount:2];
+    }
+    return self;
 }
 
 @end

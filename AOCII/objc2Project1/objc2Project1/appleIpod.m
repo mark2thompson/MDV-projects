@@ -11,11 +11,13 @@
 
 @implementation appleIpod
 
--(void)setAttributes
+-(id)init
 {
-    howManyIown = 4;
-    productName = @"iPod";
-    appleProduct = APPLEPRODUCT_IPOD;
+    if (self = [super init])
+    {
+        [self setAttributes:APPLEPRODUCT_IPOD name:@"iPod" amount:4];
+    }
+    return self;
 }
 
 @end

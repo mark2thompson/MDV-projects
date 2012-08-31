@@ -17,6 +17,15 @@ typedef enum
 
 @interface appleBase : NSObject
 {
+@protected
     AAppleProduct appleProduct;
+    NSString *productName;
+    
+    int howManyIown;
 }
+
+-(void)setAttributes: (AAppleProduct)product name:(NSString*)name amount:(int)amount;
+
+-(void)printName;
+
 @end

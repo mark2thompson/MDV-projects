@@ -10,7 +10,4 @@
 #import "appleBase.h"
 
 @interface appleIphone : appleBase
-
--(void)setAttributes;
-
 @end
