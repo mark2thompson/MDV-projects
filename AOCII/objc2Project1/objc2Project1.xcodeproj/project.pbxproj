@@ -15,6 +15,11 @@
 		6299132115CB4672001E288C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6299132015CB4672001E288C /* AppDelegate.m */; };
 		6299132415CB4672001E288C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6299132315CB4672001E288C /* ViewController.m */; };
 		6299132715CB4672001E288C /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6299132515CB4672001E288C /* ViewController.xib */; };
+		6299132F15CB46A1001E288C /* appleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6299132E15CB46A1001E288C /* appleBase.m */; };
+		6299133215CB46E8001E288C /* appleIphone.m in Sources */ = {isa = PBXBuildFile; fileRef = 6299133115CB46E8001E288C /* appleIphone.m */; };
+		6299133515CB470B001E288C /* appleIpod.m in Sources */ = {isa = PBXBuildFile; fileRef = 6299133415CB470B001E288C /* appleIpod.m */; };
+		6299133815CB4720001E288C /* appleTV.m in Sources */ = {isa = PBXBuildFile; fileRef = 6299133715CB4720001E288C /* appleTV.m */; };
+		6299133B15CB4789001E288C /* appleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6299133A15CB4788001E288C /* appleFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +27,25 @@
 		6299131015CB4672001E288C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6299131215CB4672001E288C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6299131415CB4672001E288C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6299131815CB4672001E288C /* objc2Project1-Info.plist */ = {isa = PBXFileReference; path = "objc2Project1-Info.plist"; sourceTree = "<group>"; };
+		6299131815CB4672001E288C /* objc2Project1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "objc2Project1-Info.plist"; sourceTree = "<group>"; };
 		6299131A15CB4672001E288C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6299131C15CB4672001E288C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6299131E15CB4672001E288C /* objc2Project1-Prefix.pch */ = {isa = PBXFileReference; path = "objc2Project1-Prefix.pch"; sourceTree = "<group>"; };
-		6299131F15CB4672001E288C /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		6299131E15CB4672001E288C /* objc2Project1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "objc2Project1-Prefix.pch"; sourceTree = "<group>"; };
+		6299131F15CB4672001E288C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6299132015CB4672001E288C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6299132215CB4672001E288C /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		6299132215CB4672001E288C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6299132315CB4672001E288C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6299132615CB4672001E288C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		6299132D15CB46A1001E288C /* appleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appleBase.h; sourceTree = "<group>"; };
+		6299132E15CB46A1001E288C /* appleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appleBase.m; sourceTree = "<group>"; };
+		6299133015CB46E8001E288C /* appleIphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appleIphone.h; sourceTree = "<group>"; };
+		6299133115CB46E8001E288C /* appleIphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appleIphone.m; sourceTree = "<group>"; };
+		6299133315CB470B001E288C /* appleIpod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appleIpod.h; sourceTree = "<group>"; };
+		6299133415CB470B001E288C /* appleIpod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appleIpod.m; sourceTree = "<group>"; };
+		6299133615CB4720001E288C /* appleTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appleTV.h; sourceTree = "<group>"; };
+		6299133715CB4720001E288C /* appleTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appleTV.m; sourceTree = "<group>"; };
+		6299133915CB4788001E288C /* appleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appleFactory.h; sourceTree = "<group>"; };
+		6299133A15CB4788001E288C /* appleFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appleFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,10 +105,20 @@
 		6299131715CB4672001E288C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6299132D15CB46A1001E288C /* appleBase.h */,
+				6299132E15CB46A1001E288C /* appleBase.m */,
 				6299131815CB4672001E288C /* objc2Project1-Info.plist */,
 				6299131915CB4672001E288C /* InfoPlist.strings */,
 				6299131C15CB4672001E288C /* main.m */,
 				6299131E15CB4672001E288C /* objc2Project1-Prefix.pch */,
+				6299133015CB46E8001E288C /* appleIphone.h */,
+				6299133115CB46E8001E288C /* appleIphone.m */,
+				6299133615CB4720001E288C /* appleTV.h */,
+				6299133715CB4720001E288C /* appleTV.m */,
+				6299133315CB470B001E288C /* appleIpod.h */,
+				6299133415CB470B001E288C /* appleIpod.m */,
+				6299133915CB4788001E288C /* appleFactory.h */,
+				6299133A15CB4788001E288C /* appleFactory.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -164,6 +189,11 @@
 				6299131D15CB4672001E288C /* main.m in Sources */,
 				6299132115CB4672001E288C /* AppDelegate.m in Sources */,
 				6299132415CB4672001E288C /* ViewController.m in Sources */,
+				6299132F15CB46A1001E288C /* appleBase.m in Sources */,
+				6299133215CB46E8001E288C /* appleIphone.m in Sources */,
+				6299133515CB470B001E288C /* appleIpod.m in Sources */,
+				6299133815CB4720001E288C /* appleTV.m in Sources */,
+				6299133B15CB4789001E288C /* appleFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +303,7 @@
 				6299132C15CB4672001E288C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
