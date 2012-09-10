@@ -31,4 +31,6 @@ typedef enum{ Plus } CalcOperation;
 - (IBAction) equalsbutton;
 - (IBAction) clearDisplay;
 - (IBAction) backgroundSeg;
+- (IBAction)onSwitched:(id)sender;
+- (IBAction)onClick:(id)sender;
 @end
