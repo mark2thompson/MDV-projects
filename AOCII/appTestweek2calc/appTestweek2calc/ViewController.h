@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum{ Plus } CalcOperation;
+typedef enum{ plus } CalcOperation;
 
 @interface ViewController : UIViewController{
     IBOutlet UITextField *display;
@@ -17,6 +17,7 @@ typedef enum{ Plus } CalcOperation;
     NSString *storage;
     CalcOperation operation;
 }
+// setting up the IBAction's to use in the ViewConroller.m and the xib
 
 - (IBAction) button1;
 - (IBAction) button2;

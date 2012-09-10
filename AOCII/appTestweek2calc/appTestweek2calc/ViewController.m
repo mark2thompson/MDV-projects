@@ -13,11 +13,12 @@
 @end
 
 @implementation ViewController
-
+// clearDisplay action sets the text in the UITextField called display to nothing... it clears anything typed in
 -(IBAction)clearDisplay
 {
     display.text = @"";
 }
+// button 1 through 0 are the number buttons. these display the numbers in the text field
 - (IBAction) button1 {
     display.text=[NSString stringWithFormat:@"%@1",display.text];
 }
@@ -48,20 +49,22 @@
 - (IBAction) button0 {
     display.text=[NSString stringWithFormat:@"%@0",display.text];
 }
+// the equals button sets whatever was saved using the plusbutton action and adds it to the current displayed text
 - (IBAction) equalsbutton {
     NSString *sum = display.text;
     switch(operation){
-        case Plus:
+        case plus:
             display.text = [NSString stringWithFormat:@"%qi",[sum longLongValue]+[storage longLongValue]];
             break;
     }
 }
+// plusbutton action saves whatever is in the display.text uifield to storage (an NSString)
 - (IBAction) plusbutton {
-    operation = Plus;
+    operation = plus;
     storage = display.text;
     display.text = @"";
 }
-
+// backgroundSeg is the action assigned to the segmented controlls.. this action simply finds out what button on the segmented controller and changes the backgroundcolor approperatly 
 - (IBAction)backgroundSeg
 {
 	if(bgSeg.selectedSegmentIndex == 0){
@@ -74,10 +77,12 @@
         self.view.backgroundColor = [UIColor whiteColor];
     }
 }
+// this is the ibaction for the switch
 - (IBAction)onSwitched:(id)sender
 {
     
 }
+// onClick is from this weeks videos... It is used for calling the second view where my name lable is. It is connected to the infoButton
 - (IBAction)onClick:(id)sender
 {
     infoViewController *viewController =

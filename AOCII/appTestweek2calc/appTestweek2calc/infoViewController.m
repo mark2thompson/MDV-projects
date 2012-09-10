@@ -28,6 +28,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
+// this is the action to close the second view with my name
 -(IBAction)onClose:(id)sender
 {
     [self dismissModalViewControllerAnimated:TRUE];
