@@ -38,11 +38,22 @@
         [baitFishingRig calculateFishingTime];
     }
     
-    //set instructions and size of bait and output
-    //calculate and log fishing time
-    
     // create a lure fishing rig and set lure type and name
-    // calculate and log the fishing time
+    lureFishing *lureFishingRig = (lureFishing*)[fishingFactory createFishingTrip:1];
+    
+    if (lureFishingRig != nil){
+        [lureFishingRig setLureName:@"Spoon"];
+        [lureFishingRig setLureType:SPOON];
+        [lureFishingRig setInstructions:@""];
+        
+        // calculate and log the fishing time
+        [lureFishingRig calculateFishingTime];
+        int myFishingTime = lureFishingRig.fishingTimeMinutes;
+        
+        NSLog(@"%i", myFishingTime);
+        
+    }
+    
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.

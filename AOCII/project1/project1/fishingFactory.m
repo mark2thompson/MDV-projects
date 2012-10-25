@@ -12,7 +12,15 @@
 
 +(baseFishing *)createFishingTrip: (int)fishingType
 {
-    return [[baitFishing alloc] init];
+    // if bait fishing is requested make a bait rig
+    if (fishingType == BAIT){
+        return [[baitFishing alloc] init];
+    } else if (fishingType == LURE){
+        return [[lureFishing alloc] init];
+    } else if (fishingType == JIG){
+        return [[jigFishing alloc] init];
+    }
+    else return nil;
 }
 
 
