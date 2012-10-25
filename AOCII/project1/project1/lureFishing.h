@@ -9,5 +9,18 @@
 #import "baseFishing.h"
 
 @interface lureFishing : baseFishing
+{
+    int lure;
+}
+
+typedef enum {
+    SPOON,
+    SPRITE,
+    PLUG
+}lure;
+
+@property int lureType;
+@property NSString *lureName;
+@property int speedToReel;
 
 @end
