@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "baseFishing.h"
+#import "baitFishing.h"
+#import "lureFishing.h"
+#import "jigFishing.h"
 @interface fishingFactory : NSObject
 
 @end
