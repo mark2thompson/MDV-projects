@@ -9,5 +9,24 @@
 #import <Foundation/Foundation.h>
 
 @interface baseFishing : NSObject
+{
+    int fishingEnum;
+}
 
+typedef enum {
+    BAIT,
+    LURE,
+    JIG
+} fishingEnum;
+
+// data members for reel time in minutes, instructions, and array of items needed for each fishing types 
+@property NSArray *itemsNeeded;
+@property NSString *instructions;
+@property int fishingTimeMinutes;
+
+//initialize
+-(id)init;
+
+// calculation/manipulation method to find fishing time
+-(void)calculateFishingTime;
 @end

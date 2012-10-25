@@ -11,6 +11,9 @@
 #import "baitFishing.h"
 #import "lureFishing.h"
 #import "jigFishing.h"
+
 @interface fishingFactory : NSObject
+
++(baseFishing *)createFishingTrip: (int)fishingType;
 
 @end

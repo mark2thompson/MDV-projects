@@ -10,4 +10,10 @@
 
 @implementation fishingFactory
 
++(baseFishing *)createFishingTrip: (int)fishingType
+{
+    return [[baitFishing alloc] init];
+}
+
+
 @end
