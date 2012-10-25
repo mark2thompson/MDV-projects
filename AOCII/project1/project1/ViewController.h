@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "fishingFactory.h"
 
 @interface ViewController : UIViewController
 
