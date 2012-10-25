@@ -10,4 +10,27 @@
 
 @implementation baitFishing
 
+@synthesize size, timePerSize;
+
+// customizing init to set unique data members
+-(id)init
+{
+    self = [super init];
+    if (self != nil)
+    {
+        [self setFishingTimeMinutes:20];
+        [self setSize:0];
+        [self setTimePerSize:45];
+    }
+    return self;
+        
+};
+
+//overriding the base fishing time to factor in unique data members
+-(void)calculateFishingTime
+{
+    [self setFishingTimeMinutes:(size * timePerSize)];
+    NSLog(@"This type of fishing requires at least %i minutes.", self.fishingTimeMinutes);
+}
+
 @end

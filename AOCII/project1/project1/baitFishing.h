@@ -10,4 +10,8 @@
 
 @interface baitFishing : baseFishing
 
+//data members for bait size and time to fish per size
+@property int size;
+@property int timePerSize;
+
 @end
