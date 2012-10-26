@@ -38,8 +38,21 @@
         [baitFishingRig calculateFishingTime];
     }
     
+    // create UILabel for bait fishing
+    baitFishingItemsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320.0f, 90.0f)];
+    baitFishingItemsLabel.text = [NSString stringWithFormat:@"You are now fishing with a bait rig "
+                             "with a %@", [baitFishingRig itemsNeeded]];
+    baitFishingItemsLabel.numberOfLines = 3;
+    
+    baitfishingInstructLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 90.0f, 320.0f, 60.0f)];
+    baitfishingInstructLabel.text = [NSString stringWithFormat:@"%@", [baitFishingRig instructions]];
+    baitfishingInstructLabel.numberOfLines = 3;
+    
+    [self.view addSubview:baitFishingItemsLabel];
+    [self.view addSubview:baitfishingInstructLabel];
+    
     // create a lure fishing rig and set lure type and name
-    lureFishing *lureFishingRig = (lureFishing*)[fishingFactory createFishingTrip:1];
+    lureFishing *lureFishingRig = (lureFishing*)[fishingFactory createFishingTrip:LURE];
     
     if (lureFishingRig != nil){
         [lureFishingRig setLureName:@"Spoon"];
@@ -54,6 +67,25 @@
         
     }
     
+    // creat a jig fishing rig and set Jig size
+    jigFishing *jigFishingRig = (jigFishing*)[fishingFactory
+                                              createFishingTrip:JIG];
+    [jigFishingRig setJigSize:4];
+    
+    if (jigFishingRig != nil){
+        NSArray *jigRigItems = [[NSArray alloc]
+                                initWithObjects:@"Jig",@"Bait", nil];
+        [jigFishingRig setItemsNeeded:jigRigItems];
+        
+        NSString *jigRigInstructions = @"Hook bait onto Jig and tie through line, cast to desired location and real and tug.";
+        [jigFishingRig setInstructions:jigRigInstructions];
+        
+        NSLog(@"You are now fishing with a Jig Rig! with items %@", [jigFishingRig itemsNeeded]);
+        NSLog(@"%@", jigFishingRig.instructions);
+        
+        // Calculate fishing time
+        [jigFishingRig calculateFishingTime];
+    }
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.

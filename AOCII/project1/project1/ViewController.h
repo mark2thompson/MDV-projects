@@ -10,5 +10,9 @@
 #import "fishingFactory.h"
 
 @interface ViewController : UIViewController
+{
+    UILabel *baitFishingItemsLabel;
+    UILabel *baitfishingInstructLabel;
+}
 
 @end
