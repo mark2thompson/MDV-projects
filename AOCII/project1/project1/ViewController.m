@@ -67,6 +67,20 @@
         
     }
     
+    //create UILabel for lure fishing
+    lureFishingNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 150.0f, 320.0f, 60.0f)];
+    lureFishingNameLabel.text = [NSString stringWithFormat:@"You are now fishing with a %@ that is a size %u",lureFishingRig.lureName, lureFishingRig.lureName.length ];
+    lureFishingNameLabel.numberOfLines = 3;
+    
+    lureFishingSpeedLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 210.0f, 320.0f, 60.0f)];
+    lureFishingSpeedLabel.text = [NSString stringWithFormat:@"This type of fishing requires at least %i seconds to reel.", lureFishingRig.speedToReel];
+    lureFishingSpeedLabel.numberOfLines = 3;
+    
+    [self.view addSubview:lureFishingNameLabel];
+    [self.view addSubview:lureFishingSpeedLabel];
+    
+    
+    
     // creat a jig fishing rig and set Jig size
     jigFishing *jigFishingRig = (jigFishing*)[fishingFactory
                                               createFishingTrip:JIG];
@@ -86,6 +100,18 @@
         // Calculate fishing time
         [jigFishingRig calculateFishingTime];
     }
+    // create UILabel for Jig fishing
+    jigFishingItemsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 270.0f, 320.0f, 90.0f)];
+    jigFishingItemsLabel.text = [NSString stringWithFormat:@"You are now fishing with a jig rig "
+                                  "with a %@", [jigFishingRig itemsNeeded]];
+    jigFishingItemsLabel.numberOfLines = 3;
+    
+    jigfishingInstructLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 330.0f, 320.0f, 60.0f)];
+    jigfishingInstructLabel.text = [NSString stringWithFormat:@"%@", [jigFishingRig instructions]];
+    jigfishingInstructLabel.numberOfLines = 3;
+    
+    [self.view addSubview:jigFishingItemsLabel];
+    [self.view addSubview:jigfishingInstructLabel];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.

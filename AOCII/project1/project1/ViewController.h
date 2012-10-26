@@ -13,6 +13,11 @@
 {
     UILabel *baitFishingItemsLabel;
     UILabel *baitfishingInstructLabel;
+    UILabel *lureFishingNameLabel;
+    UILabel *lureFishingSpeedLabel;
+    UILabel *jigFishingItemsLabel;
+    UILabel *jigfishingInstructLabel;
+    
 }
 
 @end
